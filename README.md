@@ -44,9 +44,9 @@ To ensure **tamper-proof and transparent attendance**, blockchain technology is 
 - Attendance records are stored on the blockchain  
 - Prevents data tampering and manipulation  
 - Ensures transparency between students, teachers, and administration  
-- Immutable and verifiable attendance logs  
 
----
+
+--
 
 
 
