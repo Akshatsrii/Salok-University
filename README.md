@@ -48,28 +48,5 @@ To ensure **tamper-proof and transparent attendance**, blockchain technology is 
 
 ---
 
-## 🛠️ Tech Stack
 
-### Frontend
-- HTML  
-- CSS  
-- JavaScript  
-- React.js  
-
-### Backend
-- Node.js  
-- Express.js  
-
-### Database
-- MongoDB  
-
-### Blockchain
-- Ethereum / Solidity (Smart Contracts)  
-
-### Authentication & Cloud
-- AWS (Authentication & Hosting)  
-
----
-
-## 📁 Project Structure
 
