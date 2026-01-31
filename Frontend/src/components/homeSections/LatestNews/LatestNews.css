@@ -1,0 +1,134 @@
+.latest-slider-section {
+  padding: 90px 6%;
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  overflow: hidden;
+}
+
+.latest-slider-heading {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #1f2937;
+  position: relative;
+}
+
+.latest-slider-heading::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff9f2e, #ff7a18);
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 4px;
+}
+
+/* Slider */
+.latest-slider {
+  overflow: hidden;
+}
+
+.latest-track {
+  display: flex;
+  gap: 34px;
+  width: max-content;
+  animation: scrollNews 32s linear infinite;
+}
+
+.latest-slider:hover .latest-track {
+  animation-play-state: paused;
+}
+
+/* Card */
+.latest-card {
+  min-width: 320px;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.latest-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+}
+
+/* Image */
+.latest-image {
+  height: 210px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.latest-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.35)
+  );
+}
+
+/* Badge */
+.corner-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #ff9f2e, #ff7a18);
+  color: #fff;
+  padding: 8px 12px;
+  border-bottom-right-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+/* Content */
+.latest-content {
+  padding: 22px 20px 26px;
+  text-align: center;
+}
+
+.latest-content h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.latest-content p {
+  font-size: 14.5px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* Animation */
+@keyframes scrollNews {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .latest-slider-section {
+    padding: 70px 5%;
+  }
+
+  .latest-card {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .latest-slider-heading {
+    font-size: 26px;
+  }
+}

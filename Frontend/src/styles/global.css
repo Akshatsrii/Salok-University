@@ -4,7 +4,7 @@
 
 /* DARK MODE */
 body.dark {
-  --bg-main: #020617;
+   --bg-main: #020617; 
   --bg-secondary: #0f172a;
   --bg-card: #111827;
 
@@ -17,7 +17,7 @@ body.dark {
 
 /* LIGHT MODE */
 body.light {
-  --bg-main: #ffffff;
+   --bg-main: #ffffff; 
   --bg-secondary: #f8fafc;
   --bg-card: #ffffff;
 
