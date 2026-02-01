@@ -1,4 +1,4 @@
-# 🎓 University Portal Website
+# 🎓 Salok Website
 
 A full-stack **University Portal Website** designed to digitalize and streamline university operations for **Students, Teachers, and Administrators**.  
 The platform focuses on **transparency, security, and scalability**, with blockchain integration for attendance management.
@@ -47,6 +47,8 @@ To ensure **tamper-proof and transparent attendance**, blockchain technology is 
 - Immutable and verifiable attendance logs  
 
 ---
+
+Imaage Processing task has done with (frontend + Backend)
 
 
 
