@@ -51,4 +51,5 @@ Now we have started finding the design for the website and also had made the wor
 (Riya Bansal) - i have completed the Home Page design . DAY-1
 (Riya Bansal )- Succesfully push the home page code.. Updated the home page code. DAY-2
 (Riya Bansal)- Updated the landling page . DAY-3
+(Riya Bansal)- login authentucation is going on. DAY-4
 (Akshat Srivastava ) The backend is going on login and signin authnication .
