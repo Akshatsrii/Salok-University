@@ -1,13 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Auth/Login";
+import StudentLogin from "./pages/Auth/StudentLogin"; // ✅ NEW
 import Footer from "./components/Footer/Footer";
 import ThemeToggle from "./components/common/ThemeToggle";
-
-
-
-import "./styles/global.css";   // 🔥 theme variables
-import "./App.css";
 
 function App() {
   return (
@@ -15,14 +11,19 @@ function App() {
       {/* 🌗 Global Theme Toggle */}
       <ThemeToggle />
 
-      {/* 🔀 Routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      {/* 🌍 App Layout */}
+      <div className="min-h-screen flex flex-col">
+        
+        {/* 🔀 Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />              {/* Existing */}
+          <Route path="/student-login" element={<StudentLogin />} /> {/* ✅ NEW */}
+        </Routes>
 
-      {/* 🔻 Footer (all pages) */}
-      <Footer />
+        {/* 🔻 Footer */}
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
