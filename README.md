@@ -55,3 +55,4 @@ Now we have started finding the design for the website and also had made the wor
 (Akshat Srivastava ) The backend is going on login and signin authnication .
 (Riya Bansal) Home + Student Dashboard complete. DAY-5
 (Akshat Srivastava ) The admission portal done.
+(Akshat Srivastava ) The backemd of admission portal is going on.
