@@ -49,7 +49,7 @@ To ensure **tamper-proof and transparent attendance**, blockchain technology is 
 --
 Now we have started finding the design for the website and also had made the workkflow of the website and and what are the features we have to keep  in the website has been formed the workflow !!!!
 ---
-(Riya Bansal) - i have completed the Home Page design . DAY-1
+**(Riya Bansal) - i have completed the Home Page design . DAY-1
 ---
 (Riya Bansal )- Succesfully push the home page code.. Updated the home page code. DAY-2
 ---
@@ -66,3 +66,4 @@ Now we have started finding the design for the website and also had made the wor
 (Akshat Srivastava ) The backemd of admission portal is going on.
 ---
 (Akshat Srivastava ) The Admin side of admission portal is done.
+**
