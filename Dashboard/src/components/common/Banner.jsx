@@ -54,7 +54,7 @@ export default function Banner() {
 
   return (
     <div
-      className="relative h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl group"
+      className="relative h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl group bg-black"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -63,23 +63,23 @@ export default function Banner() {
         className="absolute inset-0 bg-cover bg-center transition-all duration-700 transform group-hover:scale-105"
         style={{ backgroundImage: `url(${slide.image})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
       </div>
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-6 sm:p-8 lg:p-10">
         <div className="flex-1 flex flex-col justify-center max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-orange-500 mb-3">
             {slide.title}
           </h1>
-          <p className="text-base sm:text-lg text-gray-200 mb-6">
+          <p className="text-base sm:text-lg text-gray-300 mb-6">
             {slide.subtitle}
           </p>
 
           <div>
             <a
               href={slide.ctaLink}
-              className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-2 bg-orange-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               {slide.cta}
               <svg
@@ -100,15 +100,17 @@ export default function Banner() {
         </div>
 
         {/* Stats */}
-        <div className="hidden lg:flex items-center gap-6 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+        <div className="hidden lg:flex items-center gap-6 bg-black/60 backdrop-blur-md rounded-xl p-4 border border-orange-500/30">
           {stats.map((stat, idx) => (
             <div key={idx} className="flex items-center gap-3 flex-1">
-              <div className="bg-white/20 p-2 rounded-lg">
-                <stat.icon className="w-5 h-5 text-white" />
+              <div className="bg-orange-500/20 p-2 rounded-lg">
+                <stat.icon className="w-5 h-5 text-orange-500" />
               </div>
               <div>
-                <p className="text-xs text-gray-300">{stat.label}</p>
-                <p className="text-lg font-bold text-white">{stat.value}</p>
+                <p className="text-xs text-gray-400">{stat.label}</p>
+                <p className="text-lg font-bold text-orange-500">
+                  {stat.value}
+                </p>
               </div>
             </div>
           ))}
@@ -123,8 +125,8 @@ export default function Banner() {
             onClick={() => goToSlide(idx)}
             className={`h-2 rounded-full transition-all ${
               idx === currentSlide
-                ? "w-8 bg-white"
-                : "w-2 bg-white/50 hover:bg-white"
+                ? "w-8 bg-orange-500"
+                : "w-2 bg-gray-600 hover:bg-orange-500"
             }`}
           />
         ))}
@@ -137,19 +139,39 @@ export default function Banner() {
             (currentSlide - 1 + bannerSlides.length) % bannerSlides.length
           )
         }
-        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-3 rounded-full opacity-0 group-hover:opacity-100 transition"
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-orange-500 p-3 rounded-full opacity-0 group-hover:opacity-100 transition"
       >
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-5 h-5 text-orange-500 hover:text-black"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
 
       <button
         onClick={() => goToSlide((currentSlide + 1) % bannerSlides.length)}
-        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-3 rounded-full opacity-0 group-hover:opacity-100 transition"
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-orange-500 p-3 rounded-full opacity-0 group-hover:opacity-100 transition"
       >
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <svg
+          className="w-5 h-5 text-orange-500 hover:text-black"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
         </svg>
       </button>
     </div>

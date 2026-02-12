@@ -21,21 +21,18 @@ export default function ApplyHostelLeaving() {
     const fromDate = new Date(form.fromDate);
     const toDate = new Date(form.toDate);
 
-    // Validate from date
     if (!form.fromDate) {
       newErrors.fromDate = "From date is required";
     } else if (fromDate < today) {
       newErrors.fromDate = "From date cannot be in the past";
     }
 
-    // Validate to date
     if (!form.toDate) {
       newErrors.toDate = "To date is required";
     } else if (toDate < fromDate) {
       newErrors.toDate = "To date must be after from date";
     }
 
-    // Validate reason
     if (!form.reason.trim()) {
       newErrors.reason = "Reason is required";
     } else if (form.reason.trim().length < 10) {
@@ -53,7 +50,8 @@ export default function ApplyHostelLeaving() {
       const from = new Date(form.fromDate);
       const to = new Date(form.toDate);
       const diffTime = Math.abs(to - from);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      const diffDays =
+        Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
       return diffDays;
     }
     return 0;
@@ -62,8 +60,7 @@ export default function ApplyHostelLeaving() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-    
-    // Clear error for this field when user starts typing
+
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
@@ -72,28 +69,24 @@ export default function ApplyHostelLeaving() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulate API call
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       alert(
-        `Hostel leave request submitted successfully!\n\nFrom: ${form.fromDate}\nTo: ${form.toDate}\nDuration: ${calculateDuration()} day(s)\nReason: ${form.reason}`
+        `Hostel leave request submitted successfully!\n\nFrom: ${form.fromDate}\nTo: ${form.toDate}\nDuration: ${calculateDuration()} day(s)`
       );
 
-      // Reset form after successful submission
       setForm({
         fromDate: "",
         toDate: "",
         reason: "",
       });
       setErrors({});
-    } catch (error) {
+    } catch {
       alert("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -103,15 +96,15 @@ export default function ApplyHostelLeaving() {
   const duration = calculateDuration();
 
   return (
-    <div className="bg-white rounded-lg shadow p-6 max-w-xl">
-      <h2 className="text-xl font-semibold mb-4 text-primary">
+    <div className="bg-[#111] border border-gray-800 rounded-xl shadow-xl p-6 max-w-xl text-white">
+      <h2 className="text-xl font-semibold mb-6 text-orange-500">
         Apply for Hostel Leave
       </h2>
-      
-      <form onSubmit={handleSubmit} className="space-y-4">
+
+      <form onSubmit={handleSubmit} className="space-y-5">
         {/* From Date */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="block text-sm mb-2 text-gray-300">
             From Date <span className="text-red-500">*</span>
           </label>
           <input
@@ -120,19 +113,22 @@ export default function ApplyHostelLeaving() {
             value={form.fromDate}
             onChange={handleChange}
             min={getTodayDate()}
-            className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary ${
-              errors.fromDate ? "border-red-500" : "border-gray-300"
+            className={`w-full bg-black border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 ${
+              errors.fromDate
+                ? "border-red-500"
+                : "border-gray-700"
             }`}
-            required
           />
           {errors.fromDate && (
-            <p className="text-red-500 text-sm mt-1">{errors.fromDate}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.fromDate}
+            </p>
           )}
         </div>
 
         {/* To Date */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="block text-sm mb-2 text-gray-300">
             To Date <span className="text-red-500">*</span>
           </label>
           <input
@@ -141,29 +137,32 @@ export default function ApplyHostelLeaving() {
             value={form.toDate}
             onChange={handleChange}
             min={form.fromDate || getTodayDate()}
-            className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary ${
-              errors.toDate ? "border-red-500" : "border-gray-300"
+            className={`w-full bg-black border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 ${
+              errors.toDate
+                ? "border-red-500"
+                : "border-gray-700"
             }`}
-            required
           />
           {errors.toDate && (
-            <p className="text-red-500 text-sm mt-1">{errors.toDate}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.toDate}
+            </p>
           )}
         </div>
 
-        {/* Duration Display */}
+        {/* Duration */}
         {duration > 0 && (
-          <div className="bg-blue-50 border border-blue-200 rounded px-3 py-2">
-            <p className="text-sm text-blue-800">
-              <span className="font-medium">Duration:</span> {duration} day
-              {duration !== 1 ? "s" : ""}
+          <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg px-3 py-2">
+            <p className="text-sm text-orange-400">
+              Duration: <span className="font-semibold">{duration}</span>{" "}
+              day{duration !== 1 ? "s" : ""}
             </p>
           </div>
         )}
 
         {/* Reason */}
         <div>
-          <label className="block text-sm font-medium mb-1">
+          <label className="block text-sm mb-2 text-gray-300">
             Reason <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -171,28 +170,34 @@ export default function ApplyHostelLeaving() {
             value={form.reason}
             onChange={handleChange}
             rows="4"
-            placeholder="Please provide a detailed reason for your leave request..."
-            className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary resize-none ${
-              errors.reason ? "border-red-500" : "border-gray-300"
+            maxLength={500}
+            placeholder="Provide detailed reason for leave..."
+            className={`w-full bg-black border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 resize-none ${
+              errors.reason
+                ? "border-red-500"
+                : "border-gray-700"
             }`}
-            required
           />
-          <div className="flex justify-between items-center mt-1">
+          <div className="flex justify-between mt-2 text-xs">
             {errors.reason ? (
-              <p className="text-red-500 text-sm">{errors.reason}</p>
+              <p className="text-red-500">{errors.reason}</p>
             ) : (
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500">
                 {form.reason.length}/500 characters
               </p>
             )}
           </div>
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className={`w-full py-3 rounded-lg font-medium transition-all ${
+            !isSubmitting
+              ? "bg-orange-500 text-black hover:bg-orange-600 active:scale-95"
+              : "bg-gray-700 text-gray-400 cursor-not-allowed"
+          }`}
         >
           {isSubmitting ? "Submitting..." : "Submit Request"}
         </button>

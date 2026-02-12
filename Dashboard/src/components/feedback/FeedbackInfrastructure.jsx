@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function FeedbackInfrastructure() {
-  const [feedback, setFeedback] = useState('');
-  const [category, setCategory] = useState('');
+  const [feedback, setFeedback] = useState("");
+  const [category, setCategory] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [charCount, setCharCount] = useState(0);
@@ -11,12 +11,12 @@ export default function FeedbackInfrastructure() {
   const MIN_CHARS = 10;
 
   const categories = [
-    { value: 'labs', label: 'Labs' },
-    { value: 'classrooms', label: 'Classrooms' },
-    { value: 'library', label: 'Library' },
-    { value: 'facilities', label: 'Facilities' },
-    { value: 'equipment', label: 'Equipment' },
-    { value: 'other', label: 'Other' }
+    { value: "labs", label: "Labs" },
+    { value: "classrooms", label: "Classrooms" },
+    { value: "library", label: "Library" },
+    { value: "facilities", label: "Facilities" },
+    { value: "equipment", label: "Equipment" },
+    { value: "other", label: "Other" },
   ];
 
   const handleFeedbackChange = (e) => {
@@ -29,19 +29,19 @@ export default function FeedbackInfrastructure() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (feedback.trim().length < MIN_CHARS) {
       setSubmitStatus({
-        type: 'error',
-        message: `Please provide at least ${MIN_CHARS} characters of feedback.`
+        type: "error",
+        message: `Please provide at least ${MIN_CHARS} characters of feedback.`,
       });
       return;
     }
 
     if (!category) {
       setSubmitStatus({
-        type: 'error',
-        message: 'Please select a category.'
+        type: "error",
+        message: "Please select a category.",
       });
       return;
     }
@@ -50,29 +50,21 @@ export default function FeedbackInfrastructure() {
     setSubmitStatus(null);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Replace with actual API call:
-      // const response = await fetch('/api/feedback', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ feedback, category })
-      // });
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setSubmitStatus({
-        type: 'success',
-        message: 'Thank you! Your feedback has been submitted successfully.'
+        type: "success",
+        message:
+          "Thank you! Your feedback has been submitted successfully.",
       });
-      
-      // Reset form
-      setFeedback('');
-      setCategory('');
+
+      setFeedback("");
+      setCategory("");
       setCharCount(0);
     } catch (error) {
       setSubmitStatus({
-        type: 'error',
-        message: 'Failed to submit feedback. Please try again.'
+        type: "error",
+        message: "Failed to submit feedback. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -82,30 +74,24 @@ export default function FeedbackInfrastructure() {
   const isValid = feedback.trim().length >= MIN_CHARS && category;
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold text-primary">
+    <div className="bg-[#111] border border-gray-800 p-6 rounded-xl shadow-xl text-white">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-orange-500">
           Infrastructure Feedback
         </h2>
-        <span className="text-sm text-gray-500">
-          Help us improve
-        </span>
+        <span className="text-sm text-gray-400">Help us improve</span>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Category Selection */}
+      <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Category */}
         <div>
-          <label 
-            htmlFor="category" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Category <span className="text-red-500">*</span>
           </label>
           <select
-            id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
             required
           >
             <option value="">Select a category...</option>
@@ -117,34 +103,28 @@ export default function FeedbackInfrastructure() {
           </select>
         </div>
 
-        {/* Feedback Textarea */}
+        {/* Feedback */}
         <div>
-          <label 
-            htmlFor="feedback" 
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Your Feedback <span className="text-red-500">*</span>
           </label>
           <textarea
-            id="feedback"
             value={feedback}
             onChange={handleFeedbackChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
             rows="5"
             placeholder="Share your feedback about labs, classrooms, library, facilities..."
+            className="w-full bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
             required
-            aria-describedby="char-count feedback-help"
           />
           <div className="flex justify-between items-center mt-2">
-            <p id="feedback-help" className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500">
               Minimum {MIN_CHARS} characters required
             </p>
-            <span 
-              id="char-count"
+            <span
               className={`text-xs font-medium ${
-                charCount > MAX_CHARS * 0.9 
-                  ? 'text-orange-500' 
-                  : 'text-gray-500'
+                charCount > MAX_CHARS * 0.9
+                  ? "text-orange-400"
+                  : "text-gray-500"
               }`}
             >
               {charCount}/{MAX_CHARS}
@@ -152,56 +132,36 @@ export default function FeedbackInfrastructure() {
           </div>
         </div>
 
-        {/* Status Messages */}
+        {/* Status */}
         {submitStatus && (
           <div
-            className={`p-3 rounded-lg ${
-              submitStatus.type === 'success'
-                ? 'bg-green-50 text-green-800 border border-green-200'
-                : 'bg-red-50 text-red-800 border border-red-200'
+            className={`p-3 rounded-lg border ${
+              submitStatus.type === "success"
+                ? "bg-green-500/10 border-green-500/30 text-green-400"
+                : "bg-red-500/10 border-red-500/30 text-red-400"
             }`}
-            role="alert"
           >
             {submitStatus.message}
           </div>
         )}
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           disabled={!isValid || isSubmitting}
           className={`w-full px-4 py-3 rounded-lg font-medium transition-all ${
             isValid && !isSubmitting
-              ? 'bg-primary text-white hover:bg-primary/90 active:scale-95'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              ? "bg-orange-500 text-black hover:bg-orange-600 active:scale-95"
+              : "bg-gray-700 text-gray-400 cursor-not-allowed"
           }`}
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
-              <svg 
-                className="animate-spin h-5 w-5" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24"
-              >
-                <circle 
-                  className="opacity-25" 
-                  cx="12" 
-                  cy="12" 
-                  r="10" 
-                  stroke="currentColor" 
-                  strokeWidth="4"
-                />
-                <path 
-                  className="opacity-75" 
-                  fill="currentColor" 
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
+              <span className="inline-block w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
               Submitting...
             </span>
           ) : (
-            'Submit Feedback'
+            "Submit Feedback"
           )}
         </button>
       </form>

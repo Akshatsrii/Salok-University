@@ -1,136 +1,151 @@
-import { BarChart3, TrendingUp, TrendingDown } from "lucide-react";
+import { useState } from "react";
 
 const subjectDetails = [
   {
     code: "CS601",
     name: "Machine Learning",
     professor: "Dr. Sharma",
-    schedule: "Mon, Wed, Fri - 9:00 AM",
-    attendance: [
-      { date: "2024-03-01", status: "present" },
-      { date: "2024-03-04", status: "present" },
-      { date: "2024-03-06", status: "absent" },
-      { date: "2024-03-08", status: "present" },
-      { date: "2024-03-11", status: "present" },
-    ],
-    totalClasses: 32,
-    attended: 28,
-    percentage: 87.5,
-    needToAttend: 0,
+    weeklyDays: ["Mon", "Wed", "Fri"], // 3 days/week
+    totalWeeks: 10,
+    attendedClasses: 24,
   },
   {
     code: "CS604",
     name: "Big Data Analytics",
     professor: "Prof. Verma",
-    schedule: "Tue, Thu - 11:00 AM",
-    attendance: [
-      { date: "2024-03-02", status: "present" },
-      { date: "2024-03-05", status: "absent" },
-      { date: "2024-03-07", status: "absent" },
-      { date: "2024-03-09", status: "present" },
-      { date: "2024-03-12", status: "present" },
-    ],
-    totalClasses: 31,
-    attended: 22,
-    percentage: 71.0,
-    needToAttend: 4,
+    weeklyDays: ["Tue", "Thu", "Sat"], // 3 days/week
+    totalWeeks: 10,
+    attendedClasses: 18,
   },
 ];
 
 export default function SubjectWiseAttendance() {
+
+  const calculateSubjectData = (subject) => {
+    const totalClasses = subject.weeklyDays.length * subject.totalWeeks;
+    const attended = subject.attendedClasses;
+    const percentage = ((attended / totalClasses) * 100).toFixed(1);
+
+    const minRequired = Math.ceil(totalClasses * 0.75);
+    const needToAttend =
+      attended >= minRequired ? 0 : minRequired - attended;
+
+    return {
+      totalClasses,
+      attended,
+      percentage,
+      needToAttend,
+    };
+  };
+
   return (
-    <div className="space-y-6">
-      {subjectDetails.map((subject) => (
-        <div
-          key={subject.code}
-          className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
-        >
-          {/* Header */}
-          <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-6">
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="text-xl font-bold mb-1">{subject.name}</h3>
-                <p className="text-blue-100 text-sm">{subject.code}</p>
-                <p className="text-blue-100 text-sm mt-1">👨‍🏫 {subject.professor}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-3xl font-bold">{subject.percentage.toFixed(1)}%</p>
-                <p className="text-blue-100 text-sm">Attendance</p>
-              </div>
-            </div>
-          </div>
+    <div className="space-y-6 text-white">
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-gray-50 border-b border-gray-200">
-            <div>
-              <p className="text-xs text-gray-600 mb-1">Total Classes</p>
-              <p className="text-lg font-bold text-gray-800">{subject.totalClasses}</p>
-            </div>
-            <div>
-              <p className="text-xs text-gray-600 mb-1">Attended</p>
-              <p className="text-lg font-bold text-green-600">{subject.attended}</p>
-            </div>
-            <div>
-              <p className="text-xs text-gray-600 mb-1">Missed</p>
-              <p className="text-lg font-bold text-red-600">
-                {subject.totalClasses - subject.attended}
-              </p>
-            </div>
-            <div>
-              <p className="text-xs text-gray-600 mb-1">Need to Attend</p>
-              <p className="text-lg font-bold text-orange-600">
-                {subject.needToAttend > 0 ? subject.needToAttend : "✓"}
-              </p>
-            </div>
-          </div>
+      {subjectDetails.map((subject) => {
+        const calculated = calculateSubjectData(subject);
 
-          {/* Details */}
-          <div className="p-6">
-            <div className="flex items-center justify-between mb-4">
+        return (
+          <div
+            key={subject.code}
+            className="bg-[#111] rounded-lg shadow-lg border border-gray-800 overflow-hidden"
+          >
+
+            {/* Header */}
+            <div className="bg-gradient-to-r from-orange-600 to-orange-500 text-black p-6">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-1">
+                    {subject.name}
+                  </h3>
+                  <p className="text-sm opacity-80">
+                    {subject.code}
+                  </p>
+                  <p className="text-sm mt-1">
+                    👨‍🏫 {subject.professor}
+                  </p>
+                  <p className="text-sm mt-1">
+                    📅 {subject.weeklyDays.join(", ")} (3 Days/Week)
+                  </p>
+                </div>
+
+                <div className="text-right">
+                  <p className="text-3xl font-bold">
+                    {calculated.percentage}%
+                  </p>
+                  <p className="text-sm opacity-80">
+                    Attendance
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-[#1a1a1a] border-b border-gray-800">
+
               <div>
-                <p className="text-sm text-gray-600">
-                  📅 Schedule: <span className="font-medium text-gray-800">{subject.schedule}</span>
+                <p className="text-xs text-gray-400 mb-1">
+                  Total Classes
+                </p>
+                <p className="text-lg font-bold text-orange-500">
+                  {calculated.totalClasses}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400 mb-1">
+                  Attended
+                </p>
+                <p className="text-lg font-bold text-orange-400">
+                  {calculated.attended}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400 mb-1">
+                  Missed
+                </p>
+                <p className="text-lg font-bold text-red-400">
+                  {calculated.totalClasses - calculated.attended}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400 mb-1">
+                  Need to Attend (75%)
+                </p>
+                <p className="text-lg font-bold text-orange-500">
+                  {calculated.needToAttend > 0
+                    ? calculated.needToAttend
+                    : "✓"}
                 </p>
               </div>
             </div>
 
-            {/* Recent Attendance */}
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">Recent Classes</h4>
-              <div className="flex flex-wrap gap-2">
-                {subject.attendance.map((record, idx) => (
-                  <div
-                    key={idx}
-                    className={`px-3 py-2 rounded-lg text-sm ${
-                      record.status === "present"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-700"
-                    }`}
-                  >
-                    <p className="font-medium">
-                      {new Date(record.date).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </p>
-                    <p className="text-xs capitalize">{record.status}</p>
-                  </div>
-                ))}
+            {/* Progress Bar */}
+            <div className="p-6">
+              <div className="w-full bg-gray-800 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-orange-500 transition-all"
+                  style={{ width: `${calculated.percentage}%` }}
+                />
               </div>
             </div>
 
             {/* Warning Message */}
-            {subject.needToAttend > 0 && (
-              <div className="mt-4 bg-orange-50 border border-orange-200 rounded-lg p-4">
-                <p className="text-sm text-orange-800">
-                  ⚠️ You need to attend at least <strong>{subject.needToAttend}</strong> more
+            {calculated.needToAttend > 0 && (
+              <div className="mx-6 mb-6 bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
+                <p className="text-sm text-orange-400">
+                  ⚠️ You need to attend at least{" "}
+                  <strong>{calculated.needToAttend}</strong> more
                   consecutive classes to reach 75% attendance.
                 </p>
               </div>
             )}
+
           </div>
-        </div>
-      ))}
+        );
+      })}
+
     </div>
   );
 }

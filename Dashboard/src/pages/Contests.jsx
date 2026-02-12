@@ -1,172 +1,193 @@
-import { useState } from "react";
-import {
-  Code2,
-  Trophy,
-  TrendingUp,
-  Award,
-  Target,
-  Calendar,
-  Zap,
-  Star,
-  Flame,
-  BarChart3,
-  ExternalLink,
-  Medal,
-  Clock,
-  CheckCircle2,
-  Plus,
-  Filter,
-  Search,
-  ChevronDown,
-  ChevronUp,
-  Activity,
-  Crown,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { Trophy, ExternalLink, Star } from "lucide-react";
 
 export default function Contests() {
-  const [platforms] = useState([
+  const [myContests, setMyContests] = useState([]);
+
+  const availableContests = [
     {
       id: 1,
-      name: "LeetCode",
-      username: "coder_pro",
-      profileUrl: "https://leetcode.com/coder_pro",
-      logo: "LC",
-      color: "orange",
-      totalSolved: 320,
-      easy: 150,
-      medium: 130,
-      hard: 40,
-      rank: "Knight",
-      globalRank: 45230,
-      rating: 1847,
-      maxRating: 1920,
-      contestsParticipated: 28,
-      badges: ["50 Days", "100 Problems", "Contest Master"],
-      currentStreak: 15,
-      maxStreak: 45,
-      weakTopics: ["Dynamic Programming", "Graph Algorithms"],
-      strongTopics: ["Arrays", "Strings", "Hash Tables"],
-      recentActivity: "Solved 3 problems today",
-      lastActive: "2 hours ago",
-      achievements: [
-        { name: "Problem Solver", icon: "🎯", description: "Solved 300+ problems" },
-        { name: "Contest Participant", icon: "🏆", description: "Participated in 25+ contests" },
-      ],
-      weeklyGoal: { target: 10, completed: 7 },
-      featured: true,
+      name: "Weekly Contest 390",
+      platform: "LeetCode",
+      link: "https://leetcode.com",
     },
-  ]);
-
-  const [expandedCard, setExpandedCard] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const colorSchemes = {
-    orange: {
-      bg: "bg-orange-50",
-      border: "border-orange-200",
-      text: "text-orange-600",
-      accent: "bg-orange-500",
+    {
+      id: 2,
+      name: "CodeChef Starters 120",
+      platform: "CodeChef",
+      link: "https://www.codechef.com",
     },
+    {
+      id: 3,
+      name: "Codeforces Round 950",
+      platform: "Codeforces",
+      link: "https://codeforces.com",
+    },
+  ];
+
+  // Load from localStorage
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("myContests")) || [];
+    setMyContests(saved);
+  }, []);
+
+  // Save to localStorage
+  useEffect(() => {
+    localStorage.setItem("myContests", JSON.stringify(myContests));
+  }, [myContests]);
+
+  const handleParticipate = (contest) => {
+    const alreadyJoined = myContests.find(
+      (c) => c.id === contest.id
+    );
+    if (alreadyJoined) return;
+
+    setMyContests([
+      ...myContests,
+      {
+        ...contest,
+        rating: 1200,
+        rank: "",
+      },
+    ]);
   };
 
-  const filteredPlatforms = platforms.filter(
-    (p) =>
-      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.username.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const PlatformCard = ({ platform }) => {
-    const isExpanded = expandedCard === platform.id;
-    const colorScheme = colorSchemes[platform.color];
-
-    return (
-      <div className="bg-white rounded-xl shadow-md border hover:shadow-xl transition">
-        {platform.featured && (
-          <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 text-xs font-bold flex items-center gap-2">
-            <Star className="w-4 h-4 fill-white" />
-            TOP PERFORMER
-          </div>
-        )}
-
-        <div className="p-6">
-          <div className="flex justify-between mb-4">
-            <div>
-              <h3 className="font-bold text-xl">{platform.name}</h3>
-              <p className="text-sm text-gray-600">@{platform.username}</p>
-            </div>
-            <div className="text-3xl font-bold">{platform.totalSolved}</div>
-          </div>
-
-          <div className="text-sm text-gray-600 mb-3">
-            {platform.recentActivity}
-          </div>
-
-          {isExpanded && (
-            <div className="space-y-3 pt-4 border-t">
-              <a
-                href={platform.profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-3 bg-primary text-white rounded-lg hover:bg-primary/90"
-              >
-                View Full Profile
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          )}
-
-          <div className="flex justify-between items-center mt-4 pt-4 border-t">
-            <a
-              href={platform.profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-600 hover:text-primary flex items-center gap-1"
-            >
-              <ExternalLink className="w-3 h-3" />
-              Profile
-            </a>
-
-            <button
-              onClick={() =>
-                setExpandedCard(isExpanded ? null : platform.id)
-              }
-              className="text-primary text-sm font-medium flex items-center gap-1"
-            >
-              {isExpanded ? "Show Less" : "View Details"}
-              {isExpanded ? (
-                <ChevronUp className="w-4 h-4" />
-              ) : (
-                <ChevronDown className="w-4 h-4" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
+  const updateRating = (id, value) => {
+    const updated = myContests.map((c) =>
+      c.id === id ? { ...c, rating: value } : c
     );
+    setMyContests(updated);
+  };
+
+  const updateRank = (id, value) => {
+    const updated = myContests.map((c) =>
+      c.id === id ? { ...c, rank: value } : c
+    );
+    setMyContests(updated);
   };
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold flex items-center gap-2">
-        <Code2 className="w-8 h-8 text-primary" />
-        Coding Contests & Practice
+    <div className="min-h-screen bg-black text-white p-8 space-y-10">
+
+      {/* Header */}
+      <h1 className="text-3xl font-bold text-orange-500">
+        Coding Contests
       </h1>
 
-      <div className="relative">
-        <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-        <input
-          className="pl-10 pr-4 py-2 border rounded w-full"
-          placeholder="Search platforms..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+      {/* Available Contests */}
+      <div>
+        <h2 className="text-xl font-semibold mb-6 text-gray-300">
+          Upcoming Contests
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {availableContests.map((contest) => {
+            const joined = myContests.some(
+              (c) => c.id === contest.id
+            );
+
+            return (
+              <div
+                key={contest.id}
+                className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition"
+              >
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {contest.name}
+                </h3>
+
+                <p className="text-sm text-gray-400 mb-4">
+                  Platform: {contest.platform}
+                </p>
+
+                <div className="flex justify-between items-center">
+                  <a
+                    href={contest.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-orange-500 hover:text-orange-400 flex items-center gap-2"
+                  >
+                    Visit
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+
+                  <button
+                    onClick={() => handleParticipate(contest)}
+                    disabled={joined}
+                    className={`px-4 py-2 rounded text-sm ${
+                      joined
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-orange-500 hover:bg-orange-400 text-black"
+                    }`}
+                  >
+                    {joined ? "Participating" : "Participate"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {filteredPlatforms.map((platform) => (
-          <PlatformCard key={platform.id} platform={platform} />
-        ))}
+      {/* My Contests */}
+      <div>
+        <h2 className="text-xl font-semibold mt-10 mb-6 text-gray-300">
+          My Contests
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {myContests.map((contest) => (
+            <div
+              key={contest.id}
+              className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold text-white">
+                  {contest.name}
+                </h3>
+                <Trophy className="text-orange-500 w-5 h-5" />
+              </div>
+
+              <p className="text-sm text-gray-400 mb-4">
+                Platform: {contest.platform}
+              </p>
+
+              {/* Rating */}
+              <div className="mb-4">
+                <label className="text-sm text-gray-400">
+                  Rating: {contest.rating}
+                </label>
+                <input
+                  type="range"
+                  min="800"
+                  max="2500"
+                  value={contest.rating}
+                  onChange={(e) =>
+                    updateRating(contest.id, +e.target.value)
+                  }
+                  className="w-full accent-orange-500"
+                />
+              </div>
+
+              {/* Rank */}
+              <div>
+                <label className="text-sm text-gray-400">
+                  Rank
+                </label>
+                <input
+                  type="number"
+                  placeholder="Enter Rank"
+                  value={contest.rank}
+                  onChange={(e) =>
+                    updateRank(contest.id, e.target.value)
+                  }
+                  className="w-full bg-black border border-gray-700 p-2 mt-2 rounded"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }

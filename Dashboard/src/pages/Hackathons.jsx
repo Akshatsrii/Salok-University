@@ -1,109 +1,219 @@
-import { useState } from "react";
-import {
-  Trophy,
-  Calendar,
-  MapPin,
-  Users,
-  Award,
-  ExternalLink,
-  Code2,
-  Target,
-  Clock,
-  TrendingUp,
-  Medal,
-  Star,
-  Plus,
-  Filter,
-  Search,
-  ChevronDown,
-  ChevronUp,
-  Github,
-  Globe,
-  Zap,
-  Briefcase,
-  DollarSign,
-  CheckCircle2,   // ✅ FIX 1: missing import
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { Plus, Trash2, Trophy, Calendar, ExternalLink } from "lucide-react";
 
 export default function Hackathons() {
-  const [hackathons, setHackathons] = useState([
-    /* ---- DATA UNCHANGED ---- */
-  ]);
+  const [hackathons, setHackathons] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [expandedCard, setExpandedCard] = useState(null);
-  const [showAddModal, setShowAddModal] = useState(false);
+  const [newHackathon, setNewHackathon] = useState({
+    name: "",
+    platform: "",
+    date: "",
+    result: "Participated",
+    position: "",
+    certificate: "",
+  });
 
-  /* ---- LOGIC UNCHANGED ---- */
+  // Load from localStorage
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("hackathons")) || [];
+    setHackathons(saved);
+  }, []);
 
-  const HackathonCard = ({ hackathon }) => {
-    const isExpanded = expandedCard === hackathon.id;
-    const StatusIcon = statusConfig[hackathon.status]?.icon || Trophy;
-    const statusStyle = statusConfig[hackathon.status];
-    const positionBadge = positionBadges[hackathon.position];
+  // Save to localStorage
+  useEffect(() => {
+    localStorage.setItem("hackathons", JSON.stringify(hackathons));
+  }, [hackathons]);
 
-    return (
-      <div className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border-2 overflow-hidden">
-        <div className="p-6">
+  const handleAdd = () => {
+    if (!newHackathon.name.trim()) return;
 
-          {/* EXPANDED SECTION */}
-          {isExpanded && (
-            <div className="space-y-4 pt-4 border-t border-gray-200">
+    const hackathon = {
+      ...newHackathon,
+      _id: Date.now().toString(),
+    };
 
-              {/* PROJECT LINK */}
-              {hackathon.projectUrl && (
-                <a
-                  href={hackathon.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium"
-                >
-                  <Github className="w-4 h-4" />
-                  View Project on GitHub
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              )}
-            </div>
-          )}
+    setHackathons([...hackathons, hackathon]);
+    setShowModal(false);
 
-          {/* FOOTER */}
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
-            <button
-              onClick={() =>
-                setExpandedCard(isExpanded ? null : hackathon.id)
-              }
-              className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium"
-            >
-              {isExpanded ? "Show Less" : "View Details"}
-              {isExpanded ? (
-                <ChevronUp className="w-4 h-4" />
-              ) : (
-                <ChevronDown className="w-4 h-4" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+    setNewHackathon({
+      name: "",
+      platform: "",
+      date: "",
+      result: "Participated",
+      position: "",
+      certificate: "",
+    });
+  };
+
+  const handleDelete = (id) => {
+    setHackathons(hackathons.filter((h) => h._id !== id));
+  };
+
+  const getResultColor = (result) => {
+    if (result === "Winner") return "bg-green-500/20 text-green-400";
+    if (result === "Runner-Up") return "bg-blue-500/20 text-blue-400";
+    return "bg-yellow-500/20 text-yellow-400";
   };
 
   return (
-    <div className="space-y-6">
-      {/* STATS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-gradient-to-br from-green-50 to-white p-5 rounded-xl">
-          <span className="text-sm text-gray-600">Completed</span>
-          <CheckCircle2 className="w-5 h-5 text-green-600" />
-        </div>
+    <div className="min-h-screen bg-black text-white p-8 space-y-8">
+
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-orange-500">
+          Hackathons
+        </h1>
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-orange-500 hover:bg-orange-400 text-black px-5 py-2 rounded-lg flex items-center gap-2"
+        >
+          <Plus className="w-4 h-4" /> Add Hackathon
+        </button>
       </div>
 
-      {/* LIST */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {filteredHackathons.map((hackathon) => (
-          <HackathonCard key={hackathon.id} hackathon={hackathon} />
+      {/* Hackathon Cards */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {hackathons.map((hackathon) => (
+          <div
+            key={hackathon._id}
+            className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition-all"
+          >
+            <div className="flex justify-between items-start mb-3">
+              <h3 className="text-lg font-bold text-white">
+                {hackathon.name}
+              </h3>
+
+              <button onClick={() => handleDelete(hackathon._id)}>
+                <Trash2 className="w-4 h-4 text-red-500" />
+              </button>
+            </div>
+
+            <p className="text-sm text-gray-400 mb-2">
+              Platform: {hackathon.platform}
+            </p>
+
+            <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+              <Calendar className="w-4 h-4" />
+              {hackathon.date}
+            </div>
+
+            <span
+              className={`text-xs px-3 py-1 rounded-full ${getResultColor(
+                hackathon.result
+              )}`}
+            >
+              {hackathon.result}
+            </span>
+
+            {hackathon.position && (
+              <p className="text-sm text-gray-400 mt-2">
+                Position: {hackathon.position}
+              </p>
+            )}
+
+            {/* Certificate Link */}
+            {hackathon.certificate && (
+              <a
+                href={hackathon.certificate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-orange-500 hover:text-orange-400 mt-4"
+              >
+                <ExternalLink className="w-4 h-4" />
+                View Certificate
+              </a>
+            )}
+          </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div className="bg-[#111] border border-gray-800 p-6 rounded-xl w-96">
+
+            <h2 className="text-xl font-bold mb-4 text-orange-500">
+              Add Hackathon
+            </h2>
+
+            <input
+              placeholder="Hackathon Name"
+              className="w-full bg-black border border-gray-700 p-2 mb-3 rounded"
+              value={newHackathon.name}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, name: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Platform (Devfolio, MLH, etc)"
+              className="w-full bg-black border border-gray-700 p-2 mb-3 rounded"
+              value={newHackathon.platform}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, platform: e.target.value })
+              }
+            />
+
+            <input
+              type="date"
+              className="w-full bg-black border border-gray-700 p-2 mb-3 rounded"
+              value={newHackathon.date}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, date: e.target.value })
+              }
+            />
+
+            <select
+              className="w-full bg-black border border-gray-700 p-2 mb-3 rounded"
+              value={newHackathon.result}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, result: e.target.value })
+              }
+            >
+              <option>Participated</option>
+              <option>Runner-Up</option>
+              <option>Winner</option>
+            </select>
+
+            <input
+              placeholder="Position (Optional)"
+              className="w-full bg-black border border-gray-700 p-2 mb-3 rounded"
+              value={newHackathon.position}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, position: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Certificate Link (Optional)"
+              className="w-full bg-black border border-gray-700 p-2 mb-4 rounded"
+              value={newHackathon.certificate}
+              onChange={(e) =>
+                setNewHackathon({ ...newHackathon, certificate: e.target.value })
+              }
+            />
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleAdd}
+                className="flex-1 bg-orange-500 hover:bg-orange-400 text-black py-2 rounded"
+              >
+                Add Hackathon
+              </button>
+
+              <button
+                onClick={() => setShowModal(false)}
+                className="flex-1 bg-gray-800 hover:bg-gray-700 py-2 rounded"
+              >
+                Cancel
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }

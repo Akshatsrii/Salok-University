@@ -1,26 +1,29 @@
 import { Routes, Route, Navigate, Outlet, NavLink } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-// Lazy load components
+/* ================= Lazy Load ================= */
+
 const FeedbackFaculty = lazy(() => import("../components/feedback/FeedbackFaculty"));
 const FeedbackSyllabus = lazy(() => import("../components/feedback/FeedbackSyllabus"));
 const IQACFeedback = lazy(() => import("../components/feedback/IQACFeedback"));
 const FeedbackInfrastructure = lazy(() => import("../components/feedback/FeedbackInfrastructure"));
 const FeedbackHistory = lazy(() => import("../components/feedback/FeedbackHistory"));
 
-// Loading component
+/* ================= Loader ================= */
+
 function LoadingSpinner() {
   return (
-    <div className="flex items-center justify-center min-h-[400px]">
+    <div className="flex items-center justify-center min-h-[400px] bg-black text-white">
       <div className="text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-        <p className="mt-4 text-gray-600">Loading feedback form...</p>
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+        <p className="mt-4 text-gray-400">Loading feedback form...</p>
       </div>
     </div>
   );
 }
 
-// Feedback Layout with Tabs
+/* ================= Layout ================= */
+
 function FeedbackLayout() {
   const feedbackTypes = [
     { path: "faculty", label: "Faculty Feedback", icon: "👨‍🏫", description: "Rate your instructors" },
@@ -31,32 +34,38 @@ function FeedbackLayout() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black text-white">
+      
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="bg-gray-900 border-b border-orange-500">
         <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">Feedback System</h1>
-          <p className="text-gray-600 mt-1">Help us improve by sharing your thoughts</p>
+          <h1 className="text-3xl font-bold text-orange-400">
+            Feedback System
+          </h1>
+          <p className="text-gray-400 mt-1">
+            Help us improve by sharing your thoughts
+          </p>
 
           {/* Tabs */}
           <nav className="flex gap-2 overflow-x-auto mt-6">
             {feedbackTypes.map((type) => (
               <NavLink
                 key={type.path}
-                to={`/feedback/${type.path}`}   // ✅ ABSOLUTE PATH (FIX)
+                to={`/feedback/${type.path}`}
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-4 py-3 rounded-t-lg border-b-2 transition-all
+                  `flex items-center gap-3 px-4 py-3 rounded-t-lg border-b-2 transition-all
                   ${
                     isActive
-                      ? "border-primary bg-primary/5 text-primary font-semibold"
-                      : "border-transparent hover:border-gray-300 hover:bg-gray-50 text-gray-600"
+                      ? "border-orange-500 bg-orange-500/10 text-orange-400 font-semibold"
+                      : "border-transparent hover:border-orange-400 hover:bg-gray-800 text-gray-400"
                   }`
                 }
               >
                 <span className="text-xl">{type.icon}</span>
+
                 <div className="hidden sm:block">
                   <div className="text-sm font-medium">{type.label}</div>
-                  <div className="text-xs opacity-75">{type.description}</div>
+                  <div className="text-xs opacity-70">{type.description}</div>
                 </div>
               </NavLink>
             ))}
@@ -74,14 +83,17 @@ function FeedbackLayout() {
   );
 }
 
+/* ================= Main Component ================= */
+
 export default function Feedback() {
   return (
     <Routes>
       <Route element={<FeedbackLayout />}>
-        {/* Default redirect */}
-        <Route index element={<Navigate to="/feedback/faculty" replace />} /> {/* ✅ FIX */}
 
-        {/* Feedback routes */}
+        {/* Default Redirect */}
+        <Route index element={<Navigate to="/feedback/faculty" replace />} />
+
+        {/* Feedback Routes */}
         <Route path="faculty" element={<FeedbackFaculty />} />
         <Route path="syllabus" element={<FeedbackSyllabus />} />
         <Route path="iqac" element={<IQACFeedback />} />
@@ -89,7 +101,8 @@ export default function Feedback() {
         <Route path="history" element={<FeedbackHistory />} />
 
         {/* Fallback */}
-        <Route path="*" element={<Navigate to="/feedback/faculty" replace />} /> {/* ✅ FIX */}
+        <Route path="*" element={<Navigate to="/feedback/faculty" replace />} />
+
       </Route>
     </Routes>
   );

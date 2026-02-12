@@ -6,3 +6,10 @@
   --color-dark: #0f172a;      /* Header dark */
   --color-muted: #64748b;
 }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: linear-gradient(to bottom right, #000000, #0f172a);
+}

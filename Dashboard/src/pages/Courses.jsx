@@ -1,136 +1,187 @@
-import { useState } from "react";
-import {
-  BookOpen,
-  Clock,
-  Calendar,
-  Award,
-  TrendingUp,
-  Play,
-  CheckCircle2,
-  PlayCircle,
-  Download,
-  ExternalLink,
-  Star,
-  Users,
-  BarChart3,
-  Plus,
-  Filter,
-  Search,
-  Target,
-  Video,
-  FileText,
-  Code2,
-  Globe,
-  ChevronDown,
-  ChevronUp,
-  Pause,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { ExternalLink, CheckCircle } from "lucide-react";
 
 export default function Courses() {
-  const [courses] = useState([
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+
+  // Predefined Courses (Enroll System)
+  const availableCourses = [
     {
       id: 1,
-      title: "Data Structures & Algorithms",
+      title: "React Development Bootcamp",
       platform: "Coursera",
-      instructor: "Dr. Robert Sedgewick",
-      institution: "Princeton University",
-      status: "Completed",
-      progress: 100,
-      enrollDate: "Sep 2024",
-      completionDate: "Dec 2024",
-      duration: "12 weeks",
-      category: "Computer Science",
-      level: "Advanced",
-      rating: 4.8,
-      studentsEnrolled: 250000,
-      certificate: true,
-      certificateUrl: "https://coursera.org/cert/xyz123",
-      description:
-        "Comprehensive course covering fundamental data structures and algorithms",
-      skills: ["Arrays", "Trees", "Graphs", "DP"],
-      modules: [
-        { name: "Intro", completed: true },
-        { name: "Sorting", completed: true },
-      ],
-      assignments: { total: 8, completed: 8 },
-      quizzes: { total: 12, completed: 12 },
-      finalGrade: "98%",
-      featured: true,
-      courseUrl: "https://coursera.org/learn/algorithms",
+      link: "https://www.coursera.org",
     },
-  ]);
+    {
+      id: 2,
+      title: "Data Structures & Algorithms",
+      platform: "GeeksforGeeks",
+      link: "https://www.geeksforgeeks.org",
+    },
+    {
+      id: 3,
+      title: "AI & Machine Learning Basics",
+      platform: "HP",
+      link: "https://www.life-global.org",
+    },
+    {
+      id: 4,
+      title: "Web Development Mastery",
+      platform: "RCAT",
+      link: "#",
+    },
+  ];
 
-  const [expandedCard, setExpandedCard] = useState(null);
+  // Load from localStorage
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("enrolledCourses")) || [];
+    setEnrolledCourses(saved);
+  }, []);
 
-  const CourseCard = ({ course }) => {
-    const isExpanded = expandedCard === course.id;
+  // Save to localStorage
+  useEffect(() => {
+    localStorage.setItem("enrolledCourses", JSON.stringify(enrolledCourses));
+  }, [enrolledCourses]);
 
-    return (
-      <div className="bg-white rounded-xl shadow-md border p-6">
-        <h3 className="font-bold text-lg">{course.title}</h3>
-
-        {isExpanded && (
-          <div className="space-y-4 mt-4 border-t pt-4">
-
-            {/* ✅ FIX 1: Certificate link */}
-            {course.certificate && course.certificateUrl && (
-              <a
-                href={course.certificateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-3 bg-yellow-50 border-2 border-yellow-300 rounded-lg"
-              >
-                <Award className="w-5 h-5 text-yellow-600" />
-                <span className="font-semibold text-yellow-800">
-                  View Certificate
-                </span>
-                <Download className="w-4 h-4 text-yellow-600" />
-              </a>
-            )}
-
-            {/* ✅ FIX 2: Course link */}
-            <a
-              href={course.courseUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-sm text-primary font-medium"
-            >
-              <Globe className="w-4 h-4" />
-              Visit Course Page
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          </div>
-        )}
-
-        <button
-          onClick={() =>
-            setExpandedCard(isExpanded ? null : course.id)
-          }
-          className="mt-4 text-primary text-sm font-medium flex items-center gap-1"
-        >
-          {isExpanded ? "Show Less" : "View Details"}
-          {isExpanded ? (
-            <ChevronUp className="w-4 h-4" />
-          ) : (
-            <ChevronDown className="w-4 h-4" />
-          )}
-        </button>
-      </div>
+  const handleEnroll = (course) => {
+    const alreadyEnrolled = enrolledCourses.find(
+      (c) => c.id === course.id
     );
+    if (alreadyEnrolled) return;
+
+    const newEnrollment = {
+      ...course,
+      progress: 0,
+    };
+
+    setEnrolledCourses([...enrolledCourses, newEnrollment]);
+  };
+
+  const updateProgress = (id, value) => {
+    const updated = enrolledCourses.map((c) =>
+      c.id === id ? { ...c, progress: value } : c
+    );
+    setEnrolledCourses(updated);
   };
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold flex items-center gap-2">
-        <BookOpen className="w-8 h-8 text-primary" />
+    <div className="min-h-screen bg-black text-white p-8 space-y-10">
+
+      {/* Header */}
+      <h1 className="text-3xl font-bold text-orange-500">
         My Courses
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {courses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
+      {/* Available Courses */}
+      <div>
+        <h2 className="text-xl font-semibold mb-6 text-gray-300">
+          Available Courses
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {availableCourses.map((course) => {
+            const isEnrolled = enrolledCourses.some(
+              (c) => c.id === course.id
+            );
+
+            return (
+              <div
+                key={course.id}
+                className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition"
+              >
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {course.title}
+                </h3>
+
+                <p className="text-sm text-gray-400 mb-4">
+                  Platform: {course.platform}
+                </p>
+
+                <div className="flex justify-between items-center">
+                  <a
+                    href={course.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-orange-500 hover:text-orange-400 flex items-center gap-2"
+                  >
+                    Visit Platform
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+
+                  <button
+                    onClick={() => handleEnroll(course)}
+                    disabled={isEnrolled}
+                    className={`px-4 py-2 rounded text-sm ${
+                      isEnrolled
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-orange-500 hover:bg-orange-400 text-black"
+                    }`}
+                  >
+                    {isEnrolled ? "Enrolled" : "Enroll"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
+      {/* Enrolled Courses */}
+      <div>
+        <h2 className="text-xl font-semibold mt-10 mb-6 text-gray-300">
+          My Enrolled Courses
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {enrolledCourses.map((course) => (
+            <div
+              key={course.id}
+              className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold text-white">
+                  {course.title}
+                </h3>
+
+                <CheckCircle className="text-green-400 w-5 h-5" />
+              </div>
+
+              <p className="text-sm text-gray-400 mb-4">
+                Platform: {course.platform}
+              </p>
+
+              {/* Progress */}
+              <div className="mb-2">
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Progress</span>
+                  <span className="text-orange-500">
+                    {course.progress}%
+                  </span>
+                </div>
+
+                <div className="w-full bg-gray-800 h-2 rounded-full">
+                  <div
+                    className="bg-orange-500 h-2 rounded-full transition-all"
+                    style={{ width: `${course.progress}%` }}
+                  />
+                </div>
+              </div>
+
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={course.progress}
+                onChange={(e) =>
+                  updateProgress(course.id, +e.target.value)
+                }
+                className="w-full accent-orange-500"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }

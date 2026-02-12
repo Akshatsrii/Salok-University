@@ -3,10 +3,9 @@ import { Menu, Bell, User, LogOut, Settings, ChevronDown } from "lucide-react";
 
 export default function Navbar({ onMenuClick }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [notifications, setNotifications] = useState(3); // Example notification count
+  const [notifications, setNotifications] = useState(3);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -19,39 +18,41 @@ export default function Navbar({ onMenuClick }) {
   }, []);
 
   const handleLogout = () => {
-    // Add your logout logic here
     console.log("Logging out...");
   };
 
   return (
-    <header className="h-16 bg-dark text-white flex items-center justify-between px-4 sm:px-6 shadow-md sticky top-0 z-30">
+    <header className="h-16 bg-black text-white flex items-center justify-between px-4 sm:px-6 border-b border-orange-500/20 flex-shrink-0">
+      
       {/* Left section */}
       <div className="flex items-center gap-3">
-        {/* Mobile menu button */}
         <button
           onClick={onMenuClick}
-          className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+          className="lg:hidden p-2 hover:bg-orange-500/20 rounded-lg transition-colors"
           aria-label="Toggle sidebar"
         >
-          <Menu className="w-5 h-5" />
+          <Menu className="w-5 h-5 text-orange-500" />
         </button>
 
-        <h1 className="font-semibold tracking-wide text-sm sm:text-base">
-          <span className="hidden sm:inline">Salok University Student Portal</span>
+        <h1 className="font-semibold tracking-wide text-sm sm:text-base text-orange-500">
+          <span className="hidden sm:inline">
+            Salok University Student Portal
+          </span>
           <span className="sm:hidden">Student Portal</span>
         </h1>
       </div>
 
       {/* Right section */}
       <div className="flex items-center gap-2 sm:gap-4">
+
         {/* Notifications */}
         <button
-          className="relative p-2 hover:bg-white/10 rounded-lg transition-colors"
+          className="relative p-2 hover:bg-orange-500/20 rounded-lg transition-colors"
           aria-label="Notifications"
         >
-          <Bell className="w-5 h-5" />
+          <Bell className="w-5 h-5 text-orange-500" />
           {notifications > 0 && (
-            <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-semibold">
+            <span className="absolute top-1 right-1 w-4 h-4 bg-orange-500 text-black text-xs rounded-full flex items-center justify-center font-semibold">
               {notifications > 9 ? "9+" : notifications}
             </span>
           )}
@@ -61,19 +62,20 @@ export default function Navbar({ onMenuClick }) {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center gap-2 px-3 py-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="flex items-center gap-2 px-3 py-2 hover:bg-orange-500/20 rounded-lg transition-colors"
             aria-expanded={isDropdownOpen}
-            aria-haspopup="true"
           >
-            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-              <User className="w-5 h-5" />
+            <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center">
+              <User className="w-5 h-5 text-orange-500" />
             </div>
+
             <div className="hidden sm:block text-left">
-              <div className="text-xs text-white/70">Welcome,</div>
-              <div className="text-sm font-semibold">Riya</div>
+              <div className="text-xs text-gray-400">Welcome,</div>
+              <div className="text-sm font-semibold text-white">Riya</div>
             </div>
+
             <ChevronDown
-              className={`w-4 h-4 transition-transform hidden sm:block ${
+              className={`w-4 h-4 text-orange-500 transition-transform hidden sm:block ${
                 isDropdownOpen ? "rotate-180" : ""
               }`}
             />
@@ -81,39 +83,38 @@ export default function Navbar({ onMenuClick }) {
 
           {/* Dropdown menu */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg py-2 border border-gray-200">
-              <div className="px-4 py-2 border-b border-gray-200">
-                <div className="font-semibold">Riya Sharma</div>
-                <div className="text-xs text-gray-500">Student ID: 2024001</div>
+            <div className="absolute right-0 mt-2 w-48 bg-[#111] text-white rounded-lg shadow-lg py-2 border border-gray-800 z-50">
+              
+              <div className="px-4 py-2 border-b border-gray-800">
+                <div className="font-semibold text-orange-500">
+                  Riya Bansal
+                </div>
+                <div className="text-xs text-gray-400">
+                  Student ID: 2024001
+                </div>
               </div>
 
               <button
-                onClick={() => {
-                  setIsDropdownOpen(false);
-                  // Navigate to profile
-                }}
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                onClick={() => setIsDropdownOpen(false)}
+                className="w-full px-4 py-2 text-left text-sm hover:bg-orange-500/10 flex items-center gap-2"
               >
-                <User className="w-4 h-4" />
+                <User className="w-4 h-4 text-orange-500" />
                 My Profile
               </button>
 
               <button
-                onClick={() => {
-                  setIsDropdownOpen(false);
-                  // Navigate to settings
-                }}
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                onClick={() => setIsDropdownOpen(false)}
+                className="w-full px-4 py-2 text-left text-sm hover:bg-orange-500/10 flex items-center gap-2"
               >
-                <Settings className="w-4 h-4" />
+                <Settings className="w-4 h-4 text-orange-500" />
                 Settings
               </button>
 
-              <hr className="my-2" />
+              <hr className="my-2 border-gray-800" />
 
               <button
                 onClick={handleLogout}
-                className="w-full px-4 py-2 text-left text-sm hover:bg-red-50 text-red-600 flex items-center gap-2"
+                className="w-full px-4 py-2 text-left text-sm hover:bg-orange-500/10 text-orange-500 flex items-center gap-2"
               >
                 <LogOut className="w-4 h-4" />
                 Logout

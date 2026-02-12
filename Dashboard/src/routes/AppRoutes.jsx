@@ -18,6 +18,8 @@ import Contests from "../pages/Contests";
 import Activities from "../pages/Activities";
 import Notifications from "../pages/Notifications";
 import MockTests from "../pages/MockTests";
+import SmartAttendance from "../pages/SmartAttendance";
+
 
 export default function AppRoutes() {
   return (
@@ -45,6 +47,7 @@ export default function AppRoutes() {
           <Route path="activities" element={<Activities />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="mocktests" element={<MockTests />} />
+          <Route path="smart-attendance" element={<SmartAttendance />} />
         </Route>
       </Routes>
     </BrowserRouter>

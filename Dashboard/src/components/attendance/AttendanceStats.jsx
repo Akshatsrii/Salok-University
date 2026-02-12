@@ -1,61 +1,65 @@
-import { TrendingUp, TrendingDown, AlertTriangle, CheckCircle } from "lucide-react";
+import { TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
 
-export default function AttendanceStats() {
+export default function AttendanceStats({ attendanceData }) {
+
+  // 🔥 Safe fallback if no data
+  const totalClasses = attendanceData?.reduce(
+    (sum, sub) => sum + sub.total,
+    0
+  ) || 0;
+
+  const totalAttended = attendanceData?.reduce(
+    (sum, sub) => sum + sub.attended,
+    0
+  ) || 0;
+
+  const totalMissed = totalClasses - totalAttended;
+
+  const overallPercentage =
+    totalClasses > 0
+      ? ((totalAttended / totalClasses) * 100).toFixed(1)
+      : "0.0";
+
   const stats = [
     {
       label: "Overall Attendance",
-      value: "87.5%",
-      change: "+2.3%",
+      value: `${overallPercentage}%`,
+      change: "",
       trend: "up",
-      status: "good",
       icon: CheckCircle,
-      color: "green",
     },
     {
       label: "Classes Attended",
-      value: "245",
-      change: "out of 280",
-      status: "info",
+      value: totalAttended,
+      change: `out of ${totalClasses}`,
       icon: TrendingUp,
-      color: "blue",
     },
     {
       label: "Classes Missed",
-      value: "35",
-      change: "12.5% of total",
-      status: "warning",
+      value: totalMissed,
+      change:
+        totalClasses > 0
+          ? `${((totalMissed / totalClasses) * 100).toFixed(1)}% of total`
+          : "0%",
       icon: AlertTriangle,
-      color: "orange",
     },
     {
       label: "This Week",
-      value: "95%",
-      change: "+8%",
+      value: `${overallPercentage}%`,
+      change: "",
       trend: "up",
-      status: "good",
       icon: TrendingUp,
-      color: "green",
     },
   ];
 
-  const getColorClasses = (color) => {
-    const colors = {
-      green: "bg-green-50 border-green-200 text-green-700",
-      blue: "bg-blue-50 border-blue-200 text-blue-700",
-      orange: "bg-orange-50 border-orange-200 text-orange-700",
-      red: "bg-red-50 border-red-200 text-red-700",
-    };
-    return colors[color] || colors.blue;
+  // 🔥 Dark Theme Card Colors
+  const getColorClasses = () => {
+    return "bg-[#111] border-gray-800 text-white";
   };
 
-  const getIconColorClasses = (color) => {
-    const colors = {
-      green: "text-green-600 bg-green-100",
-      blue: "text-blue-600 bg-blue-100",
-      orange: "text-orange-600 bg-orange-100",
-      red: "text-red-600 bg-red-100",
-    };
-    return colors[color] || colors.blue;
+  // 🔥 Icon Orange Theme
+  const getIconColorClasses = () => {
+    return "text-orange-500 bg-orange-500/10";
   };
 
   return (
@@ -65,22 +69,30 @@ export default function AttendanceStats() {
         return (
           <div
             key={idx}
-            className={`border-2 rounded-lg p-5 ${getColorClasses(stat.color)}`}
+            className={`border rounded-lg p-5 transition hover:border-orange-500 ${getColorClasses()}`}
           >
             <div className="flex items-start justify-between mb-3">
-              <div className={`p-2 rounded-lg ${getIconColorClasses(stat.color)}`}>
+              <div className={`p-2 rounded-lg ${getIconColorClasses()}`}>
                 <Icon className="w-5 h-5" />
               </div>
-              {stat.trend && (
-                <span className="text-xs font-medium">
+
+              {stat.trend && stat.change && (
+                <span className="text-xs font-medium text-orange-400">
                   {stat.change}
                 </span>
               )}
             </div>
-            <h3 className="text-2xl font-bold mb-1">{stat.value}</h3>
-            <p className="text-sm opacity-80">{stat.label}</p>
+
+            <h3 className="text-2xl font-bold mb-1 text-orange-500">
+              {stat.value}
+            </h3>
+
+            <p className="text-sm text-gray-400">{stat.label}</p>
+
             {!stat.trend && (
-              <p className="text-xs mt-1 opacity-70">{stat.change}</p>
+              <p className="text-xs mt-1 text-gray-500">
+                {stat.change}
+              </p>
             )}
           </div>
         );

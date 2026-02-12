@@ -5,42 +5,68 @@ const events = [
     title: "Mid-Semester Exams", 
     date: "Mar 15-20, 2024", 
     location: "Exam Hall",
-    color: "bg-red-100 text-red-700"
+    badge: "Important"
   },
   { 
     title: "Technical Fest", 
     date: "Mar 25, 2024", 
     location: "Main Auditorium",
-    color: "bg-purple-100 text-purple-700"
+    badge: "Event"
   },
   { 
     title: "Guest Lecture: AI/ML", 
     date: "Mar 28, 2024", 
     location: "Seminar Hall",
-    color: "bg-blue-100 text-blue-700"
+    badge: "Seminar"
   },
 ];
 
 export default function UpcomingEvents() {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="font-semibold text-gray-800 mb-4">Upcoming Events</h3>
-      <div className="space-y-3">
+    <div className="bg-black text-white rounded-xl shadow-lg p-6 border border-gray-800">
+      
+      <h3 className="font-semibold text-orange-500 text-lg mb-5">
+        Upcoming Events
+      </h3>
+
+      <div className="space-y-4">
         {events.map((event, idx) => (
-          <div key={idx} className={`${event.color} p-4 rounded-lg`}>
-            <h4 className="font-semibold text-sm mb-2">{event.title}</h4>
-            <div className="flex items-center gap-2 text-xs mb-1">
-              <Calendar className="w-3 h-3" />
+          <div
+            key={idx}
+            className="bg-[#111] p-4 rounded-lg border border-gray-800 
+                       hover:border-orange-500 hover:bg-gray-900 
+                       transition-all duration-300"
+          >
+            {/* Title + Badge */}
+            <div className="flex justify-between items-center mb-2">
+              <h4 className="font-semibold text-sm">
+                {event.title}
+              </h4>
+
+              <span className="text-xs px-2 py-1 rounded-full 
+                               bg-orange-500/20 text-orange-400">
+                {event.badge}
+              </span>
+            </div>
+
+            {/* Date */}
+            <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
+              <Calendar className="w-3 h-3 text-orange-500" />
               <span>{event.date}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <MapPin className="w-3 h-3" />
+
+            {/* Location */}
+            <div className="flex items-center gap-2 text-xs text-gray-400">
+              <MapPin className="w-3 h-3 text-orange-500" />
               <span>{event.location}</span>
             </div>
           </div>
         ))}
       </div>
-      <button className="w-full mt-4 text-sm text-primary hover:underline font-medium">
+
+      <button className="w-full mt-5 text-sm text-orange-500 
+                         hover:text-orange-400 hover:underline 
+                         font-medium transition">
         View All Events
       </button>
     </div>

@@ -1,37 +1,48 @@
 import { Link } from "react-router-dom";
-import { 
-  CalendarCheck, 
-  CreditCard, 
-  FileText, 
+import {
+  CalendarCheck,
+  CreditCard,
+  FileText,
   MessageSquare,
   Download,
-  Building2 
+  Building2,
 } from "lucide-react";
 
 const quickActions = [
-  { icon: CalendarCheck, label: "Mark Attendance", to: "/attendance", color: "bg-blue-500" },
-  { icon: CreditCard, label: "Pay Fees", to: "/payments/fee", color: "bg-green-500" },
-  // { icon: FileText, label: "Exam Form", to: "/exam/form", color: "bg-purple-500" },
-  // { icon: Download, label: "Admit Card", to: "/exam/admit", color: "bg-orange-500" },
-  { icon: MessageSquare, label: "Feedback", to: "/feedback", color: "bg-pink-500" },
-  { icon: Building2, label: "Hostel", to: "/hostel/details", color: "bg-indigo-500" },
+  { icon: CalendarCheck, label: "Mark Attendance", to: "/attendance" },
+  { icon: CreditCard, label: "Pay Fees", to: "/payments/fee" },
+  { icon: MessageSquare, label: "Feedback", to: "/feedback" },
+  { icon: Building2, label: "Hostel", to: "/hostel/details" },
 ];
 
 export default function QuickActions() {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="font-semibold text-gray-800 mb-4">Quick Actions</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+    <div className="bg-black rounded-xl shadow-lg p-6 border border-gray-800">
+      <h3 className="font-semibold text-orange-400 mb-6 text-lg">
+        Quick Actions
+      </h3>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {quickActions.map((action, idx) => (
           <Link
             key={idx}
             to={action.to}
-            className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+            className="group flex flex-col items-center p-5 rounded-xl 
+                       bg-gray-900 border border-gray-800
+                       hover:border-orange-500 hover:bg-gray-800
+                       transition-all duration-300"
           >
-            <div className={`${action.color} p-3 rounded-full mb-2 group-hover:scale-110 transition-transform`}>
+            <div
+              className="p-4 rounded-full mb-3 
+                         bg-orange-500 
+                         group-hover:bg-orange-600
+                         group-hover:scale-110
+                         transition-all duration-300"
+            >
               <action.icon className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xs text-center text-gray-700 font-medium">
+
+            <span className="text-sm text-gray-300 font-medium text-center group-hover:text-orange-400 transition-colors">
               {action.label}
             </span>
           </Link>
@@ -39,4 +50,4 @@ export default function QuickActions() {
       </div>
     </div>
   );
-} 
+}
