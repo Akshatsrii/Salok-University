@@ -67,3 +67,4 @@ Now we have started finding the design for the website and also had made the wor
 ---
 (Akshat Srivastava ) The Admin side of admission portal is done.
 **
+(Akshat Srivastava ) All the intergration has been done til now.
