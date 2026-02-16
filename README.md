@@ -60,3 +60,4 @@ Now we have started finding the design for the website and also had made the wor
 (Akshat Srivastava ) All the intergration has been done til now.
 (Akshat Srivastava ) The Work is Going on !!
 (Akshat Srivastava ) The Admin side of Faculity is done. 
+(Akshat Srivastava ) Overview of faculity dashboard and optimized the code. 
