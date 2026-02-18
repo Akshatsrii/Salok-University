@@ -155,6 +155,7 @@ salok-university/
 - 📊 **Faculty Dashboard overview** built and codebase optimized
 - 🔒 **Role-Based Access Control** implemented and enhanced in faculty module
 - **Faculty Dashboard is going on.
+- ** Faculty Dashboard is done.
   
 
 ---
