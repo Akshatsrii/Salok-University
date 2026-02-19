@@ -156,7 +156,7 @@ salok-university/
 - 🔒 **Role-Based Access Control** implemented and enhanced in faculty module
 - **Faculty Dashboard is going on.
 - ** Faculty Dashboard is done.
-- ** Faculty Dashboard is complete.
+- ** Faculty Dashboard is Complete.
   
 
 ---
