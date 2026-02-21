@@ -249,10 +249,9 @@ CONTRACT_ADDRESS=your_smart_contract_address
 
 ---
 
-## 📄 License
+## 📄 Current Work
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
+The work Intergration work is going on.
 ---
 
 <div align="center">
