@@ -234,7 +234,7 @@ CONTRACT_ADDRESS=your_smart_contract_address
 
 | Name | Role | Contributions |
 |---|---|---|
-| **Riya Bansal** | Frontend Developer | Home Page, Landing Page, Login UI, Student Dashboard |
+| **Riya Bansal** | Frontend Developer | Home Page, Landing Page, Login UI, Student Dashboard , Faculty Dashboard |
 | **Akshat Srivastava** | Backend Developer | Auth Backend, Admission Portal, Admin Panel, Faculty System, Full Integration |
 
 ---
