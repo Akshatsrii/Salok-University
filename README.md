@@ -154,9 +154,11 @@ salok-university/
 - 👩‍🏫 **Admin side of Faculty Management** — done
 - 📊 **Faculty Dashboard overview** built and codebase optimized
 - 🔒 **Role-Based Access Control** implemented and enhanced in faculty module
+- ohter days 
 - **Faculty Dashboard is going on.
 - ** Faculty Dashboard is done.
-- ** Faculty Dashboard is Complete.
+-**Role-Based Access Control** implemented and enhanced in student portal
+-  ** Faculty Dashboard is Complete.
   
 
 ---
