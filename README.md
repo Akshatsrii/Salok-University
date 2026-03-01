@@ -81,6 +81,7 @@ Student Attendance Marked  →  Signed Transaction  →  Stored On-Chain
 - ✅ Prevents data tampering and manipulation
 - ✅ Full transparency between students, teachers, and administration
 - ✅ Every attendance entry is cryptographically signed
+- Try to add the solidity in the attendance tracker.
 
 ---
 
