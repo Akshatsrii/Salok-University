@@ -161,6 +161,7 @@ salok-university/
 -**Role-Based Access Control** implemented and enhanced in student portal
 -  ** Faculty Dashboard is Complete.
 -  Admission portal connection to all the pages is ongoing.
+-  connect is ongoing.
   
 
 ---
