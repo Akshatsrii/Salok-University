@@ -163,6 +163,8 @@ salok-university/
 -  Admission portal connection to all the pages is ongoing.
 -  connect is ongoing.
 -  **Admission Portal** frontend — completed
+-  **Admin side of Exam Portal** — fully implemented
+
   
 
 ---
