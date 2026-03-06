@@ -165,6 +165,7 @@ salok-university/
 -  **Admission Portal** frontend — completed
 -  **Admin side of Exam Portal** — fully implemented
 -   **Admin side of Exam Portal** — backend is going on.
+-    **Admin side of Exam Portal** — backend intergration is going on.
 
 
   
