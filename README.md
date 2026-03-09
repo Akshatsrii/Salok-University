@@ -160,14 +160,14 @@ salok-university/
 - ** Faculty Dashboard is done.
 -**Role-Based Access Control** implemented and enhanced in student portal
 - Faculty Dashboard is Complete.
--  Admission portal connection to all the pages is ongoing.
--  connect is ongoing.
--  **Admission Portal** frontend — completed
--  **Admin side of Exam Portal** — fully implemented
--   **Admin side of Exam Portal** — backend is going on.
--    **Admin side of Exam Portal** — backend intergration is going on.
--     **Admission Portal**  Updated accordingly— completed
-- pushed the code.
+- Admission portal connection to all the pages is ongoing.
+- connect is ongoing.
+- **Admission Portal** frontend — completed
+- **Admin side of Exam Portal** — fully implemented
+- **Admin side of Exam Portal** — backend is going on.
+- **Admin side of Exam Portal** — backend intergration is going on.
+- **Admission Portal**  Updated accordingly— completed
+
 
   
 
