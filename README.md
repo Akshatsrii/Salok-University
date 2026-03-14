@@ -167,6 +167,7 @@ salok-university/
 - **Admin side of Exam Portal** — backend is going on.
 - **Admin side of Exam Portal** — backend intergration is going on.
 - **Admission Portal**  Updated accordingly— completed
+- **Blockchain add to attendence tracking system**  Updated accordingly— completed
 
 
   
