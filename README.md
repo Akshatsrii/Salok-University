@@ -64,6 +64,8 @@
 - Approve new registrations
 - Control departments, courses, and permissions
 - Monitor system-wide activity
+- the things are slighty based on ai.
+- 
 
 </details>
 
