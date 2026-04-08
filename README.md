@@ -36,10 +36,6 @@
 ---
 
 ## 👥 User Roles & Features
-
-<details>
-<summary><b>👨‍🎓 Student</b></summary>
-
 - Secure login & registration
 - View attendance (blockchain verified)
 - Access courses, notices, and academic details
