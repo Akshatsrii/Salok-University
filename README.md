@@ -54,8 +54,7 @@
 </details>
 
 <details>
-<summary><b>🛡️ Admin</b></summary>
-
+        
 - Manage students & teachers
 - Approve new registrations
 - Control departments, courses, and permissions
