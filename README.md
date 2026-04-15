@@ -4,7 +4,7 @@
 
 # 🎓 Salok University Portal
 
-### A Full-Stack University Management Platform with Blockchain-Powered Attendance
+### A Full-Stack University Management Platform with Blockchain-Powered Attendance for Students 
 
 [![Status](https://img.shields.io/badge/Status-In%20Development-22c55e?style=flat-square)](https://github.com)
 [![Version](https://img.shields.io/badge/Version-0.5.0-6366f1?style=flat-square)](https://github.com)
