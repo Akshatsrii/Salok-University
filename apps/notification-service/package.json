@@ -1,0 +1,9 @@
+{
+  "name": "@salok/notification-service",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Notification Service starting...'",
+    "build": "echo 'Notification Service building...'"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@salok/worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Worker starting...'",
+    "build": "echo 'Worker building...'"
+  }
+}

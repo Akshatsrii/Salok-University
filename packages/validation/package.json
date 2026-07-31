@@ -1,14 +1,12 @@
 {
-  "name": "@salok/ui",
+  "name": "@salok/validation",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "lint": "eslint ."
   },
   "dependencies": {
-    "lucide-react": "^0.359.0",
-    "clsx": "^2.1.0",
-    "tailwind-merge": "^2.2.1"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "typescript": "^5.4.2"
