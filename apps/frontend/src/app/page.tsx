@@ -1,103 +1,97 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background relative overflow-hidden font-sans">
+      {/* Subtle Grid Background overlay */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Navbar (Mock) */}
+      <header className="relative z-10 w-full border-b border-border/40 bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">S</div>
+            <div>
+              <h1 className="font-bold text-xl leading-none text-primary">SALOK</h1>
+              <p className="text-xs text-muted-foreground">University Management</p>
+            </div>
+          </div>
+          
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
+            <a href="#" className="text-foreground">Home</a>
+            <a href="#" className="hover:text-foreground">About Us</a>
+            <a href="#" className="hover:text-foreground">Features</a>
+            <a href="#" className="hover:text-foreground">Modules</a>
+            <a href="#" className="hover:text-foreground">Contact</a>
+          </nav>
+
+          <Button variant="default" className="rounded-md font-semibold px-6">
+            Get a Demo
+          </Button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="relative z-10 container mx-auto px-4 pt-20 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Content */}
+          <div className="flex flex-col gap-6 max-w-xl">
+            <Badge variant="secondary" className="w-fit text-accent font-semibold px-3 py-1 bg-accent/10 hover:bg-accent/15">
+              <span className="w-2 h-2 rounded-full bg-accent mr-2 inline-block"></span>
+              Next-Gen Education Ecosystem
+            </Badge>
+
+            <h1 className="text-5xl md:text-6xl font-extrabold text-primary tracking-tight leading-tight">
+              Building Campuses That <br/>
+              <span className="text-accent">Connect India</span>
+            </h1>
+
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              SALOK is a premier digital ecosystem for managing admissions, academics, faculty, finance, placements, research, and student life. We deliver world-class infrastructure for modern universities.
+            </p>
+
+            <div className="bg-secondary/40 p-6 rounded-2xl border border-secondary my-4">
+              <p className="italic text-lg font-medium text-primary">
+                "Building Tomorrow's Education, Today"
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">
+                Connecting communities, driving progress, building the future.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <Button size="lg" className="rounded-md font-semibold px-8 h-12 text-base">
+                View Features
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-md font-semibold px-8 h-12 text-base border-border">
+                Get In Touch
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Image/Card Area */}
+          <div className="relative w-full h-[500px] bg-muted rounded-3xl overflow-hidden border border-border/50 shadow-2xl flex items-center justify-center">
+            {/* Placeholder for the large infrastructure image */}
+            <div className="text-muted-foreground font-medium flex flex-col items-center gap-2">
+              <span>[ Hero Image / Illustration Placeholder ]</span>
+            </div>
+            
+            {/* Overlay stat card */}
+            <div className="absolute bottom-6 left-6 bg-card p-4 rounded-xl shadow-lg border border-border/50 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+              </div>
+              <div>
+                <p className="font-bold text-2xl text-primary">2,500+</p>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Students Managed</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
