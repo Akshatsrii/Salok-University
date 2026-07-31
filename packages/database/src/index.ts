@@ -7,3 +7,4 @@ export * from './models/Student';
 export * from './models/FacultyProfile';
 export * from './models/LibraryBook';
 export * from './models/HostelRoom';
+export * from './connectDB';
