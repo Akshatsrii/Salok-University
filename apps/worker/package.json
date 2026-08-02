@@ -1,9 +1,14 @@
 {
-  "name": "@salok/worker",
+  "name": "worker",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "echo 'Worker starting...'",
-    "build": "echo 'Worker building...'"
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@salok/config": "*",
+    "@salok/types": "*"
   }
 }

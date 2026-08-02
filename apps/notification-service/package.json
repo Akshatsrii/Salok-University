@@ -1,9 +1,14 @@
 {
-  "name": "@salok/notification-service",
+  "name": "notification-service",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "echo 'Notification Service starting...'",
-    "build": "echo 'Notification Service building...'"
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@salok/config": "*"
   }
 }
