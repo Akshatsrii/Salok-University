@@ -1,5 +1,5 @@
 {
-  "name": "salok-university",
+  "name": "salok-university-erp",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -9,9 +9,14 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,json}\""
   },
   "devDependencies": {
-    "turbo": "^1.13.0"
+    "turbo": "^1.13.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3"
   }
 }
