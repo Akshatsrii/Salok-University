@@ -9,8 +9,17 @@
   },
   "dependencies": {
     "express": "^4.19.2",
+    "mongoose": "^8.3.0",
+    "dotenv": "^16.4.5",
     "@salok/config": "*",
     "@salok/types": "*",
     "@salok/validation": "*"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.3",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2"
   }
 }
