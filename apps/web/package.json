@@ -16,6 +16,7 @@
     "axios": "^1.6.8",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.373.0",
+    "recharts": "^2.12.7",
     "@salok/ui": "*",
     "@salok/config": "*",
     "@salok/validation": "*"
