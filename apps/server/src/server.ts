@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import { env } from './config/env';
 import { connectDB } from './config/database';
 
@@ -8,9 +9,11 @@ import './models';
 
 // Import routes
 import authRoutes from './routes/auth.routes';
+import dashboardRoutes from './routes/dashboard.routes';
 
 const app: Application = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -20,6 +23,7 @@ app.get('/health', (req: Request, res: Response) => {
 
 // API Routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 const startServer = async () => {
   try {
