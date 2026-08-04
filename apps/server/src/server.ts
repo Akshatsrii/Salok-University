@@ -10,6 +10,7 @@ import './models';
 // Import routes
 import authRoutes from './routes/auth.routes';
 import dashboardRoutes from './routes/dashboard.routes';
+import admissionRoutes from './routes/admission.routes';
 
 const app: Application = express();
 
@@ -24,6 +25,7 @@ app.get('/health', (req: Request, res: Response) => {
 // API Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
+app.use('/api/v1/admission', admissionRoutes);
 
 const startServer = async () => {
   try {
