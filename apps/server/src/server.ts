@@ -11,6 +11,7 @@ import './models';
 import authRoutes from './routes/auth.routes';
 import dashboardRoutes from './routes/dashboard.routes';
 import admissionRoutes from './routes/admission.routes';
+import studentRoutes from './routes/student.routes';
 
 const app: Application = express();
 
@@ -26,6 +27,7 @@ app.get('/health', (req: Request, res: Response) => {
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/admission', admissionRoutes);
+app.use('/api/v1/students', studentRoutes);
 
 const startServer = async () => {
   try {
