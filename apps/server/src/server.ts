@@ -12,6 +12,7 @@ import authRoutes from './routes/auth.routes';
 import dashboardRoutes from './routes/dashboard.routes';
 import admissionRoutes from './routes/admission.routes';
 import studentRoutes from './routes/student.routes';
+import attendanceRoutes from './routes/attendance.routes';
 
 const app: Application = express();
 
@@ -28,6 +29,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/admission', admissionRoutes);
 app.use('/api/v1/students', studentRoutes);
+app.use('/api/v1/attendance', attendanceRoutes);
 
 const startServer = async () => {
   try {
