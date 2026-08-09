@@ -14,6 +14,7 @@ import admissionRoutes from './routes/admission.routes';
 import studentRoutes from './routes/student.routes';
 import attendanceRoutes from './routes/attendance.routes';
 import timetableRoutes from './routes/timetable.routes';
+import assignmentRoutes from './routes/assignment.routes';
 
 const app: Application = express();
 
@@ -32,6 +33,7 @@ app.use('/api/v1/admission', admissionRoutes);
 app.use('/api/v1/students', studentRoutes);
 app.use('/api/v1/attendance', attendanceRoutes);
 app.use('/api/v1/timetable', timetableRoutes);
+app.use('/api/v1/assignments', assignmentRoutes);
 
 const startServer = async () => {
   try {
