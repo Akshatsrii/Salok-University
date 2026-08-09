@@ -13,6 +13,7 @@ import dashboardRoutes from './routes/dashboard.routes';
 import admissionRoutes from './routes/admission.routes';
 import studentRoutes from './routes/student.routes';
 import attendanceRoutes from './routes/attendance.routes';
+import timetableRoutes from './routes/timetable.routes';
 
 const app: Application = express();
 
@@ -30,6 +31,7 @@ app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/admission', admissionRoutes);
 app.use('/api/v1/students', studentRoutes);
 app.use('/api/v1/attendance', attendanceRoutes);
+app.use('/api/v1/timetable', timetableRoutes);
 
 const startServer = async () => {
   try {
