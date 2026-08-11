@@ -1,41 +1,78 @@
-# Salok University ERP
+# Salok University Management System
 
-AI-Powered Smart Campus Management System.
+A comprehensive, AI-powered University Management System built with a modern tech stack (Next.js 15, Node.js/Express, MongoDB) using a Monorepo architecture. 
 
-## Architecture
-- **Frontend**: Next.js 15 (App Router), React 19, Tailwind CSS, ShadCN UI
-- **Backend**: Node.js, Express, MongoDB (Mongoose), Redis, BullMQ
-- **AI**: RAG, Pinecone, LangChain, Custom OCR
-- **Monorepo**: Turborepo, npm workspaces
+## 🚀 Features
 
-## Current Status
-- **Day 1**: Monorepo Setup (Turborepo), Apps Shells (web, server, ai-service, notification-service, worker), Shared Packages (ui, types, utils, config, validation), Docker & Nginx config, CI pipeline.
-- **Day 2**: Database Connection (Mongoose with retry logic), Environment config, and Core Models (University, User, Department, Course, Branch, Semester, Subject, Student, Teacher).
-- **Day 3**: Authentication Core Setup (OTP Auth, JWT verification, Admin/Student/Teacher models, Auth routes).
-- **Day 4**: Multi-Tenant Architecture & Auth UI (Role Selection, Super Admin flow, Tenant initialization, NextAuth setup).
-- **Day 5**: Public Website Module (Home, About, Academics, Admissions, Campus Life, Placements, Research, Contact pages with responsive components).
-- **Day 6**: Admin Portal Dashboard (Statistics grid, Recharts visualizations, AI Insights Panel, Dashboard APIs).
-- **Day 7**: Admissions Module (Application Forms, Applicant Tracking, Merit Lists generation, Counselling scheduling).
-- **Day 8**: Student Management - Admin Side (Student Directory, Profile views with tabs, Student Creation form, CSV Bulk Import, Reports export).
-- **Day 9**: Student Self-Portal (Dashboard Widgets: Attendance, CGPA, Timetable, Assignments, NoticeFeed; Profile: Editable details, Academic info, Resume & Skills).
-- **Day 10**: Attendance System (QR/Face capture for Students, Marking Grid for Teachers, Department Overview and Defaulters List for Admins with AI proxy flagging).
+### Core Modules
+* **Authentication & Authorization**: Secure JWT-based login with role-based access control (Admin, Teacher, Student).
+* **Admissions Portal**: Complete student onboarding workflow, document verification, and fee payment processing.
+* **Student Management**: Centralized database for student records, profiles, and academic histories.
+* **Self-Portal**: Dashboard for students to view their profile, fees, and academic progress.
+* **Attendance System**: Advanced attendance tracking with support for QR code/facial recognition and heatmap visualizations.
+* **Timetable Management**: AI-optimized scheduling for classes, labs, and exams with conflict detection and Google Calendar sync.
+* **Assignments Module**: End-to-end assignment workflow including creation, submission, AI-assisted grading, and rubric generation.
+* **Examination Module**: Comprehensive exam scheduling, hall ticket generation (with eligibility checks), marks entry, result processing (CGPA calculation), revaluation queue, and certificate generation.
 
-## Setup Instructions
+### AI & Notification Microservices
+* **AI Assistant (Chatbot)**: Conversational AI to help students with schedules and policies.
+* **Resume Analyzer (Placement AI)**: AI-driven ATS scoring and keyword extraction for student resumes.
+* **Performance Predictor**: AI models to predict class pass rates and identify at-risk students.
+* **Notification System**: Robust multi-channel notification engine (Email, SMS, Push, WhatsApp) with a centralized bulk messaging dashboard for admins.
 
-1. Install dependencies:
+## 🏗️ Architecture (Monorepo)
+
+The project uses a monorepo structure to organize frontend, backend, and microservices:
+
+```
+SALOK/
+├── apps/
+│   ├── web/                    # Next.js 15 Frontend (App Router)
+│   ├── server/                 # Express.js Core Backend API
+│   ├── ai-service/             # AI Microservices (Chatbot, RAG, etc.)
+│   └── notification-service/   # Notification Workers & API
+├── .env.example
+├── .prettierrc
+└── package.json
+```
+
+## 💻 Tech Stack
+* **Frontend**: Next.js 15, React, Tailwind CSS, Lucide Icons
+* **Backend**: Node.js, Express.js, TypeScript
+* **Database**: MongoDB (Mongoose ODM)
+* **Microservices Architecture**: Separate services for AI and Notifications.
+
+## ⚙️ Getting Started
+
+### Prerequisites
+* Node.js (v18+)
+* MongoDB instance (Local or Atlas)
+* API Keys for AI & Notifications (OpenAI, Twilio, SendGrid)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Akshatsrii/Salok-University.git
+   cd Salok-University
+   ```
+2. Install dependencies:
    ```bash
    npm install
    ```
+3. Environment Setup:
+   * Copy `.env.example` to `.env` in the root directory.
+   * Fill in your MongoDB URI, JWT Secrets, and third-party API keys.
 
-2. Environment Variables:
-   Copy `.env.example` to `.env` and fill in the values (MongoDB URI, Ports, etc.).
+### Running the Project
+*(Commands depend on workspace setup (e.g., Turborepo/Yarn Workspaces). Assume standard npm scripts are configured.)*
+```bash
+npm run dev
+```
 
-3. Run Development Servers:
-   ```bash
-   npm run dev
-   ```
+## 🔒 Roles
+* **Student**: Access to self-portal, attendance viewing, assignment submission, timetable, exam results, and AI tools.
+* **Teacher**: Access to mark attendance, manage assignments, generate AI rubrics, enter exam marks, and view predictive analytics.
+* **Admin**: Full access to admissions, examination scheduling, bulk communications, and overall system management.
 
-4. Build for Production:
-   ```bash
-   npm run build
-   ```
+---
+*Built for Salok University.*
