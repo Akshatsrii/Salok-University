@@ -7,19 +7,19 @@ export default function Home() {
       title: "Admin Portal",
       description: "Manage users, admissions, fees, and university settings.",
       icon: <Users className="w-8 h-8 text-indigo-500" />,
-      href: "/admin/dashboard",
+      href: "/admin",
     },
     {
       title: "Student Portal",
       description: "Access your timetable, attendance, assignments, and results.",
       icon: <GraduationCap className="w-8 h-8 text-blue-500" />,
-      href: "/student/dashboard",
+      href: "/student",
     },
     {
       title: "Faculty Portal",
       description: "Manage classes, mark attendance, and grade assignments.",
       icon: <Calendar className="w-8 h-8 text-teal-500" />,
-      href: "/faculty/dashboard",
+      href: "/teacher",
     },
     {
       title: "Hostel & Facility",
@@ -37,7 +37,7 @@ export default function Home() {
       title: "Placement Cell",
       description: "Company drives, mock interviews, and resume builder.",
       icon: <Briefcase className="w-8 h-8 text-purple-500" />,
-      href: "/admin/placement",
+      href: "/admin/placement/dashboard",
     },
   ];
 
