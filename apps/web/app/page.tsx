@@ -169,6 +169,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Key Statistics Banner */}
+      <section className="bg-[#1a2b4c] border-y-4 border-[#ffb800] py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 md:px-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+          <div>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">50k<span className="text-[#ffb800]">+</span></h3>
+            <p className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Students</p>
+          </div>
+          <div>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">98<span className="text-[#ffb800]">%</span></h3>
+            <p className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Placement Rate</p>
+          </div>
+          <div>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">200<span className="text-[#ffb800]">+</span></h3>
+            <p className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Global Partners</p>
+          </div>
+          <div>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2">150<span className="text-[#ffb800]">+</span></h3>
+            <p className="text-sm font-semibold text-gray-300 uppercase tracking-widest">Acres Campus</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Campus Gallery */}
+      <section className="max-w-7xl mx-auto px-4 md:px-12 py-16">
+        <div className="text-center mb-12 relative">
+          <h2 className="text-xl font-bold text-gray-900 inline-block bg-[#fffdf5] px-4 relative z-10">Campus Life</h2>
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-24 h-1 bg-[#ffb800] -z-0"></div>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          <div className="col-span-2 row-span-2 rounded-3xl overflow-hidden relative group shadow-sm">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Graduation" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2b4c]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span className="text-white font-bold text-lg">Graduation Day 2025</span>
+            </div>
+          </div>
+          <div className="rounded-3xl overflow-hidden relative group shadow-sm">
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1786&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Library" />
+          </div>
+          <div className="rounded-3xl overflow-hidden relative group shadow-sm">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Tech Lab" />
+          </div>
+          <div className="col-span-2 rounded-3xl overflow-hidden relative group shadow-sm">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Campus Grounds" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2b4c]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span className="text-white font-bold text-lg">Main Campus Grounds</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Latest News Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-12 py-16 pb-32">
         <div className="text-center mb-12 relative">
