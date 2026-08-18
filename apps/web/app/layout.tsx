@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { AIChatWidget } from "../components/shared/AIChatWidget";
-import { NotificationDrawer } from "../components/shared/NotificationDrawer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,9 +29,6 @@ export default function RootLayout({
         className={`${inter.variable} ${robotoMono.variable} antialiased`}
       >
         {children}
-        <div className="fixed top-6 right-6 z-50">
-          <NotificationDrawer />
-        </div>
         <AIChatWidget />
       </body>
     </html>
