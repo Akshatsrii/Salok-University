@@ -1,145 +1,255 @@
 import Link from "next/link";
-import { GraduationCap, Users, Calendar, Bus, Home as HomeIcon, Briefcase, ChevronRight, ArrowRight } from "lucide-react";
+import { GraduationCap, MapPin, Phone, Mail } from "lucide-react";
 
 export default function Home() {
-  const modules = [
-    {
-      title: "Admin Portal",
-      description: "Manage users, admissions, fees, and university settings with advanced AI insights.",
-      icon: <Users className="w-6 h-6 text-indigo-600" />,
-      href: "/admin",
-      color: "bg-indigo-50",
-      border: "hover:border-indigo-200",
-      shadow: "hover:shadow-indigo-500/10"
-    },
+  const portals = [
     {
       title: "Student Portal",
-      description: "Access your timetable, attendance, assignments, and semester results.",
-      icon: <GraduationCap className="w-6 h-6 text-sky-600" />,
+      description: "Access courses, assignments, grades, and attendance and other activities.",
+      buttonText: "Login",
       href: "/student",
-      color: "bg-sky-50",
-      border: "hover:border-sky-200",
-      shadow: "hover:shadow-sky-500/10"
     },
     {
       title: "Faculty Portal",
-      description: "Manage classes, mark attendance, and grade assignments effortlessly.",
-      icon: <Calendar className="w-6 h-6 text-teal-600" />,
+      description: "Manage courses, student attendance, and grading system of each student.",
+      buttonText: "Login",
       href: "/teacher",
-      color: "bg-teal-50",
-      border: "hover:border-teal-200",
-      shadow: "hover:shadow-teal-500/10"
     },
     {
-      title: "Hostel & Facility",
-      description: "Room allocation, mess menu, visitors, and gate passes management.",
-      icon: <HomeIcon className="w-6 h-6 text-orange-600" />,
-      href: "/facility/hostel/rooms",
-      color: "bg-orange-50",
-      border: "hover:border-orange-200",
-      shadow: "hover:shadow-orange-500/10"
+      title: "Library Portal",
+      description: "Search books, access research papers, and borrow resources and explore the books.",
+      buttonText: "Login",
+      href: "/student/library",
     },
     {
-      title: "Transport Module",
-      description: "Live GPS tracking, bus routes, and automated maintenance logs.",
-      icon: <Bus className="w-6 h-6 text-amber-600" />,
-      href: "/facility/transport/routes",
-      color: "bg-amber-50",
-      border: "hover:border-amber-200",
-      shadow: "hover:shadow-amber-500/10"
-    },
-    {
-      title: "Placement Cell",
-      description: "Company drives, AI mock interviews, and smart resume builder.",
-      icon: <Briefcase className="w-6 h-6 text-purple-600" />,
+      title: "Placement & Career Portal",
+      description: "Explore internships and career opportunities.",
+      buttonText: "Click",
       href: "/admin/placement/dashboard",
-      color: "bg-purple-50",
-      border: "hover:border-purple-200",
-      shadow: "hover:shadow-purple-500/10"
+    },
+    {
+      title: "Administration Portal",
+      description: "Manage student records, admissions and financial details.",
+      buttonText: "Click",
+      href: "/admin",
+    },
+    {
+      title: "Alumni Portal",
+      description: "Connect with past graduates, mentorship programs and events/workshops.",
+      buttonText: "Click",
+      href: "/alumni",
+    },
+    {
+      title: "Health & Wellness Portal",
+      description: "Book medical appointments and access mental health resources.",
+      buttonText: "Click",
+      href: "/health",
+      highlight: true
+    },
+    {
+      title: "Hostel & Accommodation Portal",
+      description: "Manage hostel rooms, maintenance and meal plans.",
+      buttonText: "Click",
+      href: "/facility/hostel/rooms",
     },
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-200/40 blur-3xl opacity-50 mix-blend-multiply animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute top-[20%] right-[-5%] w-[35%] h-[35%] rounded-full bg-sky-200/40 blur-3xl opacity-50 mix-blend-multiply animate-pulse" style={{ animationDuration: '10s' }} />
-        <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-purple-200/30 blur-3xl opacity-50 mix-blend-multiply animate-pulse" style={{ animationDuration: '12s' }} />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col items-center justify-center min-h-screen">
-        
-        {/* Hero Section */}
-        <div className="text-center max-w-3xl mb-20 space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100/50 text-indigo-700 text-sm font-semibold tracking-wide backdrop-blur-sm shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-            </span>
-            Salok ERP v2.0 is live
+    <div className="min-h-screen bg-[#fffdf5] font-sans selection:bg-[#ffb800] selection:text-white overflow-x-hidden">
+      
+      {/* Navbar */}
+      <nav className="w-full bg-white h-20 px-4 md:px-12 flex items-center justify-between sticky top-0 z-50 shadow-sm border-b border-gray-100">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-[#1a2b4c] text-white flex items-center justify-center">
+            <GraduationCap className="w-6 h-6" />
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-            Next-Gen <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500">
-              University Management
-            </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            A unified, AI-powered system designed to streamline academic, administrative, and facility operations into one beautiful, intelligent interface.
-          </p>
+          <span className="font-bold text-xl tracking-tight text-gray-900">SALOK UNIVERSITY</span>
+        </div>
+        
+        <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-600">
+          <Link href="#" className="text-[#007bff] hover:text-[#0056b3] transition-colors">Home</Link>
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <Link href="#" className="hover:text-[#007bff] transition-colors">About</Link>
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <Link href="#" className="hover:text-[#007bff] transition-colors">Courses</Link>
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <Link href="#" className="hover:text-[#007bff] transition-colors">Faculty</Link>
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <Link href="#" className="hover:text-[#007bff] transition-colors">Contact</Link>
+        </div>
 
-          <div className="pt-4 flex items-center justify-center gap-4">
-            <Link href="/admin" className="premium-button text-base px-8 py-3.5">
-              Enter Admin Portal
-              <ArrowRight className="w-4 h-4 ml-2" />
+        <div>
+          <Link href="/admin" className="bg-[#007bff] hover:bg-[#0056b3] text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-colors">
+            Login
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-[80vh] min-h-[600px] w-full flex flex-col items-center justify-center text-center px-4">
+        <div 
+          className="absolute inset-0 bg-cover bg-center z-0" 
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        
+        <div className="relative z-20 flex flex-col items-center max-w-4xl mx-auto space-y-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-[#ffb800] leading-tight drop-shadow-lg">
+            Welcome to Our <br /> University
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 font-medium max-w-2xl drop-shadow-md">
+            Empowering students with knowledge and Innovation.
+          </p>
+          <div className="pt-6">
+            <Link href="#programs" className="bg-[#ffb800] hover:bg-[#e6a600] text-gray-900 px-8 py-3.5 rounded-full font-bold text-lg shadow-lg transition-transform hover:scale-105 active:scale-95 inline-block">
+              Explore Programs
             </Link>
           </div>
         </div>
+      </section>
 
-        {/* Modules Grid */}
-        <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {modules.map((module, index) => (
-              <Link
-                key={index}
-                href={module.href}
-                className={`group relative bg-white/70 backdrop-blur-xl p-8 rounded-3xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white ${module.border} ${module.shadow}`}
+      {/* News & Events Banners */}
+      <section className="max-w-7xl mx-auto px-4 md:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 -mt-24 relative z-30">
+          {/* Banner 1 */}
+          <div className="bg-[#fffdf5] rounded-3xl p-8 flex items-center justify-between shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-100">
+            <div className="flex-1 pr-4">
+              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">Mid-Semester <br/> Exam Schedule <br/> Released</h3>
+              <p className="text-sm text-gray-500">The exam schedule for the mid-semester exams is now available. Click below to view the details.</p>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <div className="bg-[#fff3cc] text-gray-800 text-center font-bold text-sm px-4 py-3 rounded-2xl w-20">
+                March <br/> 27, <br/> 2026
+              </div>
+              <button className="bg-[#ffb800] text-gray-900 px-5 py-3 rounded-2xl font-bold text-sm shadow-md hover:bg-[#e6a600] transition-colors">Read<br/>More</button>
+            </div>
+          </div>
+          {/* Banner 2 */}
+          <div className="bg-[#fffdf5] rounded-3xl p-8 flex items-center justify-between shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-100">
+            <div className="flex-1 pr-4">
+              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">Guest Lecture on <br/> AI & Machine <br/> Learning</h3>
+              <p className="text-sm text-gray-500">Join us for a guest lecture by industry expert Dr. John Doe on March 30, 2026.</p>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <div className="bg-[#fff3cc] text-gray-800 text-center font-bold text-sm px-4 py-3 rounded-2xl w-20">
+                March <br/> 25, <br/> 2026
+              </div>
+              <button className="bg-[#ffb800] text-gray-900 px-5 py-3 rounded-2xl font-bold text-sm shadow-md hover:bg-[#e6a600] transition-colors">Register<br/>Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* University Portals Section */}
+      <section className="max-w-7xl mx-auto px-4 md:px-12 py-16 relative">
+        <div className="text-center mb-16 relative">
+          <h2 className="text-2xl font-extrabold text-gray-900 inline-block bg-[#fffdf5] px-4 relative z-10">University Portals</h2>
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-64 h-1 bg-gray-200 -z-0"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-24 h-1.5 bg-[#ffb800] -z-0"></div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {portals.map((portal, index) => (
+            <div 
+              key={index} 
+              className={`bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border transition-all duration-300 hover:shadow-[0_15px_40px_rgb(255,184,0,0.15)] group ${portal.highlight ? 'border-[#ffb800] ring-4 ring-[#ffb800]/20' : 'border-gray-100 hover:border-[#ffb800]'}`}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{portal.title}</h3>
+              <p className="text-sm text-gray-500 mb-8 flex-1 leading-relaxed">
+                {portal.description}
+              </p>
+              <Link 
+                href={portal.href}
+                className="bg-[#ffb800] text-gray-900 px-8 py-2.5 rounded-full font-bold text-sm shadow-sm hover:bg-[#e6a600] transition-colors"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className={`w-14 h-14 rounded-2xl ${module.color} flex items-center justify-center mb-6 shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-300`}>
-                    {module.icon}
-                  </div>
-                  
-                  <h2 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
-                    {module.title}
-                  </h2>
-                  
-                  <p className="text-slate-500 leading-relaxed text-sm flex-1 mb-6">
-                    {module.description}
-                  </p>
-
-                  <div className="mt-auto flex items-center text-sm font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                    Access Module
-                    <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                  </div>
-                </div>
+                {portal.buttonText}
               </Link>
-            ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="max-w-7xl mx-auto px-4 md:px-12 py-16 pb-32">
+        <div className="text-center mb-12 relative">
+          <h2 className="text-xl font-bold text-gray-900 inline-block bg-[#fffdf5] px-4 relative z-10">Latest News</h2>
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-24 h-1 bg-[#ffb800] -z-0"></div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: "AI Lab Inauguration", desc: "A new state-of-the-art Artificial Intelligence Lab has been inaugurated to foster innovation.", img: "https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=1932&auto=format&fit=crop" },
+            { title: "Scholarship Program for Students", desc: "The university announces a $50,000 scholarship fund for outstanding academic achievers.", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop" },
+            { title: "New Sports Complex Opening", desc: "A brand-new sports complex with modern facilities is now open for all students.", img: "https://images.unsplash.com/photo-1518605368461-1e12a4505315?q=80&w=2070&auto=format&fit=crop" }
+          ].map((news, idx) => (
+            <div key={idx} className="bg-[#fff3cc] rounded-3xl overflow-hidden border border-[#ffdb70]/50 shadow-sm">
+              <img src={news.img} alt={news.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{news.title}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">{news.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1a2b4c] text-white pt-16 relative">
+        <div className="absolute top-0 left-0 w-full h-1 bg-[#ffb800]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 pb-12">
+          <div>
+            <h4 className="text-xl font-bold mb-4">About University</h4>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Our university is committed to excellence in education, research, and innovation. Providing students with the best academic environment.
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-xl font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link href="#" className="hover:text-white transition-colors">Admissions</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Academics</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Research</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Library</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Career Services</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-xl font-bold mb-4">University Portals</h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li><Link href="/student" className="hover:text-white transition-colors">Student Portal</Link></li>
+              <li><Link href="/teacher" className="hover:text-white transition-colors">Faculty Portal</Link></li>
+              <li><Link href="/alumni" className="hover:text-white transition-colors">Alumni Portal</Link></li>
+              <li><Link href="/health" className="hover:text-white transition-colors">Health & Wellness</Link></li>
+              <li><Link href="/facility/hostel/rooms" className="hover:text-white transition-colors">Hostel & Accommodation</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-xl font-bold mb-4">Contact Us</h4>
+            <ul className="space-y-4 text-sm text-gray-300">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5" />
+                <span>123 University Road, City, Country</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-pink-500 flex-shrink-0" />
+                <span>+123-456-7890</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                <span>contact@salokuniversity.edu</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-24 text-center">
-          <p className="text-sm font-medium text-slate-400">
-            © 2026 Salok University. All rights reserved.
-          </p>
+        <div className="border-t border-white/10 py-6 text-center text-xs text-gray-400">
+          <p>© 2026 Salok University Management System. All rights reserved.</p>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
