@@ -12,13 +12,18 @@ A comprehensive, AI-powered University Management System built with a modern tec
 * **Attendance System**: Advanced attendance tracking with support for QR code/facial recognition and heatmap visualizations.
 * **Timetable Management**: AI-optimized scheduling for classes, labs, and exams with conflict detection and Google Calendar sync.
 * **Assignments Module**: End-to-end assignment workflow including creation, submission, AI-assisted grading, and rubric generation.
-* **Examination Module**: Comprehensive exam scheduling, hall ticket generation (with eligibility checks), marks entry, result processing (CGPA calculation), revaluation queue, and certificate generation.
+* **Examination Module**: Comprehensive exam scheduling, hall ticket generation, marks entry, and result processing.
+* **Hostel Facility**: Room allocation, mess menu management, and complaints tracking.
+* **Transport Module**: Live bus GPS tracking (Socket.io), route management, and fuel/maintenance logs.
+* **Placement Cell**: Company drive tracking, student resume builder, mock interview module, and application status tracking.
+* **Communication Center**: Multi-channel notice broadcasting (SMS, Email, Push) and AI-categorized complaint queues with audit logs.
 
 ### AI & Notification Microservices
-* **AI Assistant (Chatbot)**: Conversational AI to help students with schedules and policies.
+* **AI Assistant (Chatbot)**: Conversational AI (RAG with Pinecone & Gemini) to help students with schedules and policies.
 * **Resume Analyzer (Placement AI)**: AI-driven ATS scoring and keyword extraction for student resumes.
-* **Performance Predictor**: AI models to predict class pass rates and identify at-risk students.
-* **Notification System**: Robust multi-channel notification engine (Email, SMS, Push, WhatsApp) with a centralized bulk messaging dashboard for admins.
+* **Performance & Package Predictor**: AI models to predict class pass rates, flag at-risk students, and predict expected placement packages.
+* **Document AI**: OCR & face match for automated admission document verification.
+* **Notification Engine**: Real-time push and email alerts for transport, assignments, and campus notices.
 
 ## 🏗️ Architecture (Monorepo)
 
