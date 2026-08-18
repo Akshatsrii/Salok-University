@@ -17,6 +17,7 @@ import timetableRoutes from './routes/timetable.routes';
 import assignmentRoutes from './routes/assignment.routes';
 import examRoutes from './routes/exam.routes';
 import resultRoutes from './routes/result.routes';
+import communicationRoutes from './routes/communication.routes';
 
 const app: Application = express();
 
@@ -38,6 +39,7 @@ app.use('/api/v1/timetable', timetableRoutes);
 app.use('/api/v1/assignments', assignmentRoutes);
 app.use('/api/v1/exams', examRoutes);
 app.use('/api/v1/results', resultRoutes);
+app.use('/api/v1/communication', communicationRoutes);
 
 const startServer = async () => {
   try {
