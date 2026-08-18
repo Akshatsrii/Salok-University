@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* slate-50 for a soft premium background */
-  --foreground: #0f172a; /* slate-900 for high-contrast legible text */
+  --background: #fffdf5; /* Cream background from Eduflow */
+  --foreground: #1a2b4c; /* Deep navy blue for high contrast text */
   --card-bg: #ffffff;
   --card-border: #f1f5f9; /* slate-100 */
   
-  --primary: #4f46e5; /* indigo-600 */
-  --primary-hover: #4338ca; /* indigo-700 */
-  --accent: #0ea5e9; /* sky-500 */
+  --primary: #ffb800; /* Golden Yellow */
+  --primary-hover: #e6a600; /* Darker Golden Yellow */
+  --accent: #007bff; /* Bright Blue */
 }
 
 @theme inline {
@@ -44,6 +44,6 @@ body {
     @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-700/50 shadow-sm;
   }
   .premium-button {
-    @apply inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-indigo-500/20;
+    @apply inline-flex items-center justify-center rounded-full bg-[#ffb800] px-6 py-2.5 text-sm font-bold text-gray-900 hover:bg-[#e6a600] active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[#ffb800]/20;
   }
 }

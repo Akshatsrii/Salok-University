@@ -49,18 +49,18 @@ export const Sidebar = () => {
   const navItems = getNavItems();
 
   return (
-    <aside className="w-64 fixed inset-y-0 left-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col z-40 transition-transform duration-300">
-      <div className="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg group-hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-200">
-            S
+    <aside className="w-64 fixed inset-y-0 left-0 bg-[#1a2b4c] border-r border-[#1a2b4c] flex flex-col z-40 transition-transform duration-300 shadow-xl">
+      <div className="h-20 flex items-center px-6 border-b border-white/10">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#1a2b4c] font-bold text-lg group-hover:bg-[#ffb800] transition-colors shadow-sm">
+            <GraduationCap className="w-5 h-5" />
           </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Salok ERP</span>
+          <span className="font-bold text-xl tracking-tight text-white">SALOK</span>
         </Link>
       </div>
 
       <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-        <div className="mb-4 px-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">Main Menu</div>
+        <div className="mb-4 px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Main Menu</div>
         {navItems.map((item) => {
           const isActive = pathname === item.href || (pathname.startsWith(item.href) && item.href !== "/admin" && item.href !== "/student" && item.href !== "/teacher");
           const Icon = item.icon;
@@ -71,20 +71,20 @@ export const Sidebar = () => {
               href={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
                 isActive 
-                  ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400 shadow-sm" 
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50"
+                  ? "bg-[#ffb800] text-[#1a2b4c] shadow-sm" 
+                  : "text-gray-300 hover:bg-white/10 hover:text-white"
               }`}
             >
-              <Icon className={`w-5 h-5 ${isActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300"}`} />
+              <Icon className={`w-5 h-5 ${isActive ? "text-[#1a2b4c]" : "text-gray-400 group-hover:text-white"}`} />
               {item.name}
             </Link>
           );
         })}
       </div>
 
-      <div className="p-4 border-t border-slate-100 dark:border-slate-800">
-        <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-colors">
-          <Settings className="w-5 h-5 text-slate-400" />
+      <div className="p-4 border-t border-white/10">
+        <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-colors">
+          <Settings className="w-5 h-5 text-gray-400" />
           System Settings
         </button>
       </div>

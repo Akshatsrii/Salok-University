@@ -14,9 +14,9 @@ export const Topbar = () => {
     : 'Dashboard';
 
   return (
-    <header className="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-30 transition-colors">
+    <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-30 transition-colors">
       <div className="flex items-center gap-4">
-        <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{title}</h1>
+        <h1 className="text-xl font-bold text-[#1a2b4c] tracking-tight">{title}</h1>
       </div>
 
       <div className="flex items-center gap-6">
