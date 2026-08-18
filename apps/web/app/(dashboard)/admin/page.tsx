@@ -5,6 +5,7 @@ import { RevenueChart } from '../../../components/admin/dashboard/RevenueChart';
 import { PlacementChart } from '../../../components/admin/dashboard/PlacementChart';
 import { CoursePopularityChart } from '../../../components/admin/dashboard/CoursePopularityChart';
 import { AIInsightsPanel } from '../../../components/admin/dashboard/AIInsightsPanel';
+import { AuditTrailViewer } from '../../../components/shared/AuditTrailViewer';
 
 export default function AdminDashboardPage() {
   return (
@@ -30,6 +31,7 @@ export default function AdminDashboardPage() {
         
         <div className="space-y-8">
           <AIInsightsPanel />
+          <AuditTrailViewer />
           <PlacementChart />
         </div>
       </div>
