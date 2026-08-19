@@ -47,3 +47,21 @@ body {
     @apply inline-flex items-center justify-center rounded-full bg-[#ffb800] px-6 py-2.5 text-sm font-bold text-gray-900 hover:bg-[#e6a600] active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[#ffb800]/20;
   }
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal {
+  animation: reveal 0.8s ease-out forwards;
+}
