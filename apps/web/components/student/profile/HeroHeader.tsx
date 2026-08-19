@@ -25,13 +25,13 @@ export const HeroHeader = () => {
           </div>
           
           <div className="flex gap-4 pb-2">
-            <div className="bg-[#fffdf5] border border-[#ffb800] p-4 rounded-2xl text-center min-w-[120px]">
+            <div className="bg-white/70 backdrop-blur-md border border-white/50 p-4 rounded-2xl text-center min-w-[120px] shadow-sm">
               <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">CGPA</p>
               <p className="text-3xl font-extrabold text-[#1a2b4c]">8.9</p>
             </div>
-            <div className="bg-[#fffdf5] border border-[#ffb800] p-4 rounded-2xl text-center min-w-[120px] flex flex-col justify-center items-center">
+            <div className="bg-white/70 backdrop-blur-md border border-white/50 p-4 rounded-2xl text-center min-w-[120px] flex flex-col justify-center items-center shadow-sm">
               <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Status</p>
-              <span className="bg-emerald-100 text-emerald-700 text-sm font-bold px-3 py-1 rounded-full flex items-center gap-1">
+              <span className="bg-emerald-100/80 text-emerald-700 text-sm font-bold px-3 py-1 rounded-full flex items-center gap-1 backdrop-blur-sm border border-emerald-200">
                 <Award className="w-4 h-4" /> Top 5%
               </span>
             </div>
