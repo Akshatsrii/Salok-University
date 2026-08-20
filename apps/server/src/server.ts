@@ -18,6 +18,13 @@ import assignmentRoutes from './routes/assignment.routes';
 import examRoutes from './routes/exam.routes';
 import resultRoutes from './routes/result.routes';
 import communicationRoutes from './routes/communication.routes';
+import universityRoutes from './routes/university.routes';
+import academicStructureRoutes from './routes/academicStructure.routes';
+import financeRoutes from './routes/finance.routes';
+import libraryRoutes from './routes/library.routes';
+import hostelRoutes from './routes/hostel.routes';
+import transportRoutes from './routes/transport.routes';
+import placementRoutes from './routes/placement.routes';
 
 const app: Application = express();
 
@@ -40,6 +47,13 @@ app.use('/api/v1/assignments', assignmentRoutes);
 app.use('/api/v1/exams', examRoutes);
 app.use('/api/v1/results', resultRoutes);
 app.use('/api/v1/communication', communicationRoutes);
+app.use('/api/v1/university', universityRoutes);
+app.use('/api/v1/academic', academicStructureRoutes);
+app.use('/api/v1/finance', financeRoutes);
+app.use('/api/v1/library', libraryRoutes);
+app.use('/api/v1/hostel', hostelRoutes);
+app.use('/api/v1/transport', transportRoutes);
+app.use('/api/v1/placement', placementRoutes);
 
 const startServer = async () => {
   try {
