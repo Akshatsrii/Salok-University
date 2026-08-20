@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { GraduationCap, MapPin, Phone, Mail } from "lucide-react";
+import { GraduationCap, MapPin, Phone, Mail, ArrowRight, ChevronRight } from "lucide-react";
+import { AlumniMarquee } from '../components/shared/AlumniMarquee';
 
 export default function Home() {
   const portals = [
