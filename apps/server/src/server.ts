@@ -26,11 +26,15 @@ import hostelRoutes from './routes/hostel.routes';
 import transportRoutes from './routes/transport.routes';
 import placementRoutes from './routes/placement.routes';
 
+import { configureSecurityMiddleware } from './middlewares/security.middleware';
+import { apiLimiter } from './middlewares/rateLimiter.middleware';
+
 const app: Application = express();
 
-app.use(cors());
+configureSecurityMiddleware(app);
 app.use(express.json());
 app.use(cookieParser());
+app.use('/api', apiLimiter);
 
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'ok', timestamp: new Date() });
