@@ -29,8 +29,13 @@ export const Sidebar = () => {
     } else if (pathname.startsWith("/teacher")) {
       return [
         { name: "Dashboard", href: "/teacher", icon: LayoutDashboard },
+        { name: "Classes", href: "/teacher/classes", icon: BookOpen },
+        { name: "Attendance", href: "/teacher/attendance", icon: Users },
         { name: "Assignments", href: "/teacher/assignments", icon: BookOpen },
-        { name: "AI Tools", href: "/teacher/ai-tools", icon: Settings },
+        { name: "Students", href: "/teacher/students", icon: Users },
+        { name: "Research", href: "/teacher/research", icon: BookOpen },
+        { name: "Timetable", href: "/teacher/timetable", icon: LayoutDashboard },
+        { name: "AI Assistant", href: "/teacher/ai-assistant", icon: Settings },
       ];
     } else {
       // Admin by default
