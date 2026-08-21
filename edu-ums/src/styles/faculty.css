@@ -1,0 +1,885 @@
+/* ============================================
+   FACULTY PAGE - YELLOW & WHITE THEME
+   ============================================ */
+
+/* Root Variables */
+:root {
+  --primary-yellow: #FFD700;
+  --dark-yellow: #FFC107;
+  --light-yellow: #FFF9C4;
+  --accent-yellow: #FFEB3B;
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --dark-gray: #212121;
+  --medium-gray: #424242;
+  --light-gray: #E0E0E0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.faculty-page {
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.faculty-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 450px;
+  background: linear-gradient(135deg, var(--dark-yellow) 0%, var(--primary-yellow) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.faculty-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="2" fill="rgba(255,255,255,0.15)"/></svg>');
+  background-size: 80px 80px;
+  animation: movePattern 25s linear infinite;
+}
+
+@keyframes movePattern {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(80px, 80px); }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  max-width: 900px;
+  padding: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.faculty-stats {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--light-yellow) 0%, var(--white) 100%);
+  position: relative;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.stat-box {
+  background: var(--white);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.stat-box:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-yellow);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-yellow);
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--dark-yellow), var(--primary-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+/* ============================================
+   DEPARTMENT FILTER
+   ============================================ */
+
+.dept-filter-section {
+  padding: 60px 20px;
+  background: var(--white);
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.filter-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.filter-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--dark-gray);
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.dept-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dept-tab {
+  background: var(--white);
+  border: 2px solid var(--light-gray);
+  padding: 12px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.dept-tab:hover {
+  border-color: var(--primary-yellow);
+  background: var(--light-yellow);
+  transform: translateY(-2px);
+}
+
+.dept-tab.active {
+  background: var(--primary-yellow);
+  border-color: var(--primary-yellow);
+  color: var(--dark-gray);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+}
+
+.tab-count {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   FACULTY GRID SECTION
+   ============================================ */
+
+.faculty-grid-section {
+  padding: 100px 20px;
+  background: var(--white);
+}
+
+.section-header {
+  max-width: 1400px;
+  margin: 0 auto 50px;
+}
+
+.section-header.centered {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  display: inline-block;
+  background: var(--primary-yellow);
+  color: var(--dark-gray);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.faculty-count {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-top: 10px;
+}
+
+.faculty-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+.faculty-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 2px solid var(--light-gray);
+}
+
+.faculty-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-yellow);
+}
+
+.faculty-image-wrapper {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.faculty-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.faculty-card:hover .faculty-image {
+  transform: scale(1.05);
+}
+
+.faculty-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+}
+
+.faculty-card:hover .faculty-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  width: 100%;
+  color: var(--white);
+}
+
+.faculty-email {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  opacity: 0.95;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-yellow);
+  color: var(--dark-gray);
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  background: var(--white);
+}
+
+.faculty-info {
+  padding: 25px;
+}
+
+.faculty-name {
+  font-size: 1.5rem;
+  color: var(--dark-gray);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.faculty-role {
+  font-size: 1rem;
+  color: var(--primary-yellow);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.faculty-dept {
+  font-size: 0.95rem;
+  color: var(--medium-gray);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.faculty-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  line-height: 1.5;
+}
+
+.detail-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detail-text {
+  flex: 1;
+}
+
+/* ============================================
+   ACADEMIC DEPARTMENTS
+   ============================================ */
+
+.academic-dept-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, var(--light-yellow) 0%, var(--white) 100%);
+}
+
+.dept-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.dept-card {
+  background: var(--white);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.dept-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-yellow), var(--dark-yellow));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.dept-card:hover::before {
+  transform: scaleX(1);
+}
+
+.dept-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-yellow);
+}
+
+.dept-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.dept-card h3 {
+  font-size: 1.6rem;
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.dept-card p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dept-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+/* ============================================
+   ACHIEVEMENTS
+   ============================================ */
+
+.faculty-achievements {
+  padding: 100px 20px;
+  background: var(--white);
+}
+
+.achievements-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.achievement-card {
+  background: var(--off-white);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.achievement-card:hover {
+  background: var(--white);
+  border-color: var(--primary-yellow);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.achievement-card h3 {
+  font-size: 2.5rem;
+  color: var(--primary-yellow);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.achievement-card p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+/* ============================================
+   WHY FACULTY SECTION
+   ============================================ */
+
+.why-faculty-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%);
+}
+
+.why-faculty-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.why-content {
+  padding: 20px;
+}
+
+.why-features {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.why-item {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.why-number {
+  background: var(--primary-yellow);
+  color: var(--dark-gray);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.why-text h4 {
+  font-size: 1.4rem;
+  color: var(--dark-gray);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.why-text p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+}
+
+.why-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.why-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.faculty-cta-section {
+  padding: 100px 20px;
+  background: var(--white);
+}
+
+.cta-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--light-yellow) 0%, var(--white) 100%);
+  padding: 80px 60px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--primary-yellow);
+}
+
+.cta-title {
+  font-size: 3rem;
+  color: var(--dark-gray);
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  color: var(--medium-gray);
+  margin-bottom: 40px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.btn.large {
+  padding: 18px 45px;
+  font-size: 1.1rem;
+}
+
+.primary-btn {
+  background: var(--primary-yellow);
+  color: var(--dark-gray);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.primary-btn:hover {
+  background: var(--dark-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--dark-gray);
+  border: 2px solid var(--primary-yellow);
+}
+
+.secondary-btn:hover {
+  background: var(--primary-yellow);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-faculty-container {
+    grid-template-columns: 1fr;
+  }
+
+  .why-image {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .dept-tabs {
+    gap: 8px;
+  }
+
+  .dept-tab {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-container {
+    padding: 60px 30px;
+  }
+
+  .cta-title {
+    font-size: 2.2rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .stats-container,
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dept-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-name {
+    display: none;
+  }
+
+  .faculty-achievements,
+  .academic-dept-section,
+  .why-faculty-section {
+    padding: 60px 20px;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.faculty-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.achievement-card {
+  animation: fadeIn 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.achievement-card:nth-child(1) { animation-delay: 0.1s; }
+.achievement-card:nth-child(2) { animation-delay: 0.2s; }
+.achievement-card:nth-child(3) { animation-delay: 0.3s; }
+.achievement-card:nth-child(4) { animation-delay: 0.4s; }
+.achievement-card:nth-child(5) { animation-delay: 0.5s; }
+.achievement-card:nth-child(6) { animation-delay: 0.6s; }

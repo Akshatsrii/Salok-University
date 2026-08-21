@@ -1,0 +1,203 @@
+/* ===================== TRANSPORT & HOSTEL PAGE ===================== */
+
+.transport-page {
+  padding: 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+
+.transport-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.transport-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.transport-header p {
+  font-size: 17px;
+  color: #555;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===== TABLE SECTION ===== */
+
+.transport-table-section {
+  margin-bottom: 60px;
+}
+
+.transport-table-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.transport-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.transport-table th {
+  background: #ffb700;
+  padding: 14px;
+  text-align: left;
+  font-size: 15px;
+  color: #222;
+}
+
+.transport-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.transport-table tr:hover {
+  background: #fff7e6;
+}
+
+/* ===== BUS SAFETY ===== */
+
+.bus-safety-section {
+  margin-bottom: 60px;
+}
+
+.bus-safety-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.safety-list {
+  list-style: none;
+  padding: 0;
+}
+
+.safety-list li {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ================= HOSTEL SECTION ================= */
+
+.hostel-section {
+  margin-top: 70px;
+  padding: 40px;
+  background: #fff7e6;
+  border-radius: 12px;
+}
+
+.hostel-section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.hostel-section p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* ===== ROOM GRID ===== */
+
+.hostel-room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.hostel-room-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.hostel-room-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.hostel-room-card h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.hostel-room-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.hostel-room-card span {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+  color: #ff9800;
+}
+
+/* ===== FACILITIES ===== */
+
+.hostel-facilities,
+.hostel-rules,
+.warden-contact {
+  margin-top: 30px;
+}
+
+.hostel-facilities h3,
+.hostel-rules h3,
+.warden-contact h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.hostel-facilities ul,
+.hostel-rules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hostel-facilities li,
+.hostel-rules li {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.warden-contact p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+  .hostel-room-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .transport-page {
+    padding: 40px 20px;
+  }
+
+  .hostel-room-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transport-table {
+    font-size: 13px;
+  }
+}

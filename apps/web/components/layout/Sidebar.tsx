@@ -37,6 +37,14 @@ export const Sidebar = () => {
         { name: "Timetable", href: "/teacher/timetable", icon: LayoutDashboard },
         { name: "AI Assistant", href: "/teacher/ai-assistant", icon: Settings },
       ];
+    } else if (pathname.startsWith("/parent")) {
+      return [
+        { name: "Dashboard", href: "/parent", icon: LayoutDashboard },
+        { name: "Attendance", href: "/parent/attendance", icon: Users },
+        { name: "Fee Status", href: "/parent/fees", icon: Briefcase },
+        { name: "Results", href: "/parent/results", icon: BookOpen },
+        { name: "Bus Tracking", href: "/parent/bus", icon: Bus },
+      ];
     } else {
       // Admin by default
       return [

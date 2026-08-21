@@ -1,0 +1,162 @@
+/* ===================== ADMINISTRATION PORTAL ===================== */
+
+.attendance-page {
+  padding: 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+
+.attendance-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.attendance-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.attendance-header p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* ===== STATS SECTION ===== */
+
+.admin-stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.admin-stat-card {
+  background: linear-gradient(135deg, #ffd84d, #ffb700);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.admin-stat-card h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+/* ===== TABLE SECTION ===== */
+
+.attendance-table-section,
+.admin-fee-section {
+  margin-bottom: 60px;
+}
+
+.attendance-table-section h2,
+.admin-fee-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.attendance-table th {
+  background: #ffb700;
+  color: #222;
+  padding: 14px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.attendance-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.attendance-table tr:hover {
+  background: #fff7e6;
+}
+
+/* ===== ADMISSIONS ===== */
+
+.admin-admissions-section {
+  margin-bottom: 60px;
+}
+
+.admin-admissions-section h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.admin-admissions-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-admissions-section li {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ===== ANNOUNCEMENTS ===== */
+
+.admin-announcement-section {
+  margin-bottom: 60px;
+}
+
+.admin-announcement-section h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.admin-announcement-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-announcement-section li {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1200px) {
+  .admin-stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .attendance-page {
+    padding: 40px 20px;
+  }
+
+  .admin-stats-section {
+    grid-template-columns: 1fr;
+  }
+
+  .attendance-table {
+    font-size: 13px;
+  }
+}

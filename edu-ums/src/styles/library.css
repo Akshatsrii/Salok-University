@@ -1,0 +1,275 @@
+/* ===================== LIBRARY PAGE ===================== */
+
+.library-page {
+  padding: 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+
+.library-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.library-header h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.library-header p {
+  font-size: 18px;
+  color: #555;
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* ===== SEARCH ===== */
+
+.library-search-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.library-search-input {
+  width: 450px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.library-search-input:focus {
+  outline: none;
+  border-color: #ffb700;
+}
+
+/* ===== CATEGORIES ===== */
+
+.library-categories {
+  margin-bottom: 60px;
+}
+
+.library-categories h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 30px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background: #fff7e6;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  background: #ffd84d;
+  transform: translateY(-4px);
+}
+
+/* ===== BOOKS GRID ===== */
+
+.books-section {
+  margin-bottom: 70px;
+}
+
+.books-section h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 30px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.book-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.book-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.book-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.book-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.book-card span {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.available {
+  color: #28a745;
+}
+
+.unavailable {
+  color: #dc3545;
+}
+
+/* ===== DIGITAL RESOURCES ===== */
+
+.library-resources-section {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.library-resources-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.library-resources-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.library-resources-section li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ===== TIMINGS ===== */
+
+.library-timings {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.library-timings h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.library-timings p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* ===== RULES ===== */
+
+.library-rules-section {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.library-rules-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.library-rules {
+  list-style: none;
+  padding: 0;
+}
+
+.library-rules li {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ===== MEMBERSHIP ===== */
+
+.library-membership {
+  background: linear-gradient(135deg, #ffd84d, #ffb700);
+  padding: 50px;
+  border-radius: 12px;
+  text-align: center;
+  color: #222;
+}
+
+.library-membership h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.library-membership p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1200px) {
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .library-page {
+    padding: 40px 20px;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .library-search-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .library-search-input {
+    width: 100%;
+  }
+}

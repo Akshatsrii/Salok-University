@@ -1,0 +1,37 @@
+/* ===== FULL PAGE LOGIN ===== */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff8e1, #ffe082);
+  padding: 40px;
+}
+
+/* ===== Clerk Component Styling ===== */
+
+.cl-card {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.cl-formButtonPrimary {
+  background-color: #ffb300 !important;
+}
+
+.cl-formButtonPrimary:hover {
+  background-color: #ff9800 !important;
+}
+
+.cl-footerActionLink {
+  color: #ff9800 !important;
+}
+
+.cl-headerTitle {
+  color: #333 !important;
+}
+
+.cl-headerSubtitle {
+  color: #666 !important;
+}
