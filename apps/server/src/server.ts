@@ -59,6 +59,8 @@ app.use('/api/v1/hostel', hostelRoutes);
 app.use('/api/v1/transport', transportRoutes);
 app.use('/api/v1/placement', placementRoutes);
 
+export { app };
+
 const startServer = async () => {
   try {
     await connectDB();
@@ -71,4 +73,6 @@ const startServer = async () => {
   }
 };
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
