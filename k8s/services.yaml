@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: salok-web-svc
+spec:
+  selector:
+    app: salok-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salok-server-svc
+spec:
+  selector:
+    app: salok-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salok-ai-svc
+spec:
+  selector:
+    app: salok-ai
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salok-notification-svc
+spec:
+  selector:
+    app: salok-notification
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5002
