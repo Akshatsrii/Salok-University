@@ -1,16 +1,39 @@
-FROM node:22-alpine AS base
+FROM node:20-alpine AS builder
 
-FROM base AS builder
 WORKDIR /app
-COPY package.json turbo.json ./
-COPY apps/web ./apps/web
+
+# Install turbo
+RUN npm install -g turbo
+
+# Copy monorepo config
+COPY package.json package-lock.json turbo.json ./
+COPY apps/web/package.json ./apps/web/package.json
 COPY packages ./packages
-RUN npm install
-RUN npm run build --workspace=web
 
-FROM base AS runner
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY apps/web ./apps/web
+
+# Build
+RUN turbo run build --filter=web...
+
+# Production image
+FROM node:20-alpine AS runner
+
 WORKDIR /app
-COPY --from=builder /app/apps/web/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
+
+ENV NODE_ENV production
+
+# Copy built assets
+COPY --from=builder /app/apps/web/public ./apps/web/public
+COPY --from=builder /app/apps/web/.next/standalone ./
+COPY --from=builder /app/apps/web/.next/static ./apps/web/.next/static
+
 EXPOSE 3000
-CMD ["npm", "start", "--workspace=web"]
+
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+
+CMD ["node", "apps/web/server.js"]
