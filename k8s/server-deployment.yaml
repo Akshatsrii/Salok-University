@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salok-server
+  labels:
+    app: salok-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: salok-server
+  template:
+    metadata:
+      labels:
+        app: salok-server
+    spec:
+      containers:
+        - name: salok-server
+          image: ghcr.io/akshatsrii/salok-server:latest
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - secretRef:
+                name: salok-secrets
+          env:
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 10
