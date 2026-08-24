@@ -1,16 +1,39 @@
-FROM node:22-alpine AS base
+FROM node:20-alpine AS builder
 
-FROM base AS builder
 WORKDIR /app
-COPY package.json turbo.json ./
-COPY apps/ai-service ./apps/ai-service
+
+# Install turbo
+RUN npm install -g turbo
+
+# Copy monorepo config
+COPY package.json package-lock.json turbo.json ./
+COPY apps/ai-service/package.json ./apps/ai-service/package.json
 COPY packages ./packages
-RUN npm install
-RUN npm run build --workspace=ai-service
 
-FROM base AS runner
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY apps/ai-service ./apps/ai-service
+
+# Build
+RUN turbo run build --filter=ai-service...
+
+# Production image
+FROM node:20-alpine AS runner
+
 WORKDIR /app
-COPY --from=builder /app/apps/ai-service/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-EXPOSE 4001
-CMD ["node", "dist/index.js"]
+
+ENV NODE_ENV production
+
+# Only copy prod deps and built code
+COPY package.json package-lock.json ./
+COPY apps/ai-service/package.json ./apps/ai-service/package.json
+RUN npm ci --omit=dev
+
+COPY --from=builder /app/apps/ai-service/dist ./apps/ai-service/dist
+COPY --from=builder /app/packages ./packages
+
+EXPOSE 5001
+
+CMD ["node", "apps/ai-service/dist/server.js"]
