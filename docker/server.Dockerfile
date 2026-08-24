@@ -1,16 +1,39 @@
-FROM node:22-alpine AS base
+FROM node:20-alpine AS builder
 
-FROM base AS builder
 WORKDIR /app
-COPY package.json turbo.json ./
-COPY apps/server ./apps/server
+
+# Install turbo
+RUN npm install -g turbo
+
+# Copy monorepo config
+COPY package.json package-lock.json turbo.json ./
+COPY apps/server/package.json ./apps/server/package.json
 COPY packages ./packages
-RUN npm install
-RUN npm run build --workspace=server
 
-FROM base AS runner
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY apps/server ./apps/server
+
+# Build
+RUN turbo run build --filter=server...
+
+# Production image
+FROM node:20-alpine AS runner
+
 WORKDIR /app
-COPY --from=builder /app/apps/server/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-EXPOSE 4000
-CMD ["node", "dist/server.js"]
+
+ENV NODE_ENV production
+
+# Only copy prod deps and built code
+COPY package.json package-lock.json ./
+COPY apps/server/package.json ./apps/server/package.json
+RUN npm ci --omit=dev
+
+COPY --from=builder /app/apps/server/dist ./apps/server/dist
+COPY --from=builder /app/packages ./packages
+
+EXPOSE 5000
+
+CMD ["node", "apps/server/dist/server.js"]
