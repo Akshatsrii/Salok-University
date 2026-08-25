@@ -1,12 +1,13 @@
 "use client";
 
 import { Calendar } from "lucide-react";
+import { EmptyState } from "../shared/EmptyState";
 
 export const EventListing = () => {
-  const events = [
-    { title: "Tech Symposium 2026", date: "Aug 25, 2026", type: "Academic" },
-    { title: "Alumni Meet & Greet", date: "Sep 10, 2026", type: "Networking" },
-    { title: "Annual Cultural Fest", date: "Oct 05, 2026", type: "Cultural" }
+  const events: any[] = [
+    // { title: "Tech Symposium 2026", date: "Aug 25, 2026", type: "Academic" },
+    // { title: "Alumni Meet & Greet", date: "Sep 10, 2026", type: "Networking" },
+    // { title: "Annual Cultural Fest", date: "Oct 05, 2026", type: "Cultural" }
   ];
 
   return (
@@ -18,19 +19,27 @@ export const EventListing = () => {
         <h3 className="font-bold text-gray-900 text-lg">Upcoming Events</h3>
       </div>
       
-      <div className="space-y-4">
-        {events.map((e, idx) => (
-          <div key={idx} className="flex justify-between items-center p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
-            <div>
-              <h4 className="font-bold text-gray-900 text-sm">{e.title}</h4>
-              <p className="text-xs text-gray-500 mt-1">{e.date}</p>
+      {events.length > 0 ? (
+        <div className="space-y-4">
+          {events.map((e, idx) => (
+            <div key={idx} className="flex justify-between items-center p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
+              <div>
+                <h4 className="font-bold text-gray-900 text-sm">{e.title}</h4>
+                <p className="text-xs text-gray-500 mt-1">{e.date}</p>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                {e.type}
+              </span>
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
-              {e.type}
-            </span>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <EmptyState 
+          title="No upcoming events" 
+          description="Check back later for new events." 
+          icon={Calendar} 
+        />
+      )}
     </div>
   );
 };
