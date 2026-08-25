@@ -3,16 +3,16 @@ import { StatCard } from '../../shared/StatCard';
 
 export const StatCardGrid = () => {
   const stats = [
-    { label: 'Total Students', value: '15,234', trend: 5.2, icon: <Users className="w-6 h-6 text-blue-600" /> },
-    { label: 'Teachers', value: '542', trend: 2.1, icon: <GraduationCap className="w-6 h-6 text-indigo-600" /> },
-    { label: "Today's Attendance", value: '92%', trend: -1.5, icon: <UserCheck className="w-6 h-6 text-green-600" /> },
-    { label: 'Fees Collected', value: '₹45.2Cr', trend: 12.4, icon: <IndianRupee className="w-6 h-6 text-emerald-600" /> },
-    { label: 'Fees Pending', value: '₹5.8Cr', trend: -4.2, icon: <Clock className="w-6 h-6 text-red-600" /> },
-    { label: 'Placements', value: '840', trend: 15.3, icon: <Briefcase className="w-6 h-6 text-purple-600" /> },
-    { label: "Today's Classes", value: '412', trend: 0, icon: <BookOpen className="w-6 h-6 text-orange-600" /> },
-    { label: 'Live Buses', value: '45/50', trend: 0, icon: <Bus className="w-6 h-6 text-yellow-600" /> },
-    { label: 'Hostel Occupancy', value: '88%', trend: 2.4, icon: <Building className="w-6 h-6 text-cyan-600" /> },
-    { label: 'Exam Status', value: 'Ongoing', trend: 0, icon: <CheckCircle className="w-6 h-6 text-blue-500" /> },
+    { title: 'Total Students', value: '15,234', trend: { value: 5.2, isPositive: true }, icon: Users, color: 'blue' as const },
+    { title: 'Teachers', value: '542', trend: { value: 2.1, isPositive: true }, icon: GraduationCap, color: 'purple' as const },
+    { title: "Today's Attendance", value: '92%', trend: { value: 1.5, isPositive: false }, icon: UserCheck, color: 'emerald' as const },
+    { title: 'Fees Collected', value: '₹45.2Cr', trend: { value: 12.4, isPositive: true }, icon: IndianRupee, color: 'emerald' as const },
+    { title: 'Fees Pending', value: '₹5.8Cr', trend: { value: 4.2, isPositive: false }, icon: Clock, color: 'rose' as const },
+    { title: 'Placements', value: '840', trend: { value: 15.3, isPositive: true }, icon: Briefcase, color: 'purple' as const },
+    { title: "Today's Classes", value: '412', icon: BookOpen, color: 'amber' as const },
+    { title: 'Live Buses', value: '45/50', icon: Bus, color: 'amber' as const },
+    { title: 'Hostel Occupancy', value: '88%', trend: { value: 2.4, isPositive: true }, icon: Building, color: 'blue' as const },
+    { title: 'Exam Status', value: 'Ongoing', icon: CheckCircle, color: 'emerald' as const },
   ];
 
   return (
@@ -20,10 +20,11 @@ export const StatCardGrid = () => {
       {stats.map((stat, idx) => (
         <StatCard 
           key={idx}
-          label={stat.label}
+          title={stat.title}
           value={stat.value}
           trend={stat.trend}
           icon={stat.icon}
+          color={stat.color}
         />
       ))}
     </div>
