@@ -29,6 +29,7 @@ import placementRoutes from './routes/placement.routes';
 import { configureSecurityMiddleware } from './middlewares/security.middleware';
 import { apiLimiter } from './middlewares/rateLimiter.middleware';
 import { requestLogger } from './middlewares/logger.middleware';
+import { scheduleBackups } from './jobs/backup.job';
 
 const app: Application = express();
 
@@ -66,6 +67,12 @@ export { app };
 const startServer = async () => {
   try {
     await connectDB();
+    
+    // Only schedule jobs in production or if explicitly enabled
+    if (process.env.NODE_ENV === 'production' || process.env.ENABLE_JOBS === 'true') {
+      scheduleBackups().catch(err => console.error('Failed to schedule backups', err));
+    }
+
     app.listen(env.PORT, () => {
       console.log(`Server is running in ${env.NODE_ENV} mode on port ${env.PORT}`);
     });
