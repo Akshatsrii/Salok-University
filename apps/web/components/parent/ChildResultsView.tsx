@@ -1,12 +1,18 @@
 "use client";
 
 import { Award, TrendingUp } from "lucide-react";
+import { DataTable } from "../shared/DataTable";
 
 export const ChildResultsView = () => {
   const semesters = [
     { sem: "Sem 3", sgpa: "8.9" },
     { sem: "Sem 2", sgpa: "8.5" },
     { sem: "Sem 1", sgpa: "8.2" }
+  ];
+
+  const columns = [
+    { header: "Semester", accessor: "sem" as keyof typeof semesters[0], className: "font-semibold" },
+    { header: "SGPA", accessor: "sgpa" as keyof typeof semesters[0], className: "text-right font-bold text-[#1a2b4c]" }
   ];
 
   return (
@@ -24,13 +30,8 @@ export const ChildResultsView = () => {
         </div>
       </div>
       
-      <div className="space-y-3">
-        {semesters.map((s, idx) => (
-          <div key={idx} className="flex items-center justify-between p-3 rounded-xl border border-gray-50 bg-gray-50/50">
-            <span className="text-sm font-semibold text-gray-700">{s.sem} SGPA</span>
-            <span className="font-bold text-[#1a2b4c]">{s.sgpa}</span>
-          </div>
-        ))}
+      <div className="mt-4">
+        <DataTable data={semesters} columns={columns} keyExtractor={(r) => r.sem} />
       </div>
 
       <div className="mt-6 flex items-center justify-center gap-2 text-[#007bff] text-sm font-semibold cursor-pointer hover:underline">
