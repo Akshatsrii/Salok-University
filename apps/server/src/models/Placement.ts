@@ -50,7 +50,7 @@ const PlacementDriveSchema: Schema = new Schema({
 
 export const PlacementDrive = mongoose.model<IPlacementDrive>('PlacementDrive', PlacementDriveSchema);
 
-export interface IApplication extends Document {
+export interface IJobApplication extends Document {
   studentId: mongoose.Types.ObjectId;
   driveId: mongoose.Types.ObjectId;
   status: 'APPLIED' | 'SHORTLISTED' | 'APTITUDE_CLEARED' | 'TECH_CLEARED' | 'HR_CLEARED' | 'SELECTED' | 'REJECTED';
@@ -58,7 +58,7 @@ export interface IApplication extends Document {
   appliedAt: Date;
 }
 
-const ApplicationSchema: Schema = new Schema({
+const JobApplicationSchema: Schema = new Schema({
   studentId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   driveId: { type: Schema.Types.ObjectId, ref: 'PlacementDrive', required: true },
   status: { type: String, enum: ['APPLIED', 'SHORTLISTED', 'APTITUDE_CLEARED', 'TECH_CLEARED', 'HR_CLEARED', 'SELECTED', 'REJECTED'], default: 'APPLIED' },
@@ -66,4 +66,4 @@ const ApplicationSchema: Schema = new Schema({
   appliedAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 
-export const Application = mongoose.model<IApplication>('Application', ApplicationSchema);
+export const JobApplication = mongoose.model<IJobApplication>('JobApplication', JobApplicationSchema);
