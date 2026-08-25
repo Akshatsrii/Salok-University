@@ -1,8 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Book, Utensils } from "lucide-react";
+import { LoadingSkeleton } from "../../shared/LoadingSkeleton";
 
 export const LibraryMessWidget = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm col-span-1">
+        <LoadingSkeleton rows={5} />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex flex-col gap-6">
       {/* Library Section */}
