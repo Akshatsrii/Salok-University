@@ -28,9 +28,11 @@ import placementRoutes from './routes/placement.routes';
 
 import { configureSecurityMiddleware } from './middlewares/security.middleware';
 import { apiLimiter } from './middlewares/rateLimiter.middleware';
+import { requestLogger } from './middlewares/logger.middleware';
 
 const app: Application = express();
 
+app.use(requestLogger);
 configureSecurityMiddleware(app);
 app.use(express.json());
 app.use(cookieParser());
