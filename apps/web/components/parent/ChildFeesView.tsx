@@ -1,8 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { CreditCard, CheckCircle2 } from "lucide-react";
+import { LoadingSkeleton } from "../shared/LoadingSkeleton";
 
 export const ChildFeesView = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm col-span-1">
+        <LoadingSkeleton rows={4} />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm col-span-1">
       <div className="flex items-center justify-between mb-6">
