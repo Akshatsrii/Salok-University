@@ -6,7 +6,7 @@ import { ArrowLeft, FileText, Info } from 'lucide-react';
 
 export default function AssignmentDetailPage() {
   // Stub status for demonstration. Change to 'Graded' to see feedback and grades.
-  const status = 'Pending';
+  const status: string = 'Pending';
 
   return (
     <div className="p-8 max-w-7xl mx-auto space-y-6 bg-gray-50 min-h-screen">

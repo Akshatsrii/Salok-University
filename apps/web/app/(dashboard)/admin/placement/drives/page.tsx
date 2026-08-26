@@ -1,5 +1,5 @@
-import { PlacementNav } from '../../../../../../components/placement/PlacementNav';
-import { DriveTracker } from '../../../../../../components/placement/DriveTracker';
+import { PlacementNav } from '../../../../../components/placement/PlacementNav';
+import { DriveTracker } from '../../../../../components/placement/DriveTracker';
 
 export default function AdminPlacementDrivesPage() {
   return (

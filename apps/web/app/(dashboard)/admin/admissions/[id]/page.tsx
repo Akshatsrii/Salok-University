@@ -2,7 +2,7 @@ import { ApplicationDetail } from '../../../../../components/admissions/Applicat
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
-export default function ApplicationDetailPage({ params }: { params: { id: string } }) {
+export default async function ApplicationDetailPage({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className="p-8 max-w-5xl mx-auto space-y-6 bg-gray-50 min-h-screen">
       <div>

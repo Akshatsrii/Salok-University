@@ -1,4 +1,4 @@
-import { PlacementNav } from '../../../../../../components/placement/PlacementNav';
+import { PlacementNav } from '../../../../../components/placement/PlacementNav';
 import { Briefcase, Building, Users, CheckCircle } from 'lucide-react';
 
 export default function AdminPlacementDashboardPage() {

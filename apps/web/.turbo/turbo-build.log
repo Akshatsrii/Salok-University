@@ -2,3 +2,36 @@
 > web@1.0.0 build
 > next build
 
+ ⚠ Found lockfile missing swc dependencies, patching...
+   ▲ Next.js 15.1.4
+
+   Creating an optimized production build ...
+ ⚠ Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/80) ...
+TypeError: Cannot read properties of null (reading 'useContext')
+    at h (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\apps\web\.next\server\pages\_error.js:1:6075)
+Error occurred prerendering page "/404". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of null (reading 'useContext')
+    at exports.useContext (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\apps\web\node_modules\react\cjs\react.production.js:488:33)
+    at h (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\apps\web\.next\server\pages\_error.js:1:6075)
+    at renderWithHooks (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:4282:18)
+    at renderElement (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:4420:14)
+    at retryNode (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:5022:16)
+    at renderNodeDestructive (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:4835:7)
+    at renderNode (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:5280:14)
+    at renderChildrenArray (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:5170:7)
+    at retryNode (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:5036:9)
+    at renderNodeDestructive (C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\node_modules\react-dom\cjs\react-dom-server.edge.production.js:4835:7)
+Export encountered an error on /_error: /404, exiting the build.
+ ⨯ Static worker exited with code: 1 and signal: null
+npm error Lifecycle script `build` failed with error:
+npm error code 1
+npm error path C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\apps\web
+npm error workspace web@1.0.0
+npm error location C:\Users\aksha\OneDrive\desktop\Project Ki Dhuniya\SALOK\apps\web
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next build

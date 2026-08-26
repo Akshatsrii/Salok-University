@@ -9,6 +9,13 @@
   --primary: #ffb800; /* Golden Yellow */
   --primary-hover: #e6a600; /* Darker Golden Yellow */
   --accent: #007bff; /* Bright Blue */
+
+  /* New Tokens */
+  --secondary-teal: #0d9488;
+  --secondary-plum: #7e22ce;
+  --muted: #64748b;
+  --success: #10b981;
+  --danger: #ef4444;
 }
 
 @theme inline {
@@ -46,6 +53,26 @@ body {
   .premium-button {
     @apply inline-flex items-center justify-center rounded-full bg-[#ffb800] px-6 py-2.5 text-sm font-bold text-gray-900 hover:bg-[#e6a600] active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-[#ffb800]/20;
   }
+
+  /* Shared Eduflow Classes */
+  .card {
+    @apply bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-6 py-3 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--primary-hover)] active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-[var(--primary)]/20;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl bg-transparent border-2 border-[var(--foreground)] px-6 py-3 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)] active:scale-[0.98] transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 outline-none focus:bg-white focus:border-[var(--accent)] focus:ring-4 focus:ring-[var(--accent)]/10 transition-all text-[var(--foreground)];
+  }
+  .label-field {
+    @apply text-sm font-semibold text-gray-700 ml-1 mb-1 block;
+  }
+  .text-muted {
+    @apply text-[var(--muted)];
+  }
 }
 
 @keyframes marquee {
@@ -63,5 +90,5 @@ body {
 }
 
 .animate-reveal {
-  animation: reveal 0.8s ease-out forwards;
+  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

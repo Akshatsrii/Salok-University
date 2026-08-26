@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Company, PlacementDrive, Application } from '../models/Placement';
+import { Company, PlacementDrive, JobApplication } from '../models/Placement';
 
 export const createCompany = async (req: Request, res: Response) => {
   try {
@@ -44,12 +44,12 @@ export const applyForDrive = async (req: Request, res: Response) => {
     const { studentId, driveId, resumeUrl } = req.body;
     
     // Check if already applied
-    const existing = await Application.findOne({ studentId, driveId });
+    const existing = await JobApplication.findOne({ studentId, driveId });
     if (existing) {
       return res.status(400).json({ error: 'Already applied' });
     }
 
-    const application = new Application({ studentId, driveId, resumeUrl });
+    const application = new JobApplication({ studentId, driveId, resumeUrl });
     await application.save();
     res.status(201).json(application);
   } catch (error) {
@@ -61,7 +61,7 @@ export const updateApplicationStatus = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    const application = await Application.findByIdAndUpdate(id, { status }, { new: true });
+    const application = await JobApplication.findByIdAndUpdate(id, { status }, { new: true });
     res.json(application);
   } catch (error) {
     res.status(500).json({ error: 'Server error updating status' });

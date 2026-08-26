@@ -1,5 +1,5 @@
-import { CSVUploader } from '../../../../../../components/students-admin/CSVUploader';
-import { ValidationErrorTable } from '../../../../../../components/students-admin/ValidationErrorTable';
+import { CSVUploader } from '../../../../../components/students-admin/CSVUploader';
+import { ValidationErrorTable } from '../../../../../components/students-admin/ValidationErrorTable';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 

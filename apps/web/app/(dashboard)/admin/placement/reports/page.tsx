@@ -1,4 +1,4 @@
-import { PlacementNav } from '../../../../../../components/placement/PlacementNav';
+import { PlacementNav } from '../../../../../components/placement/PlacementNav';
 import { BarChart3, TrendingUp, Award } from 'lucide-react';
 
 export default function AdminPlacementReportsPage() {

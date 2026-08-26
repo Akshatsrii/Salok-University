@@ -25,6 +25,7 @@ import libraryRoutes from './routes/library.routes';
 import hostelRoutes from './routes/hostel.routes';
 import transportRoutes from './routes/transport.routes';
 import placementRoutes from './routes/placement.routes';
+import contactRoutes from './routes/contact.routes';
 
 import { configureSecurityMiddleware } from './middlewares/security.middleware';
 import { apiLimiter } from './middlewares/rateLimiter.middleware';
@@ -61,6 +62,7 @@ app.use('/api/v1/library', libraryRoutes);
 app.use('/api/v1/hostel', hostelRoutes);
 app.use('/api/v1/transport', transportRoutes);
 app.use('/api/v1/placement', placementRoutes);
+app.use('/api/v1/contact', contactRoutes);
 
 export { app };
 

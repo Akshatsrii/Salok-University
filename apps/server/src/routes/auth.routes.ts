@@ -13,5 +13,3 @@ router.post('/refresh', refresh);
 router.post('/logout', authenticate, logout);
 
 export default router;
-
-export default router;

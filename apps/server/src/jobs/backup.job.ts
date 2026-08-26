@@ -1,4 +1,4 @@
-import { Queue, Worker, QueueScheduler } from 'bullmq';
+import { Queue, Worker } from 'bullmq';
 import { exec } from 'child_process';
 import util from 'util';
 import { logger } from '../utils/logger';
@@ -57,10 +57,11 @@ backupWorker.on('failed', (job, err) => {
 
 // Schedule the daily backup at 2 AM
 export const scheduleBackups = async () => {
-  await backupQueue.add('daily-mongo-backup', {}, {
-    repeat: {
-      pattern: '0 2 * * *', // Every day at 2:00 AM
-    }
+  await backupQueue.upsertJobScheduler('daily-mongo-backup', {
+    pattern: '0 2 * * *', // Every day at 2:00 AM
+  }, {
+    name: 'daily-mongo-backup',
+    data: {}
   });
   logger.info('Scheduled daily MongoDB backups');
 };

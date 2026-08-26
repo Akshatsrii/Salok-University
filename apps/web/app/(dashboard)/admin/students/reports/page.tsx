@@ -1,4 +1,4 @@
-import { BatchPerformanceExport } from '../../../../../../components/students-admin/BatchPerformanceExport';
+import { BatchPerformanceExport } from '../../../../../components/students-admin/BatchPerformanceExport';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 

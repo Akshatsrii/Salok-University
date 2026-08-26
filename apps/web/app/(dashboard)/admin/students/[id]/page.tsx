@@ -2,7 +2,8 @@ import { StudentProfileAdminView } from '../../../../../components/students-admi
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
-export default function StudentProfilePage({ params }: { params: { id: string } }) {
+export default async function StudentProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
   return (
     <div className="p-8 max-w-5xl mx-auto space-y-6 bg-gray-50 min-h-screen">
       <div>
@@ -12,7 +13,7 @@ export default function StudentProfilePage({ params }: { params: { id: string } 
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Student Profile</h1>
-            <p className="text-gray-500 text-sm">ID: {params.id}</p>
+            <p className="text-gray-500 text-sm">ID: {resolvedParams.id}</p>
           </div>
           <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50">
             Edit Profile
@@ -20,7 +21,7 @@ export default function StudentProfilePage({ params }: { params: { id: string } 
         </div>
       </div>
       
-      <StudentProfileAdminView studentId={params.id} />
+      <StudentProfileAdminView studentId={resolvedParams.id} />
     </div>
   );
 }

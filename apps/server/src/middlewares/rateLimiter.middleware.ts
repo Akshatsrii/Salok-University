@@ -14,6 +14,7 @@ export const apiLimiter = rateLimit({
   message: 'Too many requests from this IP, please try again after 15 minutes',
   ...(redisClient && {
     store: new RedisStore({
+      // @ts-ignore
       sendCommand: (...args: string[]) => redisClient.call(...args),
     }),
   }),
@@ -27,6 +28,7 @@ export const authLimiter = rateLimit({
   message: 'Too many login attempts, please try again after an hour',
   ...(redisClient && {
     store: new RedisStore({
+      // @ts-ignore
       sendCommand: (...args: string[]) => redisClient.call(...args),
     }),
   }),
@@ -40,6 +42,7 @@ export const paymentLimiter = rateLimit({
   message: 'Too many payment attempts, please try again later',
   ...(redisClient && {
     store: new RedisStore({
+      // @ts-ignore
       sendCommand: (...args: string[]) => redisClient.call(...args),
     }),
   }),

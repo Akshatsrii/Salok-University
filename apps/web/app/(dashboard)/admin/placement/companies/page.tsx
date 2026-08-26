@@ -1,5 +1,5 @@
-import { PlacementNav } from '../../../../../../components/placement/PlacementNav';
-import { CompanyForm } from '../../../../../../components/placement/CompanyForm';
+import { PlacementNav } from '../../../../../components/placement/PlacementNav';
+import { CompanyForm } from '../../../../../components/placement/CompanyForm';
 
 export default function AdminPlacementCompaniesPage() {
   return (
