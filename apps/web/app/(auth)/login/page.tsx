@@ -4,9 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, ArrowRight, Loader2 } from "lucide-react";
+import { api } from "../../../services/api";
+import { useAuthStore } from "../../../store/authStore";
 
 export default function LoginPage() {
   const router = useRouter();
+  const setUser = useAuthStore((state) => state.setUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,31 +21,22 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/v1/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      // Uses centralized api instance which automatically includes withCredentials: true
+      const { data } = await api.post("/auth/login", { email, password });
       
-      const data = await res.json();
-      
-      if (!res.ok) {
-        throw new Error(data.message || "Failed to login");
-      }
-
-      if (data.message === "MFA required") {
+      if (data.mfaRequired) {
         router.push(`/mfa?email=${encodeURIComponent(email)}`);
         return;
       }
 
-      // Store token (in a real app, use HTTP-only cookies or state manager)
-      localStorage.setItem("token", data.token);
+      // Backend now sets HttpOnly cookies. We just update the client store
+      setUser(data.user);
       
       // Route based on role
-      const role = data.user?.role || "student";
+      const role = data.user?.role?.toLowerCase() || "student";
       router.push(`/${role}`);
     } catch (err: any) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.message || "Failed to login");
     } finally {
       setLoading(false);
     }

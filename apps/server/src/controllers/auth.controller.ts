@@ -18,6 +18,17 @@ export const login = async (req: Request, res: Response) => {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
+    res.cookie('accessToken', result.accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 15 * 60 * 1000, // 15 mins
+    });
+    
+    res.cookie('role', result.user.role, {
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
     return res.status(200).json({
       accessToken: result.accessToken,
       user: result.user,
@@ -34,6 +45,17 @@ export const mfaVerify = async (req: Request, res: Response) => {
 
     res.cookie('refreshToken', result.refreshToken, {
       httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+    
+    res.cookie('accessToken', result.accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 15 * 60 * 1000,
+    });
+
+    res.cookie('role', result.user.role, {
       secure: process.env.NODE_ENV === 'production',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
@@ -61,10 +83,19 @@ export const refresh = async (req: Request, res: Response) => {
   };
 
   const accessToken = generateAccessToken(payload);
+  
+  res.cookie('accessToken', accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 15 * 60 * 1000,
+  });
+  
   return res.status(200).json({ accessToken });
 };
 
 export const logout = async (req: Request, res: Response) => {
   res.clearCookie('refreshToken');
+  res.clearCookie('accessToken');
+  res.clearCookie('role');
   return res.status(200).json({ message: 'Logged out successfully' });
 };
