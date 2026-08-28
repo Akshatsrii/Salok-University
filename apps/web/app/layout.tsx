@@ -3,6 +3,8 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { AIChatWidget } from "../components/shared/AIChatWidget";
 import { FloatingAIWidget } from "../components/shared/FloatingAIWidget";
+import { SmoothScroll } from "../components/shared/SmoothScroll";
+import { PageTransition } from "../components/shared/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,9 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${robotoMono.variable} antialiased`}>
+    <html lang="en" className={"${inter.variable} ${robotoMono.variable} antialiased"}>
       <body className="font-sans bg-gray-50 text-gray-900 selection:bg-[#ffb800] selection:text-[#1a2b4c]">
-        {children}
+        <SmoothScroll>
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </SmoothScroll>
         <AIChatWidget />
         <FloatingAIWidget />
       </body>
