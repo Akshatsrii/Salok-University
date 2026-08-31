@@ -18,7 +18,7 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: "Salok University ERP | Official Portal",
-  description: "Next-gen university management system powered by AI",
+  description: "Next-gen university management system powered by AI",`n  keywords: ["University", "ERP", "Education", "Salok"],
 };
 
 export default function RootLayout({
@@ -40,4 +40,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
