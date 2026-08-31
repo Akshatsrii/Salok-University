@@ -1,65 +1,72 @@
-import { Coffee, Library, Trophy, Music, Dumbbell, Bus } from "lucide-react";
+import { PublicNavbar } from "@/components/public/PublicNavbar";
+import { Footer } from "@/components/public/Footer";
+import { GsapReveal } from "@/components/shared/GsapReveal";
+import { ParallaxImage } from "@/components/shared/ParallaxImage";
+import { Home, Coffee, Book, Music } from "lucide-react";
 
 export default function CampusLifePage() {
   const facilities = [
-    { id: "library", title: "Central Library", desc: "24/7 access to over 500,000 books and digital resources.", icon: Library },
-    { id: "sports", title: "Sports Complex", desc: "Olympic-size swimming pool, synthetic track, and indoor stadiums.", icon: Trophy },
-    { id: "student-center", title: "Student Center", desc: "Cafes, lounges, and collaborative spaces for networking.", icon: Coffee },
-    { id: "fitness", title: "Fitness Center", desc: "State-of-the-art gym with professional trainers.", icon: Dumbbell },
-    { id: "clubs", title: "Cultural Clubs", desc: "Music, dance, drama, and photography societies.", icon: Music },
-    { id: "transport", title: "Transport", desc: "Fleet of AC buses connecting all parts of the city.", icon: Bus },
+    { title: "Modern Hostels", icon: Home, desc: "Air-conditioned rooms with high-speed Wi-Fi and 24/7 security.", img: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069" },
+    { title: "Cafeteria & Food Courts", icon: Coffee, desc: "Multi-cuisine dining options maintaining the highest hygiene standards.", img: "https://images.unsplash.com/photo-1559314809-0d155014e29e?q=80&w=2070" },
+    { title: "Central Library", icon: Book, desc: "Over 100,000+ volumes, digital resources, and quiet reading zones.", img: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2088" },
+    { title: "Cultural Hub", icon: Music, desc: "State-of-the-art auditorium for fests, events, and club activities.", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974" },
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--background)" }}>
-      {/* Hero */}
-      <section className="relative py-24 text-white overflow-hidden" style={{ background: "var(--foreground)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-reveal">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">Campus <span style={{ color: "var(--primary)" }}>Life</span></h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Experience a vibrant, diverse, and energetic community that goes beyond classrooms and textbooks.
-          </p>
+    <div className="min-h-screen bg-[#fffdf5]">
+      <PublicNavbar />
+      
+      {/* Hero Section */}
+      <section className="relative h-[60vh] bg-[#1a2b4c] text-white flex items-center overflow-hidden">
+        <div className="absolute inset-0 opacity-40">
+          <ParallaxImage src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070" alt="Campus Life Hero" height="h-full" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+          <GsapReveal>
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-4 tracking-tighter">
+              Life at <span className="text-[#ffb800]">Salok</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light">
+              Experience a vibrant, inclusive, and dynamic campus ecosystem.
+            </p>
+          </GsapReveal>
         </div>
       </section>
 
-      {/* Facilities Grid */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-reveal">
-          <h2 className="text-4xl font-bold" style={{ color: "var(--foreground)" }}>World-Class Facilities</h2>
-          <p className="text-muted mt-4 text-lg">Everything you need to grow, relax, and create memories.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
+      {/* Facilities */}
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <GsapReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1a2b4c] mb-4">World-Class Facilities</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Everything you need for a comfortable, productive, and enjoyable university life.
+            </p>
+          </div>
+        </GsapReveal>
+        
+        <div className="space-y-20">
           {facilities.map((fac, i) => (
-            <div id={fac.id} key={i} className="card p-8 group animate-reveal" style={{ animationDelay: `${i * 0.1}s` }}>
-              <div 
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors"
-                style={{ background: "color-mix(in srgb, var(--accent) 10%, transparent)", color: "var(--accent)" }}
-              >
-                <fac.icon className="w-7 h-7" />
+            <div key={i} className={"flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12"}>
+              <div className="flex-1 w-full">
+                <GsapReveal>
+                  <ParallaxImage src={fac.img} alt={fac.title} height="h-[400px]" />
+                </GsapReveal>
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--foreground)" }}>{fac.title}</h3>
-              <p className="text-muted">{fac.desc}</p>
+              <div className="flex-1">
+                <GsapReveal>
+                  <div className="w-16 h-16 bg-[#ffb800]/20 text-[#ffb800] rounded-2xl flex items-center justify-center mb-6">
+                    <fac.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-4xl font-bold text-[#1a2b4c] mb-4">{fac.title}</h3>
+                  <p className="text-xl text-gray-600 leading-relaxed">{fac.desc}</p>
+                </GsapReveal>
+              </div>
             </div>
           ))}
         </div>
       </section>
-      
-      {/* Hostels Section (Adding this for the navbar link to work) */}
-      <section id="hostel" className="py-20 border-t" style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-reveal">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--foreground)" }}>Hostel & Accommodation</h2>
-            <p className="text-muted text-lg max-w-3xl mx-auto mb-10">
-              Safe, secure, and comfortable living spaces designed to be your home away from home. Premium AC and Non-AC rooms available with high-speed Wi-Fi and 24/7 dining.
-            </p>
-            <div className="inline-flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-full px-8 py-4">
-              <span className="font-bold text-gray-700">Explore Room Types</span>
-              <button className="btn-primary !px-6 !py-2 !rounded-full">View Details</button>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <Footer />
     </div>
   );
 }
