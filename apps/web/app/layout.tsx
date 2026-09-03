@@ -18,7 +18,8 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: "Salok University ERP | Official Portal",
-  description: "Next-gen university management system powered by AI",`n  keywords: ["University", "ERP", "Education", "Salok"],
+  description: "Next-gen university management system powered by AI",
+  keywords: ["University", "ERP", "Education", "Salok"],
 };
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={"${inter.variable} ${robotoMono.variable} antialiased"}>
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable} antialiased`}>
       <body className="font-sans bg-gray-50 text-gray-900 selection:bg-[#ffb800] selection:text-[#1a2b4c]">
         <SmoothScroll>
           <PageTransition>
