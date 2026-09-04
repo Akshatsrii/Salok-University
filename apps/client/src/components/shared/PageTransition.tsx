@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = useLocation().pathname;

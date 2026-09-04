@@ -1,5 +1,5 @@
 
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 import { Search, ChevronDown } from "lucide-react";
 import { NotificationDrawer } from "../shared/NotificationDrawer";
 import { CommandPalette } from "../shared/CommandPalette";

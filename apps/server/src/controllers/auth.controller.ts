@@ -1,7 +1,17 @@
 import { Request, Response } from 'express';
 import { AuthService } from '../services/auth.service';
-import { loginSchema, mfaVerifySchema } from '../validators/auth.validator';
+import { loginSchema, mfaVerifySchema, registerSchema } from '../validators/auth.validator';
 import { verifyRefreshToken, generateAccessToken } from '../utils/token.util';
+
+export const register = async (req: Request, res: Response) => {
+  try {
+    const data = registerSchema.parse(req.body);
+    const user = await AuthService.register(data);
+    return res.status(201).json({ message: 'Registration successful', user });
+  } catch (error: any) {
+    return res.status(400).json({ message: error.message });
+  }
+};
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -99,4 +109,5 @@ export const logout = async (req: Request, res: Response) => {
   res.clearCookie('role');
   return res.status(200).json({ message: 'Logged out successfully' });
 };
+
 

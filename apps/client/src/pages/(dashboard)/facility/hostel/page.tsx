@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { Navigate } from "react-router-dom";
 
 export default function FacilityHostelPage() {
-  redirect('/facility/hostel/rooms');
+  return <Navigate to='/facility/hostel/rooms' replace />;
 }

@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   Users,

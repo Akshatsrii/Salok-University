@@ -1,11 +1,12 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
+import { api } from "../../../services/api";
 import { User, Mail, Lock, ArrowRight, BookOpen, Loader2 } from "lucide-react";
 
 export default function RegisterPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,31 +24,21 @@ export default function RegisterPage() {
     setError("");
     
     try {
-      const res = await fetch("http://localhost:5000/api/v1/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const { data } = await api.post("/auth/register", {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
           password: formData.password,
           role: formData.role
-        }),
       });
-      
-      const data = await res.json();
-      
-      if (!res.ok) {
-        throw new Error(data.message || "Failed to register");
-      }
       
       setSuccess(true);
       setTimeout(() => {
-        router.push("/login");
+        navigate("/login");
       }, 2000);
       
     } catch (err: any) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.message);
     } finally {
       setLoading(false);
     }
@@ -172,4 +163,5 @@ export default function RegisterPage() {
     </div>
   );
 }
+
 

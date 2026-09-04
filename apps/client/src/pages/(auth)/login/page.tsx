@@ -1,13 +1,13 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Mail, Lock, ArrowRight, Loader2 } from "lucide-react";
 import { api } from "../../../services/api";
 import { useAuthStore } from "../../../store/authStore";
 
 export default function LoginPage() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const setUser = useAuthStore((state) => state.setUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,7 @@ export default function LoginPage() {
       const { data } = await api.post("/auth/login", { email, password });
       
       if (data.mfaRequired) {
-        router.push(`/mfa?email=${encodeURIComponent(email)}`);
+        navigate(`/mfa?email=${encodeURIComponent(email)}`);
         return;
       }
 
@@ -33,7 +33,7 @@ export default function LoginPage() {
       
       // Route based on role
       const role = data.user?.role?.toLowerCase() || "student";
-      router.push(`/${role}`);
+      navigate(`/${role}`);
     } catch (err: any) {
       setError(err.response?.data?.message || err.message || "Failed to login");
     } finally {

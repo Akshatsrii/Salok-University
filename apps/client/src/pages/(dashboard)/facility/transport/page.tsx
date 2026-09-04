@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { Navigate } from "react-router-dom";
 
 export default function FacilityTransportPage() {
-  redirect('/facility/transport/live-tracking');
+  return <Navigate to='/facility/transport/live-tracking' replace />;
 }

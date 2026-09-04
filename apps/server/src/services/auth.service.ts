@@ -4,6 +4,28 @@ import { generateAccessToken, generateRefreshToken } from '../utils/token.util';
 import speakeasy from 'speakeasy';
 
 export class AuthService {
+    static async register(data: any) {
+    const existing = await User.findOne({ email: data.email });
+    if (existing) throw new Error('Email already registered');
+    
+    const passwordHash = await hashPassword(data.password);
+    const user = new User({
+      name: { first: data.firstName, last: data.lastName },
+      email: data.email,
+      passwordHash,
+      role: data.role || 'student',
+      tenantId: '60d0fe4f5311236168a109ca', // mock tenant ID
+      mfaEnabled: false,
+      isActive: true,
+    });
+    await user.save();
+    return {
+      id: user._id,
+      email: user.email,
+      role: user.role
+    };
+  }
+
   static async login(email: string, password: string) {
     const user = await User.findOne({ email });
     if (!user || !user.isActive) {
@@ -72,3 +94,4 @@ export class AuthService {
     };
   }
 }
+
