@@ -1,11 +1,12 @@
-import { PublicNavbar } from "@/components/public/PublicNavbar";
+ï»¿import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { CinematicHero } from "@/components/shared/CinematicHero";
 import { AbstractGeometry3D } from "@/components/three/AbstractGeometry";
 import { GsapReveal } from "@/components/shared/GsapReveal";
-import { ArrowRight, BookOpen, Users, Trophy, GraduationCap, MapPin, Globe } from "lucide-react";
+import { ArrowRight, BookOpen, Users, Trophy, GraduationCap, Globe } from "lucide-react";
 import Link from "next/link";
 import { ParallaxImage } from "@/components/shared/ParallaxImage";
+import { ProgramFinder } from "@/components/public/ProgramFinder";
 
 export default function Home() {
   const notices = [
@@ -22,27 +23,12 @@ export default function Home() {
       {/* Hero Section */}
       <CinematicHero />
 
-      {/* Marquee Ticker */}
-      <div className="bg-[#1a2b4c] text-white py-3 border-y border-[#ffb800]/20 overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 bg-[#ffb800] text-[#1a2b4c] font-bold px-6 flex items-center z-10 shadow-[5px_0_15px_rgba(0,0,0,0.3)]">
-          Latest Updates
-        </div>
-        <div className="flex whitespace-nowrap animate-marquee ml-40">
-          <span className="mx-4">?? B.Tech 1st Sem Results Declared</span>
-          <span className="mx-4 text-[#ffb800]">•</span>
-          <span className="mx-4">?? Convocation Ceremony scheduled for Dec 15</span>
-          <span className="mx-4 text-[#ffb800]">•</span>
-          <span className="mx-4">?? Salok wins National Innovation Award</span>
-          <span className="mx-4 text-[#ffb800]">•</span>
-          <span className="mx-4">?? New Center for Quantum Computing inaugurated</span>
-          <span className="mx-4 text-[#ffb800]">•</span>
-          <span className="mx-4">?? B.Tech 1st Sem Results Declared</span>
-          <span className="mx-4 text-[#ffb800]">•</span>
-          <span className="mx-4">?? Convocation Ceremony scheduled for Dec 15</span>
-        </div>
+      {/* Program Finder (Searchable tool instead of static grids) */}
+      <div className="relative z-20 px-4">
+        <ProgramFinder />
       </div>
 
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden pt-12">
         <AbstractGeometry3D />
         
         {/* Main Content Grid */}
@@ -117,7 +103,7 @@ export default function Home() {
         </section>
 
         {/* Parallax Visual Section */}
-        <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
           <GsapReveal>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <ParallaxImage src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070" alt="Students walking" height="h-[400px]" />
@@ -128,15 +114,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">âœ“</span>
                     NIRF Ranked Top 50 Engineering Institute
                   </li>
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">âœ“</span>
                     100% Placement Assistance
                   </li>
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">âœ“</span>
                     State-of-the-art Research Labs
                   </li>
                 </ul>
