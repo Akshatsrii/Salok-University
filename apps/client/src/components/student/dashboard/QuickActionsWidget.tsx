@@ -17,7 +17,7 @@ export const QuickActionsWidget = () => {
         {actions.map((action, idx) => (
           <Link 
             key={idx} 
-            href={action.href}
+            to={action.href}
             className="flex flex-col items-center justify-center p-4 rounded-2xl border border-gray-100 hover:border-[#ffb800] hover:shadow-md transition-all group"
           >
             <div className={`w-12 h-12 rounded-full ${action.bg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
@@ -30,3 +30,4 @@ export const QuickActionsWidget = () => {
     </div>
   );
 };
+

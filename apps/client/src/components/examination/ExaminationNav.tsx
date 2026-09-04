@@ -22,7 +22,7 @@ export const ExaminationNav = () => {
         return (
           <Link
             key={link.label}
-            href={link.href}
+            to={link.href}
             className={`whitespace-nowrap py-4 px-4 text-sm font-medium border-b-2 transition-colors ${
               isActive
                 ? 'border-blue-600 text-blue-600'
@@ -36,3 +36,4 @@ export const ExaminationNav = () => {
     </nav>
   );
 };
+

@@ -14,6 +14,10 @@ import DisclosuresPage from './pages/(public)/disclosures/page';
 import RecruitmentPage from './pages/(public)/recruitment/page';
 import VisionMissionPage from './pages/(public)/vision-mission/page';
 import StrategicPlanPage from './pages/(public)/strategic-plan/page';
+import PlacementsPage from './pages/(public)/placements/page';
+import ResearchPage from './pages/(public)/research/page';
+import LibraryPage from './pages/(public)/library/page';
+import ClubsPage from './pages/(public)/clubs/page';
 
 // Auth Pages
 import LoginPage from './pages/(auth)/login/page';
@@ -41,6 +45,10 @@ function App() {
         <Route path="/recruitment" element={<RecruitmentPage />} />
         <Route path="/vision-mission" element={<VisionMissionPage />} />
         <Route path="/strategic-plan" element={<StrategicPlanPage />} />
+        <Route path="/placements" element={<PlacementsPage />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/clubs" element={<ClubsPage />} />
 
         {/* Auth Routes */}
         <Route path="/login" element={<LoginPage />} />

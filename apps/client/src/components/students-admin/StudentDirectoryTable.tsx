@@ -49,7 +49,7 @@ export const StudentDirectoryTable = () => {
                   </span>
                 </td>
                 <td className="p-4 flex justify-center gap-3">
-                  <Link href={`/admin/students/${student.id}`} className="text-blue-600 hover:text-blue-800" title="View Profile">
+                  <Link to={`/admin/students/${student.id}`} className="text-blue-600 hover:text-blue-800" title="View Profile">
                     <Eye className="w-5 h-5" />
                   </Link>
                   <button className="text-gray-500 hover:text-gray-700" title="Edit">
@@ -67,3 +67,4 @@ export const StudentDirectoryTable = () => {
     </div>
   );
 };
+

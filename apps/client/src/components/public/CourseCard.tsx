@@ -28,7 +28,7 @@ export const CourseCard = ({ title, department, duration, credits, imageUrl, slu
           </div>
         </div>
         <Link
-          href={`/academics/courses/${slug}`}
+          to={`/academics/courses/${slug}`}
           className="block w-full text-center py-2 px-4 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors"
         >
           View Details
@@ -37,3 +37,4 @@ export const CourseCard = ({ title, department, duration, credits, imageUrl, slu
     </div>
   );
 };
+

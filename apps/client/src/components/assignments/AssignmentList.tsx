@@ -42,7 +42,7 @@ export const AssignmentList = () => {
           
           <div className="mt-6 pt-4 border-t border-gray-100">
             <Link 
-              href={`/student/assignments/${assignment.id}`} 
+              to={`/student/assignments/${assignment.id}`} 
               className={`w-full py-2 flex items-center justify-center rounded-md text-sm font-semibold transition-colors ${
                 assignment.status === 'Pending' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
               }`}
@@ -55,3 +55,4 @@ export const AssignmentList = () => {
     </div>
   );
 };
+

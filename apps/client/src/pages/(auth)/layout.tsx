@@ -12,7 +12,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#007bff]/20 rounded-full blur-3xl -ml-20 -mb-20"></div>
         
         <div className="relative z-10">
-          <Link href="/" className="flex items-center gap-3 w-fit group">
+          <Link to="/" className="flex items-center gap-3 w-fit group">
             <div className="w-10 h-10 rounded-full bg-[#ffb800] flex items-center justify-center text-[#1a2b4c] shadow-lg group-hover:scale-105 transition-transform">
               <GraduationCap className="w-6 h-6" />
             </div>
@@ -32,7 +32,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="relative z-10 flex items-center gap-4 text-gray-400 text-sm">
           <span>&copy; {new Date().getFullYear()} Salok ERP</span>
           <span className="w-1 h-1 bg-gray-500 rounded-full"></span>
-          <Link href="/contact" className="hover:text-white transition-colors">Help Center</Link>
+          <Link to="/contact" className="hover:text-white transition-colors">Help Center</Link>
         </div>
       </div>
 
@@ -45,3 +45,4 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     </div>
   );
 }
+

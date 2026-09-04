@@ -19,13 +19,13 @@ export const HeroSection = () => {
         </p>
         <div className="flex gap-4 justify-center">
           <Link
-            href="/admissions"
+            to="/admissions"
             className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold transition-colors"
           >
             Apply Now
           </Link>
           <Link
-            href="/about"
+            to="/about"
             className="px-8 py-3 bg-white/20 hover:bg-white/30 rounded-lg text-lg font-semibold backdrop-blur-sm transition-colors"
           >
             Learn More
@@ -35,3 +35,4 @@ export const HeroSection = () => {
     </section>
   );
 };
+

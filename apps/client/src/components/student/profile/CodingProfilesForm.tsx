@@ -32,7 +32,7 @@ export const CodingProfilesForm = () => {
                 className="w-full border border-gray-300 rounded-md p-2 text-sm disabled:bg-gray-50 disabled:text-gray-600" 
               />
               {!isEditing && (
-                <Link href="https://github.com/rahulsharma-dev" target="_blank" className="p-2 border border-gray-300 rounded-md hover:bg-gray-50 text-gray-500">
+                <Link to="https://github.com/rahulsharma-dev" target="_blank" className="p-2 border border-gray-300 rounded-md hover:bg-gray-50 text-gray-500">
                   <ExternalLink className="w-4 h-4" />
                 </Link>
               )}
@@ -53,7 +53,7 @@ export const CodingProfilesForm = () => {
                 className="w-full border border-gray-300 rounded-md p-2 text-sm disabled:bg-gray-50 disabled:text-gray-600" 
               />
               {!isEditing && (
-                <Link href="https://leetcode.com/rahul_codes" target="_blank" className="p-2 border border-gray-300 rounded-md hover:bg-gray-50 text-gray-500">
+                <Link to="https://leetcode.com/rahul_codes" target="_blank" className="p-2 border border-gray-300 rounded-md hover:bg-gray-50 text-gray-500">
                   <ExternalLink className="w-4 h-4" />
                 </Link>
               )}
@@ -72,3 +72,4 @@ export const CodingProfilesForm = () => {
     </div>
   );
 };
+

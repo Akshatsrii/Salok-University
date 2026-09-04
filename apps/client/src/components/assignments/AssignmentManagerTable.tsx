@@ -50,7 +50,7 @@ export const AssignmentManagerTable = () => {
                   </span>
                 </td>
                 <td className="p-4 text-right">
-                  <Link href={`/teacher/assignments/${assignment.id}/submissions`} className="text-blue-600 font-medium hover:text-blue-800 mr-4 text-sm">
+                  <Link to={`/teacher/assignments/${assignment.id}/submissions`} className="text-blue-600 font-medium hover:text-blue-800 mr-4 text-sm">
                     Grade
                   </Link>
                   <button className="text-gray-400 hover:text-gray-600"><MoreVertical className="w-4 h-4" /></button>
@@ -63,3 +63,4 @@ export const AssignmentManagerTable = () => {
     </div>
   );
 };
+

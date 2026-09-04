@@ -24,7 +24,7 @@ export const login = async (req: Request, res: Response) => {
       maxAge: 15 * 60 * 1000, // 15 mins
     });
     
-    res.cookie('role', result.user.role, {
+    res.cookie('role', result.user?.role, {
       secure: process.env.NODE_ENV === 'production',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
@@ -55,7 +55,7 @@ export const mfaVerify = async (req: Request, res: Response) => {
       maxAge: 15 * 60 * 1000,
     });
 
-    res.cookie('role', result.user.role, {
+    res.cookie('role', result.user?.role, {
       secure: process.env.NODE_ENV === 'production',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
@@ -99,3 +99,4 @@ export const logout = async (req: Request, res: Response) => {
   res.clearCookie('role');
   return res.status(200).json({ message: 'Logged out successfully' });
 };
+

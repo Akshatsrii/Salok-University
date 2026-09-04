@@ -94,7 +94,7 @@ export default function ForgotPasswordPage() {
       )}
 
       <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-        <Link href="/login" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-[#1a2b4c] transition-colors">
+        <Link to="/login" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-[#1a2b4c] transition-colors">
           <ArrowLeft className="w-4 h-4" />
           Back to Sign In
         </Link>
@@ -102,3 +102,4 @@ export default function ForgotPasswordPage() {
     </div>
   );
 }
+

@@ -14,11 +14,12 @@ export default function ReportsPage() {
 
       {/* Sub-navbar / Tabs */}
       <div className="flex space-x-6 border-b border-gray-200 mb-6">
-        <Link href="/admin/students" className="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">All Students</Link>
-        <Link href="/admin/students/reports" className="pb-3 border-b-2 border-blue-600 text-blue-600 font-medium text-sm">Reports</Link>
+        <Link to="/admin/students" className="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium text-sm">All Students</Link>
+        <Link to="/admin/students/reports" className="pb-3 border-b-2 border-blue-600 text-blue-600 font-medium text-sm">Reports</Link>
       </div>
       
       <BatchPerformanceExport />
     </div>
   );
 }
+

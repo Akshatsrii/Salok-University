@@ -13,7 +13,7 @@ export const TransportNav = () => {
       {navItems.map((item) => (
         <Link 
           key={item.href} 
-          href={item.href}
+          to={item.href}
           className="pb-2 text-sm font-medium text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 transition-colors"
         >
           {item.label}
@@ -22,3 +22,4 @@ export const TransportNav = () => {
     </nav>
   );
 };
+

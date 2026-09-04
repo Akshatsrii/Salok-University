@@ -11,7 +11,7 @@ export default function TeacherAssignmentsPage() {
           <p className="text-gray-500 mt-1">Manage coursework, track submissions, and grade assignments.</p>
         </div>
         <Link 
-          href="/teacher/assignments/create"
+          to="/teacher/assignments/create"
           className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 flex items-center gap-2 transition-colors w-fit"
         >
           <Plus className="w-4 h-4" /> Create New Assignment
@@ -22,3 +22,4 @@ export default function TeacherAssignmentsPage() {
     </div>
   );
 }
+

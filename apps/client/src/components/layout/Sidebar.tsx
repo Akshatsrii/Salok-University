@@ -63,7 +63,7 @@ export const Sidebar = () => {
   return (
     <aside className="w-64 fixed inset-y-0 left-0 bg-[#1a2b4c] border-r border-[#1a2b4c] flex flex-col z-40 transition-transform duration-300 shadow-xl">
       <div className="h-20 flex items-center px-6 border-b border-white/10">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#1a2b4c] font-bold text-lg group-hover:bg-[#ffb800] transition-colors shadow-sm">
             <GraduationCap className="w-5 h-5" />
           </div>
@@ -80,7 +80,7 @@ export const Sidebar = () => {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
                 isActive 
                   ? "bg-[#ffb800] text-[#1a2b4c] shadow-sm" 
@@ -103,3 +103,4 @@ export const Sidebar = () => {
     </aside>
   );
 };
+

@@ -35,10 +35,11 @@ export const PendingGradingWidget = () => {
       </div>
       
       <div className="mt-4 pt-4 border-t border-gray-100">
-        <Link href="/teacher/assignments" className="text-[#007bff] text-sm font-semibold hover:underline w-full text-center block">
+        <Link to="/teacher/assignments" className="text-[#007bff] text-sm font-semibold hover:underline w-full text-center block">
           View All Assignments
         </Link>
       </div>
     </div>
   );
 };
+

@@ -7,7 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 export default function StudentAttendancePage() {
   return (
     <div className="p-8 max-w-7xl mx-auto bg-gray-50 min-h-screen">
-      <Link href="/student" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 mb-6 w-fit">
+      <Link to="/student" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 mb-6 w-fit">
         <ArrowLeft className="w-4 h-4" /> Back to Dashboard
       </Link>
       
@@ -41,3 +41,4 @@ export default function StudentAttendancePage() {
     </div>
   );
 }
+

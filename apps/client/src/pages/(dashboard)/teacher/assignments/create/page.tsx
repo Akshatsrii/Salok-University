@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 export default function CreateAssignmentPage() {
   return (
     <div className="p-8 max-w-5xl mx-auto space-y-6 bg-gray-50 min-h-screen">
-      <Link href="/teacher/assignments" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 w-fit mb-4">
+      <Link to="/teacher/assignments" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 w-fit mb-4">
         <ArrowLeft className="w-4 h-4" /> Back to Assignments
       </Link>
       
@@ -22,3 +22,4 @@ export default function CreateAssignmentPage() {
     </div>
   );
 }
+

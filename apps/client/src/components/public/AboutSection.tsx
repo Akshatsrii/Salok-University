@@ -23,7 +23,7 @@ export const AboutSection = () => {
               With our state-of-the-art facilities, world-class faculty, and strong industry connections, we ensure our students are ready to meet the challenges of the modern world.
             </p>
             <Link
-              href="/about"
+              to="/about"
               className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
             >
               Discover Our History <span>&rarr;</span>
@@ -34,3 +34,4 @@ export const AboutSection = () => {
     </section>
   );
 };
+

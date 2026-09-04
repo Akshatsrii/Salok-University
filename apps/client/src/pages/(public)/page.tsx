@@ -1,4 +1,4 @@
-﻿import { PublicNavbar } from "@/components/public/PublicNavbar";
+import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { CinematicHero } from "@/components/shared/CinematicHero";
 import { AbstractGeometry3D } from "@/components/three/AbstractGeometry";
@@ -48,7 +48,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-[#ffb800]" /> Notice Board
                 </h3>
-                <Link href="#" className="text-xs hover:text-[#ffb800] transition-colors">View All</Link>
+                <Link to="#" className="text-xs hover:text-[#ffb800] transition-colors">View All</Link>
               </div>
               <div className="divide-y divide-gray-100 p-2">
                 {notices.map((notice, idx) => (
@@ -74,7 +74,7 @@ export default function Home() {
                   <p className="text-lg text-gray-300 max-w-xl mb-8">
                     A premier technological university dedicated to advancing knowledge and educating students in science, technology, and beyond.
                   </p>
-                  <Link href="/about" className="inline-flex items-center gap-2 bg-[#ffb800] text-[#1a2b4c] px-6 py-3 rounded font-bold hover:bg-white transition-colors">
+                  <Link to="/about" className="inline-flex items-center gap-2 bg-[#ffb800] text-[#1a2b4c] px-6 py-3 rounded font-bold hover:bg-white transition-colors">
                     Know More <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -89,7 +89,7 @@ export default function Home() {
                   { title: "Global Connect", icon: Globe, link: "#" },
                 ].map((item, idx) => (
                   <GsapReveal key={idx}>
-                    <Link href={item.link} className="flex flex-col items-center justify-center bg-white p-6 rounded-xl shadow-md border-b-4 border-transparent hover:border-[#007bff] hover:shadow-xl transition-all group">
+                    <Link to={item.link} className="flex flex-col items-center justify-center bg-white p-6 rounded-xl shadow-md border-b-4 border-transparent hover:border-[#007bff] hover:shadow-xl transition-all group">
                       <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#007bff] group-hover:text-white transition-colors text-[#1a2b4c]">
                         <item.icon className="w-7 h-7" />
                       </div>
@@ -114,15 +114,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">✓</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
                     NIRF Ranked Top 50 Engineering Institute
                   </li>
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">✓</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
                     100% Placement Assistance
                   </li>
                   <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">✓</span>
+                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
                     State-of-the-art Research Labs
                   </li>
                 </ul>
@@ -136,3 +136,4 @@ export default function Home() {
     </div>
   );
 }
+

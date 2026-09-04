@@ -68,19 +68,19 @@ export default function Home() {
         </div>
         
         <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-600">
-          <Link href="#" className="text-[#007bff] hover:text-[#0056b3] transition-colors">Home</Link>
+          <Link to="#" className="text-[#007bff] hover:text-[#0056b3] transition-colors">Home</Link>
           <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-          <Link href="#" className="hover:text-[#007bff] transition-colors">About</Link>
+          <Link to="#" className="hover:text-[#007bff] transition-colors">About</Link>
           <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-          <Link href="#" className="hover:text-[#007bff] transition-colors">Courses</Link>
+          <Link to="#" className="hover:text-[#007bff] transition-colors">Courses</Link>
           <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-          <Link href="#" className="hover:text-[#007bff] transition-colors">Faculty</Link>
+          <Link to="#" className="hover:text-[#007bff] transition-colors">Faculty</Link>
           <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-          <Link href="#" className="hover:text-[#007bff] transition-colors">Contact</Link>
+          <Link to="#" className="hover:text-[#007bff] transition-colors">Contact</Link>
         </div>
 
         <div>
-          <Link href="/admin" className="bg-[#007bff] hover:bg-[#0056b3] text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-colors">
+          <Link to="/admin" className="bg-[#007bff] hover:bg-[#0056b3] text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-colors">
             Login
           </Link>
         </div>
@@ -102,7 +102,7 @@ export default function Home() {
             Empowering students with knowledge and Innovation.
           </p>
           <div className="pt-6">
-            <Link href="#programs" className="bg-[#ffb800] hover:bg-[#e6a600] text-gray-900 px-8 py-3.5 rounded-full font-bold text-lg shadow-lg transition-transform hover:scale-105 active:scale-95 inline-block">
+            <Link to="#programs" className="bg-[#ffb800] hover:bg-[#e6a600] text-gray-900 px-8 py-3.5 rounded-full font-bold text-lg shadow-lg transition-transform hover:scale-105 active:scale-95 inline-block">
               Explore Programs
             </Link>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
                 {portal.description}
               </p>
               <Link 
-                href={portal.href}
+                to={portal.href}
                 className="bg-[#ffb800] text-gray-900 px-8 py-2.5 rounded-full font-bold text-sm shadow-sm hover:bg-[#e6a600] transition-colors"
               >
                 {portal.buttonText}
@@ -261,22 +261,22 @@ export default function Home() {
           <div>
             <h4 className="text-xl font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><Link href="#" className="hover:text-white transition-colors">Admissions</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Academics</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Research</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Library</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Career Services</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Admissions</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Academics</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Research</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Library</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors">Career Services</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-xl font-bold mb-4">University Portals</h4>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><Link href="/student" className="hover:text-white transition-colors">Student Portal</Link></li>
-              <li><Link href="/teacher" className="hover:text-white transition-colors">Faculty Portal</Link></li>
-              <li><Link href="/alumni" className="hover:text-white transition-colors">Alumni Portal</Link></li>
-              <li><Link href="/health" className="hover:text-white transition-colors">Health & Wellness</Link></li>
-              <li><Link href="/facility/hostel/rooms" className="hover:text-white transition-colors">Hostel & Accommodation</Link></li>
+              <li><Link to="/student" className="hover:text-white transition-colors">Student Portal</Link></li>
+              <li><Link to="/teacher" className="hover:text-white transition-colors">Faculty Portal</Link></li>
+              <li><Link to="/alumni" className="hover:text-white transition-colors">Alumni Portal</Link></li>
+              <li><Link to="/health" className="hover:text-white transition-colors">Health & Wellness</Link></li>
+              <li><Link to="/facility/hostel/rooms" className="hover:text-white transition-colors">Hostel & Accommodation</Link></li>
             </ul>
           </div>
           
@@ -306,3 +306,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -9,9 +9,10 @@ export default function Page() {
       <p className="text-lg text-gray-500 max-w-2xl mb-8">
         This portal will be launched prior to the upcoming academic session.
       </p>
-      <Link href="/" className="btn-primary">
+      <Link to="/" className="btn-primary">
         Return to Homepage
       </Link>
     </div>
   );
 }
+

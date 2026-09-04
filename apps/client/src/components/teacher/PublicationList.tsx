@@ -30,7 +30,7 @@ export const PublicationList = () => {
                 <p className="text-xs text-gray-500 mt-1">{pub.journal} • {pub.year}</p>
               </div>
             </div>
-            <Link href={pub.link} className="p-2 text-gray-400 hover:text-[#007bff] transition-colors">
+            <Link to={pub.link} className="p-2 text-gray-400 hover:text-[#007bff] transition-colors">
               <ExternalLink className="w-4 h-4" />
             </Link>
           </div>
@@ -39,3 +39,4 @@ export const PublicationList = () => {
     </div>
   );
 };
+

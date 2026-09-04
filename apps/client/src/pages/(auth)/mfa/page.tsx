@@ -64,10 +64,11 @@ export default function MFAPage() {
           <RefreshCw className="w-4 h-4" />
           Resend Code
         </button>
-        <Link href="/login" className="text-gray-400 hover:text-gray-600 transition-colors">
+        <Link to="/login" className="text-gray-400 hover:text-gray-600 transition-colors">
           Return to login
         </Link>
       </div>
     </div>
   );
 }
+

@@ -53,7 +53,7 @@ export const ApplicationQueueTable = () => {
                 </td>
                 <td className="p-4 text-gray-500">{app.date}</td>
                 <td className="p-4 flex justify-center gap-3">
-                  <Link href={`/admin/admissions/${app.id}`} className="text-blue-600 hover:text-blue-800" title="Review">
+                  <Link to={`/admin/admissions/${app.id}`} className="text-blue-600 hover:text-blue-800" title="Review">
                     <Eye className="w-5 h-5" />
                   </Link>
                   <button className="text-green-600 hover:text-green-800" title="Approve">
@@ -71,3 +71,4 @@ export const ApplicationQueueTable = () => {
     </div>
   );
 };
+

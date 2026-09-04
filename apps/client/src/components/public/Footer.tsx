@@ -10,36 +10,36 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 pb-2 inline-block border-b-2" style={{ color: "var(--foreground)", borderColor: "var(--primary)" }}>Salok University</h3>
             <ul className="space-y-3">
-              <li><Link href="/about" className="text-gray-600 hover:text-[var(--primary)] transition-colors">About STU</Link></li>
-              <li><Link href="/strategic-plan" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Strategic Plan</Link></li>
-              <li><Link href="/vision-mission" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Vision & Mission</Link></li>
-              <li><Link href="/events-gallery" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Events & Gallery</Link></li>
-              <li><Link href="/contact" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Contact Us</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-[var(--primary)] transition-colors">About STU</Link></li>
+              <li><Link to="/strategic-plan" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Strategic Plan</Link></li>
+              <li><Link to="/vision-mission" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Vision & Mission</Link></li>
+              <li><Link to="/events-gallery" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Events & Gallery</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-xl font-bold mb-6 pb-2 inline-block border-b-2" style={{ color: "var(--foreground)", borderColor: "var(--primary)" }}>Alumni</h3>
             <ul className="space-y-3">
-              <li><Link href="/alumni" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Welcome Alumni</Link></li>
-              <li><Link href="/alumni-association" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Alumni Association</Link></li>
+              <li><Link to="/alumni" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Welcome Alumni</Link></li>
+              <li><Link to="/alumni-association" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Alumni Association</Link></li>
             </ul>
             
             <h3 className="text-xl font-bold mt-8 mb-6 pb-2 inline-block border-b-2" style={{ color: "var(--foreground)", borderColor: "var(--primary)" }}>Other Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/convocation" className="text-gray-600 hover:text-[var(--primary)] transition-colors">STU Convocation</Link></li>
-              <li><Link href="/disclosures" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Public Disclosures</Link></li>
+              <li><Link to="/convocation" className="text-gray-600 hover:text-[var(--primary)] transition-colors">STU Convocation</Link></li>
+              <li><Link to="/disclosures" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Public Disclosures</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-xl font-bold mb-6 pb-2 inline-block border-b-2" style={{ color: "var(--foreground)", borderColor: "var(--primary)" }}>Resources</h3>
             <ul className="space-y-3">
-              <li><Link href="/advertisement" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Advertisement</Link></li>
-              <li><Link href="/recruitment" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Recruitment/Establishment</Link></li>
-              <li><Link href="/admissions" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Admissions (UG/PG)</Link></li>
-              <li><Link href="/library" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Central Library</Link></li>
-              <li><Link href="/annual-report" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Annual Report</Link></li>
+              <li><Link to="/advertisement" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Advertisement</Link></li>
+              <li><Link to="/recruitment" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Recruitment/Establishment</Link></li>
+              <li><Link to="/admissions" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Admissions (UG/PG)</Link></li>
+              <li><Link to="/library" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Central Library</Link></li>
+              <li><Link to="/annual-report" className="text-gray-600 hover:text-[var(--primary)] transition-colors">Annual Report</Link></li>
             </ul>
           </div>
 
@@ -61,16 +61,16 @@ export const Footer = () => {
             </ul>
             
             <div className="flex gap-3 mt-6">
-              <Link href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
+              <Link to="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
                 <span>FB</span>
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
+              <Link to="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
                 <span>TW</span>
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
+              <Link to="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
                 <span>YT</span>
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
+              <Link to="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-colors text-gray-500">
                 <span>IN</span>
               </Link>
             </div>
@@ -86,4 +86,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
 
