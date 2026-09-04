@@ -17,7 +17,7 @@ export default function ContactPage() {
     if (!form.email || !form.message) return;
     setStatus("sending");
     try {
-      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1'}/contact", {
+      const res = await fetch("${import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1'}/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -176,3 +176,4 @@ export default function ContactPage() {
     </div>
   );
 }
+
