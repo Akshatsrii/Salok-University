@@ -1,11 +1,8 @@
+import { Outlet } from "react-router-dom";
 import { Sidebar } from "../../components/layout/Sidebar";
 import { Topbar } from "../../components/layout/Topbar";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout() {
   return (
     <div className="flex min-h-screen bg-[#fffdf5]">
       <Sidebar />
@@ -13,7 +10,7 @@ export default function DashboardLayout({
         <Topbar />
         <main className="flex-1 p-6 md:p-8">
           <div className="bg-white rounded-3xl shadow-sm border border-gray-100 min-h-[calc(100vh-8rem)] overflow-hidden">
-            {children}
+            <Outlet />
           </div>
         </main>
       </div>
