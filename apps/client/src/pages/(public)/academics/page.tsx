@@ -12,7 +12,7 @@ export default function AcademicsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fdf7f7]">
+    <div className="min-h-screen bg-[#ffffff]">
       <PublicNavbar />
       
       <section className="relative h-[50vh] bg-primary flex items-center overflow-hidden">

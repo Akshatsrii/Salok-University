@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Search, Shield } from "lucide-react";
 
 export function PublicNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,109 +18,88 @@ export function PublicNavbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Admissions", href: "/admissions" },
-    { name: "Academics", href: "/academics" },
+    { name: "Examination", href: "/academics" },
     { name: "Students", href: "/campus-life" },
-    { name: "Research", href: "/research" },
-    { name: "About", href: "/about" },
+    { name: "Academics", href: "/research" },
   ];
 
   return (
-    <>
-      {/* Top Bar (like second image) */}
-      <div className="hidden lg:flex justify-between items-center bg-white px-8 py-2 text-sm text-gray-600 border-b border-gray-100">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4 text-primary" />
-            <span>+91 1800-123-4567</span>
+    <nav className={`${isScrolled ? "bg-[#8a1538] shadow-2xl py-3" : "bg-[#8a1538] py-5"} sticky top-0 z-50 transition-all duration-300 border-b border-white/10`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          
+          {/* Logo (Shield Style like reference) */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-12 flex items-center justify-center">
+              <Shield className="w-12 h-12 text-white absolute inset-0 drop-shadow-md" fill="white" />
+              <div className="relative z-10 flex flex-col items-center justify-center text-[#8a1538] font-serif font-black leading-none mt-1">
+                <span className="text-xl">A</span>
+                <span className="text-[10px]">B</span>
+              </div>
+            </div>
+            <div className="ml-2 border-l border-white/30 pl-3">
+              <span className="text-white text-lg font-bold block leading-tight font-serif">Andorra la Vella</span>
+              <span className="text-white/90 text-sm font-medium tracking-wide">University</span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`${location.pathname === link.href ? "text-white font-bold" : "text-white/80 hover:text-white font-medium"} transition-colors text-sm`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            
+            {/* Search Bar matching image 1 (White rounded input) */}
+            <div className="relative ml-4">
+              <input 
+                type="text" 
+                placeholder="Search" 
+                className="bg-white text-gray-900 placeholder-gray-500 rounded-lg py-1.5 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-accent w-48 shadow-inner"
+              />
+              <Search className="absolute right-3 top-2 w-4 h-4 text-gray-500" />
+            </div>
+
+            {/* Hamburger for desktop extra menu */}
+            <button className="text-white ml-2 hover:text-accent transition-colors">
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
-          <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4 text-primary" />
-            <span>info@salok.edu</span>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-white hover:text-accent focus:outline-none"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-primary" />
-            <span>Knowledge City, New Delhi</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link to="/login" className="font-semibold hover:text-primary transition-colors">Student Portal</Link>
-          <span className="text-gray-300">|</span>
-          <Link to="/teacher" className="font-semibold hover:text-primary transition-colors">Staff Portal</Link>
-          <Link to="/admissions/apply" className="bg-primary text-white px-4 py-1.5 rounded text-xs font-bold hover:bg-primary-dark transition-colors">Get a Quote</Link>
         </div>
       </div>
 
-      {/* Main Navbar (Crimson background like first image) */}
-      <nav className={`${isScrolled ? "bg-primary shadow-xl py-3" : "bg-primary py-4"} sticky top-0 z-50 transition-all duration-300`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1 shadow-lg group-hover:scale-105 transition-transform">
-                {/* Placeholder Logo Icon matching reference */}
-                <div className="w-full h-full bg-primary rounded-md flex flex-col items-center justify-center text-white font-serif font-bold text-lg leading-none">
-                  S<span className="text-[10px] block mt-0.5">U</span>
-                </div>
-              </div>
-              <div>
-                <span className="text-white text-xl font-bold block leading-tight font-serif">Salok</span>
-                <span className="text-white/80 text-sm font-medium tracking-wide">University</span>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={`${location.pathname === link.href ? "text-accent font-bold" : "text-white/90 hover:text-accent font-medium"} transition-colors text-sm tracking-wide`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              
-              {/* Search Bar matching image 1 */}
-              <div className="relative hidden lg:block">
-                <input 
-                  type="text" 
-                  placeholder="Search" 
-                  className="bg-white/10 text-white placeholder-white/70 border border-white/20 rounded-full py-1.5 pl-4 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-accent w-48 transition-all focus:w-64 focus:bg-white/20"
-                />
-                <Search className="absolute right-3 top-1.5 w-4 h-4 text-white/70" />
-              </div>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white hover:text-accent focus:outline-none"
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#6b0f2a] absolute top-full left-0 w-full shadow-2xl border-t border-white/10">
+          <div className="px-4 pt-2 pb-6 space-y-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="block px-3 py-3 text-base font-medium text-white hover:bg-white/10 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
-
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-primary-dark absolute top-full left-0 w-full shadow-2xl">
-            <div className="px-4 pt-2 pb-6 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="block px-3 py-3 text-base font-medium text-white hover:bg-white/10 rounded-md"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-    </>
+      )}
+    </nav>
   );
 }

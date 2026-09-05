@@ -13,7 +13,7 @@ export default function AlumniPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fdf7f7]">
+    <div className="min-h-screen bg-[#ffffff]">
       <PublicNavbar />
       
       {/* Hero Section */}

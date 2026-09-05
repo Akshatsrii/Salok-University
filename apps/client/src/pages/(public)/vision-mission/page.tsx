@@ -4,7 +4,7 @@ import { GsapReveal } from "@/components/shared/GsapReveal";
 
 export default function VisionMissionPage() {
   return (
-    <div className="min-h-screen bg-[#fdf7f7]">
+    <div className="min-h-screen bg-[#ffffff]">
       <PublicNavbar />
       <section className="relative pt-32 pb-24 bg-[#8a1538] text-white flex items-center min-h-[40vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -5,13 +5,13 @@ import { FlaskConical, Network, Lightbulb, Users } from "lucide-react";
 
 export default function ResearchPage() {
   return (
-    <div className="min-h-screen bg-[#fdf7f7]">
+    <div className="min-h-screen bg-[#ffffff]">
       <PublicNavbar />
       
       <section className="relative h-[60vh] flex items-center">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2000" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-primary/90"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <GsapReveal>

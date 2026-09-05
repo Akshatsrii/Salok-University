@@ -9,7 +9,7 @@ export default function PlacementsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fdf7f7]">
+    <div className="min-h-screen bg-[#ffffff]">
       <PublicNavbar />
       
       <section className="relative pt-32 pb-24 bg-[#8a1538] text-white overflow-hidden min-h-[50vh] flex items-center">
