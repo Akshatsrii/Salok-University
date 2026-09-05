@@ -6,7 +6,7 @@ import { GsapReveal } from "@/components/shared/GsapReveal";
 
 export default function PageHome() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#fdf7f7] flex flex-col">
       <PublicNavbar />
 
       {/* Hero Section matching Image 1 & 2 vibe */}
@@ -132,7 +132,7 @@ export default function PageHome() {
         {/* Course Filters */}
         <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4">
           {["All", "Courses", "Events", "Students", "Teachers"].map((filter, idx) => (
-            <button key={idx} className={\ px-4 py-1.5 rounded-sm text-sm font-medium transition-colors}>
+            <button key={idx} className={`${idx === 0 ? "bg-primary text-white" : "text-gray-600 hover:text-primary"} px-4 py-1.5 rounded-sm text-sm font-medium transition-colors`}>
               {filter}
             </button>
           ))}

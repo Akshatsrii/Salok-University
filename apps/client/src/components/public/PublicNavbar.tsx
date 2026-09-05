@@ -51,7 +51,7 @@ export function PublicNavbar() {
       </div>
 
       {/* Main Navbar (Crimson background like first image) */}
-      <nav className={\ sticky top-0 z-50 transition-all duration-300}>
+      <nav className={`${isScrolled ? "bg-primary shadow-xl py-3" : "bg-primary py-4"} sticky top-0 z-50 transition-all duration-300`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
@@ -74,7 +74,7 @@ export function PublicNavbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={\ transition-colors text-sm tracking-wide}
+                  className={`${location.pathname === link.href ? "text-accent font-bold" : "text-white/90 hover:text-accent font-medium"} transition-colors text-sm tracking-wide`}
                 >
                   {link.name}
                 </Link>

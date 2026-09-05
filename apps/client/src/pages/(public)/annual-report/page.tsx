@@ -4,10 +4,10 @@ import { GsapReveal } from "@/components/shared/GsapReveal";
 
 export default function AnnualReportPage() {
   return (
-    <div className="min-h-screen bg-[#fffdf5]">
+    <div className="min-h-screen bg-[#fdf7f7]">
       <PublicNavbar />
       
-      <section className="relative pt-32 pb-24 bg-[#1a2b4c] text-white flex items-center">
+      <section className="relative pt-32 pb-24 bg-[#8a1538] text-white flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <GsapReveal>
             <h1 className="text-5xl font-extrabold mb-4">Annual <span className="text-[#ffb800]">Report</span></h1>

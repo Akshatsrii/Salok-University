@@ -13,11 +13,11 @@ export default function AlumniPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fffdf5]">
+    <div className="min-h-screen bg-[#fdf7f7]">
       <PublicNavbar />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-[#1a2b4c] text-white flex items-center overflow-hidden">
+      <section className="relative h-[60vh] bg-[#8a1538] text-white flex items-center overflow-hidden">
         <div className="absolute inset-0 opacity-40">
           <ParallaxImage src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070" alt="Alumni Hero" height="h-full" />
         </div>
@@ -37,7 +37,7 @@ export default function AlumniPage() {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <GsapReveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a2b4c] mb-4">Our Global Footprint</h2>
+            <h2 className="text-4xl font-bold text-[#8a1538] mb-4">Our Global Footprint</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Our alumni are leading change across the globe in top Fortune 500 companies, research institutes, and their own successful ventures.
             </p>
@@ -51,7 +51,7 @@ export default function AlumniPage() {
                 <div className="w-16 h-16 bg-[#007bff]/10 text-[#007bff] rounded-full flex items-center justify-center mb-6">
                   <card.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-4xl font-bold text-[#1a2b4c] mb-2">{card.value}</h3>
+                <h3 className="text-4xl font-bold text-[#8a1538] mb-2">{card.value}</h3>
                 <p className="text-gray-500 font-medium">{card.title}</p>
               </div>
             </GsapReveal>

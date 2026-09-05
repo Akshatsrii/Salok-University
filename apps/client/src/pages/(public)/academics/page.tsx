@@ -1,128 +1,49 @@
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { GsapReveal } from "@/components/shared/GsapReveal";
-import { ParallaxImage } from "@/components/shared/ParallaxImage";
-import { BookOpen, Award, Microscope, Laptop, ChevronRight, GraduationCap, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { BookOpen, Monitor, Microscope, Stethoscope, Briefcase, Atom } from "lucide-react";
 
 export default function AcademicsPage() {
-  const departments = [
-    { name: "Computer Science & Engineering", desc: "AI, ML, Data Science & Software Engineering.", icon: Laptop, color: "bg-blue-500" },
-    { name: "Electronics & Communication", desc: "IoT, VLSI, Signal Processing.", icon: Microscope, color: "bg-emerald-500" },
-    { name: "Mechanical Engineering", desc: "Robotics, Automobile, Thermal.", icon: Award, color: "bg-orange-500" },
-    { name: "Business Administration", desc: "Finance, Marketing, HR.", icon: BookOpen, color: "bg-purple-500" },
-    { name: "Biotechnology", desc: "Genetics, Bioinformatics, Pharma.", icon: Microscope, color: "bg-pink-500" },
-    { name: "Design & Architecture", desc: "UI/UX, Industrial Design, Planning.", icon: BookOpen, color: "bg-indigo-500" },
+  const faculties = [
+    { name: "Engineering & Tech", icon: Monitor, color: "bg-blue-900", img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=800" },
+    { name: "Medical Sciences", icon: Stethoscope, color: "bg-green-900", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800" },
+    { name: "Business School", icon: Briefcase, color: "bg-yellow-900", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" },
+    { name: "Applied Sciences", icon: Atom, color: "bg-purple-900", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800" },
   ];
 
   return (
-    <div className="min-h-screen bg-[#fffdf5]">
+    <div className="min-h-screen bg-[#fdf7f7]">
       <PublicNavbar />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-[#1a2b4c] text-white flex items-center overflow-hidden min-h-[60vh]">
-        <div className="absolute inset-0 opacity-20">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070" className="w-full h-full object-cover" alt="Academics Hero" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a2b4c] via-[#1a2b4c]/80 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <GsapReveal className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-              Academic <span className="text-[#ffb800]">Excellence</span>
-            </h1>
-            <p className="text-xl text-gray-300 font-light leading-relaxed">
-              Rigorous curriculum, world-class faculty, and hands-on experiential learning designed to prepare you for the careers of tomorrow.
-            </p>
-          </GsapReveal>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 bg-[#ffb800] text-[#1a2b4c]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <GsapReveal>
-              <div className="text-5xl font-black mb-2">150+</div>
-              <div className="font-bold uppercase tracking-wider text-sm">Degree Programs</div>
-            </GsapReveal>
-            <GsapReveal>
-              <div className="text-5xl font-black mb-2">12:1</div>
-              <div className="font-bold uppercase tracking-wider text-sm">Student-Faculty Ratio</div>
-            </GsapReveal>
-            <GsapReveal>
-              <div className="text-5xl font-black mb-2">Top 50</div>
-              <div className="font-bold uppercase tracking-wider text-sm">National Ranking</div>
-            </GsapReveal>
-            <GsapReveal>
-              <div className="text-5xl font-black mb-2">98%</div>
-              <div className="font-bold uppercase tracking-wider text-sm">Graduation Rate</div>
-            </GsapReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Departments Grid */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <section className="relative h-[50vh] bg-primary flex items-center overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           <GsapReveal>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a2b4c] mb-4">Explore Our Schools</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">Discover interdisciplinary programs tailored to match your passion and career goals.</p>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-4">Academic <span className="text-accent">Programs</span></h1>
+            <p className="text-xl text-white/80 max-w-2xl">Discover 150+ undergraduate, postgraduate, and doctoral programs.</p>
           </GsapReveal>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {departments.map((dept, idx) => (
-            <GsapReveal key={idx}>
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:-translate-y-2 transition-transform duration-300 group">
-                <div className="w-16 h-16 rounded-xl \ text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <dept.icon className="w-8 h-8" />
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {faculties.map((fac, i) => (
+            <GsapReveal key={i} delay={i * 0.1}>
+              <div className="group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+                <img src={fac.img} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <fac.icon className="w-10 h-10 text-accent mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300" />
+                  <h3 className="text-2xl font-bold text-white mb-2">{fac.name}</h3>
+                  <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Explore cutting edge curriculum and state of the art labs.</p>
                 </div>
-                <h3 className="text-2xl font-bold text-[#1a2b4c] mb-3">{dept.name}</h3>
-                <p className="text-gray-600 mb-6">{dept.desc}</p>
-                <Link to="#" className="text-[#007bff] font-bold flex items-center gap-2 hover:gap-3 transition-all">
-                  Explore Programs <ChevronRight className="w-4 h-4" />
-                </Link>
               </div>
             </GsapReveal>
           ))}
         </div>
       </section>
-
-      {/* Visual Break */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <GsapReveal>
-            <div className="bg-[#1a2b4c] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-              <div className="md:w-1/2 p-12 lg:p-16 flex flex-col justify-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Global Exposure & Research</h2>
-                <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                  Our academic framework is deeply integrated with global exchange programs and hands-on research opportunities starting from year one.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 text-white font-medium">
-                    <div className="w-10 h-10 rounded-full bg-[#ffb800] flex items-center justify-center text-[#1a2b4c]"><Globe className="w-5 h-5" /></div>
-                    Semester Exchange in 40+ Countries
-                  </div>
-                  <div className="flex items-center gap-4 text-white font-medium">
-                    <div className="w-10 h-10 rounded-full bg-[#ffb800] flex items-center justify-center text-[#1a2b4c]"><Microscope className="w-5 h-5" /></div>
-                    Undergraduate Research Fellowships
-                  </div>
-                </div>
-              </div>
-              <div className="md:w-1/2 min-h-[400px] relative">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070" className="absolute inset-0 w-full h-full object-cover" alt="Research" />
-              </div>
-            </div>
-          </GsapReveal>
-        </div>
-      </section>
-
+      
       <Footer />
     </div>
   );
-}
-
-function Globe(props: any) {
-  return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>;
 }

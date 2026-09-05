@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+ï»¿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
@@ -71,7 +71,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">
-            © {new Date().getFullYear()} Salok University. All rights reserved.
+            &copy; {new Date().getFullYear()} Salok University. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/disclosures" className="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</Link>

@@ -1,61 +1,54 @@
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { GsapReveal } from "@/components/shared/GsapReveal";
-import { ParallaxImage } from "@/components/shared/ParallaxImage";
-import { Search, Database, Globe, BookOpen } from "lucide-react";
+import { BookOpen, Search, Coffee } from "lucide-react";
 
-export default function PublicLibraryPage() {
-  const stats = [
-    { label: "Printed Volumes", value: "1.5M+", icon: BookOpen },
-    { label: "E-Journals", value: "50,000+", icon: Globe },
-    { label: "Digital Databases", value: "120+", icon: Database },
-    { label: "Daily Visitors", value: "2,000+", icon: Search },
-  ];
-
+export default function LibraryPage() {
   return (
-    <div className="min-h-screen bg-[#fffdf5]">
+    <div className="min-h-screen bg-[#fdf7f7]">
       <PublicNavbar />
       
-      {/* Hero Section */}
-      <section className="relative h-[60vh] bg-[#1a2b4c] text-white flex items-center overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
-          <ParallaxImage src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2088" alt="Library Hero" height="h-full" />
+      <section className="relative h-[50vh] flex items-center">
+        <div className="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center w-full">
           <GsapReveal>
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-4 tracking-tighter">
-              Central <span className="text-[#ffb800]">Library</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light">
-              The heart of academic research and learning at Salok University.
-            </p>
+            <h1 className="text-5xl font-serif font-bold text-white mb-6">Central <span className="text-accent">Library</span></h1>
+            <div className="max-w-2xl mx-auto relative">
+              <input type="text" placeholder="Search books, journals, articles..." className="w-full px-6 py-4 rounded-full text-lg shadow-2xl focus:outline-none focus:ring-4 focus:ring-primary/30" />
+              <button className="absolute right-2 top-2 bg-primary text-white p-3 rounded-full hover:bg-primary-dark transition-colors">
+                <Search className="w-5 h-5" />
+              </button>
+            </div>
           </GsapReveal>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <GsapReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a2b4c] mb-4">A Treasure Trove of Knowledge</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Spread over 50,000 sq.ft, our fully air-conditioned and Wi-Fi enabled library provides a serene environment for scholars and students.
-            </p>
-          </div>
-        </GsapReveal>
-        
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
-            <GsapReveal key={i}>
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-[#ffb800]/10 text-[#ffb800] rounded-full flex items-center justify-center mb-6">
-                  <stat.icon className="w-8 h-8" />
-                </div>
-                <h3 className="text-4xl font-bold text-[#1a2b4c] mb-2">{stat.value}</h3>
-                <p className="text-gray-500 font-medium">{stat.label}</p>
-              </div>
-            </GsapReveal>
-          ))}
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          <GsapReveal>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <BookOpen className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">2M+ Volumes</h3>
+              <p className="text-gray-600">Physical and digital books covering every discipline.</p>
+            </div>
+          </GsapReveal>
+          <GsapReveal delay={0.1}>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <Search className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Global Journals</h3>
+              <p className="text-gray-600">Free access to IEEE, Nature, Science, and JSTOR.</p>
+            </div>
+          </GsapReveal>
+          <GsapReveal delay={0.2}>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <Coffee className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">24/7 Reading Rooms</h3>
+              <p className="text-gray-600">Quiet zones and collaborative spaces with free coffee.</p>
+            </div>
+          </GsapReveal>
         </div>
       </section>
 
