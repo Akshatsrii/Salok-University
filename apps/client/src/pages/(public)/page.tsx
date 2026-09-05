@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Building2, Trophy, Users, BookOpen, ChevronRight, ArrowRight } from "lucide-react";
+import { GraduationCap, Building2, Trophy, Users, BookOpen, ChevronRight, ArrowRight, Shield } from "lucide-react";
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { GsapReveal } from "@/components/shared/GsapReveal";
