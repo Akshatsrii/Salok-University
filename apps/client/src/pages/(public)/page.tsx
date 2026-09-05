@@ -1,139 +1,219 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, GraduationCap, Building2, Trophy, Users, BookOpen, Clock } from "lucide-react";
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
-import { CinematicHero } from "@/components/shared/CinematicHero";
-import { AbstractGeometry3D } from "@/components/three/AbstractGeometry";
 import { GsapReveal } from "@/components/shared/GsapReveal";
-import { ArrowRight, BookOpen, Users, Trophy, GraduationCap, Globe } from "lucide-react";
-import { Link } from "react-router-dom";
-import { ParallaxImage } from "@/components/shared/ParallaxImage";
-import { ProgramFinder } from "@/components/public/ProgramFinder";
 
-export default function Home() {
-  const notices = [
-    { title: "Admissions Open for Fall 2027", date: "Oct 15, 2026", isNew: true },
-    { title: "International Conference on AI & Robotics", date: "Nov 02, 2026", isNew: true },
-    { title: "Revised Academic Calendar (Even Semester)", date: "Sep 28, 2026", isNew: false },
-    { title: "Ph.D. Entrance Examination Schedule", date: "Sep 20, 2026", isNew: false },
-  ];
-
+export default function PageHome() {
   return (
-    <div className="min-h-screen bg-[#fffdf5]">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <PublicNavbar />
-      
-      {/* Hero Section */}
-      <CinematicHero />
 
-      {/* Program Finder (Searchable tool instead of static grids) */}
-      <div className="relative z-20 px-4">
-        <ProgramFinder />
-      </div>
+      {/* Hero Section matching Image 1 & 2 vibe */}
+      <section className="relative h-[90vh] min-h-[600px] flex items-center">
+        {/* Background Image with Dark Crimson/Black Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070" 
+            alt="University Campus" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-transparent"></div>
+        </div>
 
-      <div className="relative overflow-hidden pt-12">
-        <AbstractGeometry3D />
-        
-        {/* Main Content Grid */}
-        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <GsapReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1a2b4c] uppercase tracking-wide border-b-4 border-[#ffb800] inline-block pb-2">
-                Discover Salok
-              </h2>
-            </div>
-          </GsapReveal>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Notices Board */}
-            <GsapReveal className="lg:col-span-1 bg-white rounded-xl shadow-2xl border-t-4 border-[#ffb800] overflow-hidden">
-              <div className="bg-[#1a2b4c] p-4 text-white flex justify-between items-center">
-                <h3 className="text-xl font-bold flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-[#ffb800]" /> Notice Board
-                </h3>
-                <Link to="#" className="text-xs hover:text-[#ffb800] transition-colors">View All</Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
+          
+          {/* Left Content */}
+          <div className="lg:w-1/2">
+            <GsapReveal>
+              <h1 className="text-5xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                The Best Place to <br/>
+                <span className="border-b-4 border-accent pb-2 inline-block">Chase Your Dreams</span>
+              </h1>
+              <p className="text-white/90 text-lg mb-8 max-w-xl leading-relaxed">
+                Salok University is one of the premier institutions globally. We are dedicated to providing a world-class education with a focus on conservation, innovation, and industry relations.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/admissions" className="bg-accent text-primary-dark px-8 py-3.5 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-lg inline-flex items-center gap-2">
+                  Explore <ArrowRight className="w-5 h-5" />
+                </Link>
               </div>
-              <div className="divide-y divide-gray-100 p-2">
-                {notices.map((notice, idx) => (
-                  <div key={idx} className="p-4 hover:bg-gray-50 transition-colors cursor-pointer group">
-                    <div className="flex justify-between items-start mb-1">
-                      <span className="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">{notice.date}</span>
-                      {notice.isNew && <span className="text-[10px] bg-red-500 text-white font-bold px-2 py-0.5 rounded-full animate-pulse">NEW</span>}
-                    </div>
-                    <p className="text-gray-800 font-medium group-hover:text-[#007bff] transition-colors line-clamp-2">{notice.title}</p>
+            </GsapReveal>
+          </div>
+
+          {/* Right Floating Stats (Glassmorphism like Image 1) */}
+          <div className="lg:w-1/2 relative h-[500px] hidden lg:block">
+            {/* Stat 1 */}
+            <GsapReveal className="absolute top-10 right-20">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl w-64 shadow-2xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+                    <GraduationCap className="w-4 h-4 text-primary-dark" />
                   </div>
-                ))}
+                  <span className="text-white font-medium text-sm">Graduation</span>
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">405,240</div>
+                <p className="text-white/60 text-xs">This university produces graduates with a total of 405,240 best graduates</p>
               </div>
             </GsapReveal>
 
-            {/* Vision & Quick Links */}
-            <div className="lg:col-span-2 flex flex-col gap-8">
-              <GsapReveal className="bg-[#1a2b4c] rounded-xl shadow-xl overflow-hidden relative group">
-                <div className="absolute inset-0 opacity-20">
-                  <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Campus" />
+            {/* Stat 2 */}
+            <GsapReveal className="absolute top-48 right-0">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl w-64 shadow-2xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+                    <Building2 className="w-4 h-4 text-primary-dark" />
+                  </div>
+                  <span className="text-white font-medium text-sm">Company Relation</span>
                 </div>
-                <div className="relative z-10 p-10 md:p-12 text-white">
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4">Empowering Innovators</h3>
-                  <p className="text-lg text-gray-300 max-w-xl mb-8">
-                    A premier technological university dedicated to advancing knowledge and educating students in science, technology, and beyond.
-                  </p>
-                  <Link to="/about" className="inline-flex items-center gap-2 bg-[#ffb800] text-[#1a2b4c] px-6 py-3 rounded font-bold hover:bg-white transition-colors">
-                    Know More <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </GsapReveal>
+                <div className="text-3xl font-bold text-white mb-1">7,400</div>
+                <p className="text-white/60 text-xs">We have relationships with many industrial companies which are counted 7,400 companies</p>
+              </div>
+            </GsapReveal>
 
-              {/* Quick Links Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { title: "Admissions", icon: GraduationCap, link: "/admissions" },
-                  { title: "Placements", icon: Trophy, link: "/placements" },
-                  { title: "Campus Life", icon: Users, link: "/campus-life" },
-                  { title: "Global Connect", icon: Globe, link: "#" },
-                ].map((item, idx) => (
-                  <GsapReveal key={idx}>
-                    <Link to={item.link} className="flex flex-col items-center justify-center bg-white p-6 rounded-xl shadow-md border-b-4 border-transparent hover:border-[#007bff] hover:shadow-xl transition-all group">
-                      <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#007bff] group-hover:text-white transition-colors text-[#1a2b4c]">
-                        <item.icon className="w-7 h-7" />
-                      </div>
-                      <h4 className="font-bold text-gray-800 text-center">{item.title}</h4>
-                    </Link>
-                  </GsapReveal>
-                ))}
+            {/* Stat 3 */}
+            <GsapReveal className="absolute bottom-10 right-32">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl w-64 shadow-2xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+                    <Trophy className="w-4 h-4 text-primary-dark" />
+                  </div>
+                  <span className="text-white font-medium text-sm">Achievement</span>
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">29,085</div>
+                <p className="text-white/60 text-xs">The number of achievements obtained during this university was around 29,085 achievements</p>
+              </div>
+            </GsapReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Red Stats Bar matching Image 2 */}
+      <section className="bg-primary-light text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-4 md:py-0">
+              <Users className="w-10 h-10 text-white" />
+              <div className="text-left">
+                <div className="text-2xl font-bold">5 million</div>
+                <div className="text-white/80 text-sm font-medium">Students Enrolled</div>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-4 md:py-0">
+              <BookOpen className="w-10 h-10 text-white" />
+              <div className="text-left">
+                <div className="text-2xl font-bold">134k+</div>
+                <div className="text-white/80 text-sm font-medium">Online & Offline Courses</div>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-4 md:py-0">
+              <Trophy className="w-10 h-10 text-white" />
+              <div className="text-left">
+                <div className="text-2xl font-bold">Top #1</div>
+                <div className="text-white/80 text-sm font-medium">Great Place to Study</div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Parallax Visual Section */}
-        <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <GsapReveal>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <ParallaxImage src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070" alt="Students walking" height="h-[400px]" />
-              <div className="p-8">
-                <h3 className="text-3xl font-bold text-[#1a2b4c] mb-4">A Legacy of Excellence</h3>
-                <p className="text-gray-600 mb-6 text-lg">
-                  Spanning over 250 acres of lush green campus, Salok University provides world-class infrastructure and a vibrant ecosystem for holistic development.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
-                    NIRF Ranked Top 50 Engineering Institute
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
-                    100% Placement Assistance
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700 font-medium">
-                    <span className="w-8 h-8 rounded-full bg-[#ffb800]/20 text-[#ffb800] flex items-center justify-center">?</span>
-                    State-of-the-art Research Labs
-                  </li>
-                </ul>
+      {/* Popular Courses Section matching Image 2 */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-2">Our Popular Courses</h2>
+            <p className="text-gray-500">Explore our most sought-after programs and elevate your career.</p>
+          </div>
+          <Link to="/academics" className="hidden md:inline-flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded hover:bg-primary-dark transition-colors font-medium">
+            All Courses <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Course Filters */}
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4">
+          {["All", "Courses", "Events", "Students", "Teachers"].map((filter, idx) => (
+            <button key={idx} className={\ px-4 py-1.5 rounded-sm text-sm font-medium transition-colors}>
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Course Card 1 */}
+          <div className="bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+            <div className="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=2000" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Course" />
+              <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Business</div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100" className="w-8 h-8 rounded-full" />
+                <span className="text-sm text-gray-600 font-medium">Prof. Egon Parks</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">Aeronautical & Manufacturing Engineering</h3>
+              <div className="flex items-center gap-1 text-accent mb-4">
+                {'?????'.split('').map((s,i)=><span key={i}>{s}</span>)}
+                <span className="text-gray-400 text-xs ml-2">(4.9)</span>
               </div>
             </div>
+          </div>
+
+          {/* Course Card 2 */}
+          <div className="bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+            <div className="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Course" />
+              <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Politics</div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100" className="w-8 h-8 rounded-full" />
+                <span className="text-sm text-gray-600 font-medium">Dr. Sarah Jenkins</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">Business & Management Studies</h3>
+              <div className="flex items-center gap-1 text-accent mb-4">
+                {'?????'.split('').map((s,i)=><span key={i}>{s}</span>)}
+                <span className="text-gray-400 text-xs ml-2">(4.2)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Course Card 3 */}
+          <div className="bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+            <div className="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=2000" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Course" />
+              <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Psychology</div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100" className="w-8 h-8 rounded-full" />
+                <span className="text-sm text-gray-600 font-medium">Prof. David Chen</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">History of Art, Architecture & Design</h3>
+              <div className="flex items-center gap-1 text-accent mb-4">
+                {'?????'.split('').map((s,i)=><span key={i}>{s}</span>)}
+                <span className="text-gray-400 text-xs ml-2">(5.0)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dark Section (Library Quote matching Image 1 bottom) */}
+      <section className="relative h-[400px] flex items-center">
+        <div className="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full text-right">
+          <GsapReveal>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white leading-tight ml-auto max-w-3xl">
+              <span className="border-b-2 border-accent pb-1">The Library</span> is The Only Destination for Students During The Pandemic
+            </h2>
           </GsapReveal>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
   );
 }
-

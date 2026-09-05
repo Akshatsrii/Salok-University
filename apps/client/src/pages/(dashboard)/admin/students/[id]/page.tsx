@@ -7,7 +7,7 @@ export default async function StudentProfilePage({ params }: { params: Promise<{
   return (
     <div className="p-8 max-w-5xl mx-auto space-y-6 bg-gray-50 min-h-screen">
       <div>
-        <Link="/admin/students" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 mb-4">
+        <Link to="/admin/students" className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 mb-4">
           <ArrowLeft className="w-4 h-4" /> Back to Directory
         </Link>
         <div className="flex justify-between items-center">

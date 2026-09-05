@@ -1,66 +1,126 @@
-import { Link } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Search, Phone, Mail, MapPin } from "lucide-react";
 
 export function PublicNavbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Admissions", href: "/admissions" },
+    { name: "Academics", href: "/academics" },
+    { name: "Students", href: "/campus-life" },
+    { name: "Research", href: "/research" },
+    { name: "About", href: "/about" },
+  ];
 
   return (
-    <div className="w-full fixed top-0 z-50">
-      {/* Quick Switcher Top Bar */}
-      <div className="bg-[#1a2b4c] text-white/80 text-xs font-medium py-1.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-end gap-6">
-          <span className="text-gray-400">Information for:</span>
-          <Link to="#" className="hover:text-white transition-colors">Prospective Students</Link>
-          <Link to="#" className="hover:text-white transition-colors">Current Students</Link>
-          <Link to="#" className="hover:text-white transition-colors">Faculty & Staff</Link>
-          <Link to="#" className="hover:text-white transition-colors">Parents</Link>
-          <Link to="/alumni" className="hover:text-white transition-colors">Alumni</Link>
+    <>
+      {/* Top Bar (like second image) */}
+      <div className="hidden lg:flex justify-between items-center bg-white px-8 py-2 text-sm text-gray-600 border-b border-gray-100">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-primary" />
+            <span>+91 1800-123-4567</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Mail className="w-4 h-4 text-primary" />
+            <span>info@salok.edu</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span>Knowledge City, New Delhi</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <Link to="/login" className="font-semibold hover:text-primary transition-colors">Student Portal</Link>
+          <span className="text-gray-300">|</span>
+          <Link to="/teacher" className="font-semibold hover:text-primary transition-colors">Staff Portal</Link>
+          <Link to="/admissions/apply" className="bg-primary text-white px-4 py-1.5 rounded text-xs font-bold hover:bg-primary-dark transition-colors">Get a Quote</Link>
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
+      {/* Main Navbar (Crimson background like first image) */}
+      <nav className={\ sticky top-0 z-50 transition-all duration-300}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-[#007bff] rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
-                <span className="font-extrabold text-2xl text-[#1a2b4c] tracking-tight">Salok<span className="text-[#007bff]">.</span></span>
-              </Link>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/about" className="text-gray-700 hover:text-[#007bff] font-semibold transition-colors">About</Link>
-              <Link to="/academics" className="text-gray-700 hover:text-[#007bff] font-semibold transition-colors">Academics</Link>
-              <Link to="/campus-life" className="text-gray-700 hover:text-[#007bff] font-semibold transition-colors">Campus Life</Link>
-              <Link to="/contact" className="text-gray-700 hover:text-[#007bff] font-semibold transition-colors">Contact</Link>
-              <Link to="/login" className="bg-[#1a2b4c] hover:bg-gray-800 text-white px-6 py-2.5 rounded-full font-bold transition-all flex items-center gap-2 shadow-md">
-                ERP Login <ArrowRight className="w-4 h-4" />
-              </Link>
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1 shadow-lg group-hover:scale-105 transition-transform">
+                {/* Placeholder Logo Icon matching reference */}
+                <div className="w-full h-full bg-primary rounded-md flex flex-col items-center justify-center text-white font-serif font-bold text-lg leading-none">
+                  S<span className="text-[10px] block mt-0.5">U</span>
+                </div>
+              </div>
+              <div>
+                <span className="text-white text-xl font-bold block leading-tight font-serif">Salok</span>
+                <span className="text-white/80 text-sm font-medium tracking-wide">University</span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={\ transition-colors text-sm tracking-wide}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              
+              {/* Search Bar matching image 1 */}
+              <div className="relative hidden lg:block">
+                <input 
+                  type="text" 
+                  placeholder="Search" 
+                  className="bg-white/10 text-white placeholder-white/70 border border-white/20 rounded-full py-1.5 pl-4 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-accent w-48 transition-all focus:w-64 focus:bg-white/20"
+                />
+                <Search className="absolute right-3 top-1.5 w-4 h-4 text-white/70" />
+              </div>
             </div>
 
-            <div className="flex items-center md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-[#007bff]">
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white hover:text-accent focus:outline-none"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile menu */}
-        {isOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full">
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              <Link to="/about" className="block px-3 py-3 text-base font-bold text-gray-700 hover:text-[#007bff] hover:bg-gray-50 rounded-lg">About</Link>
-              <Link to="/academics" className="block px-3 py-3 text-base font-bold text-gray-700 hover:text-[#007bff] hover:bg-gray-50 rounded-lg">Academics</Link>
-              <Link to="/campus-life" className="block px-3 py-3 text-base font-bold text-gray-700 hover:text-[#007bff] hover:bg-gray-50 rounded-lg">Campus Life</Link>
-              <Link to="/login" className="block mt-4 px-3 py-3 text-base font-bold text-white bg-[#007bff] text-center rounded-lg">ERP Login</Link>
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-primary-dark absolute top-full left-0 w-full shadow-2xl">
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block px-3 py-3 text-base font-medium text-white hover:bg-white/10 rounded-md"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           </div>
         )}
       </nav>
-    </div>
+    </>
   );
 }
-
