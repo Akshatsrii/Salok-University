@@ -1,18 +1,20 @@
-import { Construction } from "lucide-react";
-import { Link } from "react-router-dom";
+import { PublicNavbar } from "@/components/public/PublicNavbar";
+import { Footer } from "@/components/public/Footer";
+import { GsapReveal } from "@/components/shared/GsapReveal";
 
-export default function Page() {
+export default function AdvertisementPage() {
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center p-8 text-center" style={{ background: "var(--background)", color: "var(--foreground)" }}>
-      <Construction className="w-24 h-24 mb-8" style={{ color: "var(--primary)" }} />
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Advertisement & Tenders</h1>
-      <p className="text-lg text-gray-500 max-w-2xl mb-8">
-        This portal will be launched prior to the upcoming academic session.
-      </p>
-      <Link to="/" className="btn-primary">
-        Return to Homepage
-      </Link>
+    <div className="min-h-screen bg-[#fffdf5]">
+      <PublicNavbar />
+      <section className="relative pt-32 pb-24 bg-[#1a2b4c] text-white flex items-center min-h-[40vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <GsapReveal>
+            <h1 className="text-5xl font-extrabold mb-4">Media & <span className="text-[#ffb800]">Advertisement</span></h1>
+            <p className="text-xl text-gray-300">Press releases, brand guidelines, and media resources.</p>
+          </GsapReveal>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 }
-
