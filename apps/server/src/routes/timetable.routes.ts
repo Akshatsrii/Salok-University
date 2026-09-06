@@ -1,16 +1,7 @@
-import { Router } from 'express';
-import { 
-  getCourseTimetable, 
-  getTeacherTimetable, 
-  addTimetableEntry, 
-  autoOptimizeCourseTimetable 
-} from '../controllers/timetable.controller';
+﻿import { Router } from 'express';
+import { getTimetable, generateTimetable } from '../controllers/timetable.controller';
 
 const router = Router();
-
-router.get('/course/:courseId', getCourseTimetable);
-router.get('/teacher/:teacherId', getTeacherTimetable);
-router.post('/entry', addTimetableEntry);
-router.post('/optimize', autoOptimizeCourseTimetable);
-
+router.get('/', getTimetable);
+router.post('/generate', generateTimetable);
 export default router;
