@@ -1,1 +1,1 @@
-console.log('Worker service started');
+﻿console.log('Worker running');
