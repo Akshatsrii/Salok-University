@@ -1,11 +1,9 @@
-import { Router } from 'express';
-import { createStudent, getStudents, getStudentById, bulkImportStudents } from '../controllers/student.controller';
+﻿import { Router } from 'express';
+import { getStudents, getStudentById, createStudent, importStudents } from '../controllers/student.controller';
 
 const router = Router();
-
-router.post('/', createStudent);
 router.get('/', getStudents);
+router.post('/', createStudent);
+router.post('/bulk-import', importStudents);
 router.get('/:id', getStudentById);
-router.post('/bulk-import', bulkImportStudents);
-
 export default router;
