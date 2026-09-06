@@ -1,14 +1,5 @@
-import { Router } from 'express';
-import { getRooms, allocateRoom, createComplaint, applyGatePass, approveGatePass } from '../controllers/hostel.controller';
-
+﻿import { Router } from 'express';
+import { getHostels } from '../controllers/hostel.controller';
 const router = Router();
-
-router.get('/rooms', getRooms);
-router.post('/rooms/allocate', allocateRoom);
-
-router.post('/complaints', createComplaint);
-
-router.post('/gate-pass', applyGatePass);
-router.put('/gate-pass/:id/approve', approveGatePass);
-
+router.get('/', getHostels);
 export default router;
