@@ -1,11 +1,5 @@
-import { Router } from 'express';
-import { getBuses, getRouteStops, updateBusLocation, logBoarding } from '../controllers/transport.controller';
-
+﻿import { Router } from 'express';
+import { getTransports } from '../controllers/transport.controller';
 const router = Router();
-
-router.get('/buses', getBuses);
-router.get('/routes/:routeId/stops', getRouteStops);
-router.put('/buses/:id/location', updateBusLocation);
-router.post('/boarding', logBoarding);
-
+router.get('/', getTransports);
 export default router;
