@@ -33,12 +33,12 @@ export function PublicNavbar() {
             <div className="relative w-10 h-12 flex items-center justify-center">
               <Shield className="w-12 h-12 text-white absolute inset-0 drop-shadow-md" fill="white" />
               <div className="relative z-10 flex flex-col items-center justify-center text-[#8a1538] font-serif font-black leading-none mt-1">
-                <span className="text-xl">A</span>
-                <span className="text-[10px]">B</span>
+                <span className="text-xl">S</span>
+                <span className="text-[10px]">U</span>
               </div>
             </div>
             <div className="ml-2 border-l border-white/30 pl-3">
-              <span className="text-white text-lg font-bold block leading-tight font-serif">Andorra la Vella</span>
+              <span className="text-white text-lg font-bold block leading-tight font-serif">Salok</span>
               <span className="text-white/90 text-sm font-medium tracking-wide">University</span>
             </div>
           </Link>
