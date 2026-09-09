@@ -1,86 +1,48 @@
+import React from 'react';
+import { UniversityForm } from '@/components/superadmin/UniversityForm';
+import { DepartmentTable } from '@/components/superadmin/DepartmentTable';
+import { ShieldAlert, Globe, Server } from 'lucide-react';
 
-import { Building2, Users, Database, ShieldAlert, CheckCircle, Search } from "lucide-react";
-import { StatCard } from "../../../components/shared/StatCard";
-import { DataTable } from "../../../components/shared/DataTable";
-
-export default function SuperadminPage() {
-  const stats = [
-    { title: "Total Users", value: "18,452", icon: Users, color: "blue" as const, trend: { value: 2.1, isPositive: true } },
-    { title: "Active Tenants", value: "1", icon: Building2, color: "emerald" as const },
-    { title: "System Health", value: "99.9%", icon: CheckCircle, color: "emerald" as const, trend: { value: 0.1, isPositive: true } },
-    { title: "Security Alerts", value: "0", icon: ShieldAlert, color: "amber" as const }
-  ];
-
-  const recentAudits = [
-    { id: "1", user: "system_admin", action: "Updated Global Settings", module: "Settings", time: "10 mins ago" },
-    { id: "2", user: "devops_agent", action: "Ran Database Backup", module: "Infrastructure", time: "2 hours ago" },
-    { id: "3", user: "akshat_srii", action: "Promoted user to Admin", module: "IAM", time: "5 hours ago" },
-  ];
-
-  const auditColumns = [
-    { header: "User", accessor: "user" as keyof typeof recentAudits[0], className: "font-semibold" },
-    { header: "Action", accessor: "action" as keyof typeof recentAudits[0] },
-    { header: "Module", accessor: "module" as keyof typeof recentAudits[0] },
-    { header: "Time", accessor: "time" as keyof typeof recentAudits[0], className: "text-right text-gray-500" },
-  ];
-
+export default function SuperAdminDashboard() {
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Superadmin Console</h1>
-        <p className="text-gray-500 mt-1">Manage global university settings and monitor system infrastructure.</p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat, idx) => (
-          <StatCard 
-            key={idx}
-            title={stat.title}
-            value={stat.value}
-            icon={stat.icon}
-            color={stat.color}
-            trend={stat.trend}
-          />
-        ))}
+    <div className="p-6 max-w-7xl mx-auto space-y-6">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+            <ShieldAlert className="w-8 h-8 text-[#8a1538]" />
+            Super Admin Portal
+          </h1>
+          <p className="text-gray-500 mt-1 text-sm">
+            Core University configuration and infrastructure management.
+          </p>
+        </div>
+        
+        <div className="flex gap-4">
+          <div className="bg-gray-900 text-white border border-gray-800 p-3 rounded-xl flex items-center gap-3 shadow-lg">
+            <Server className="w-6 h-6 text-emerald-400" />
+            <div>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">System Status</p>
+              <p className="text-sm font-bold text-white">All Services Active</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-100 shadow-sm p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-gray-100 text-gray-600 rounded-xl">
-                <Database className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-gray-900 text-lg">System Audit Logs</h3>
-            </div>
-            <div className="relative">
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input 
-                type="text" 
-                placeholder="Search logs..." 
-                className="pl-9 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#007bff]"
-              />
-            </div>
+        <div className="lg:col-span-1 space-y-6">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden">
+             <Globe className="absolute -right-4 -bottom-4 w-32 h-32 text-gray-50 opacity-50" />
+             <div className="relative z-10">
+               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                 University Profile Settings
+               </h3>
+               <UniversityForm />
+             </div>
           </div>
-          <DataTable data={recentAudits} columns={auditColumns} keyExtractor={(r) => r.id} />
         </div>
 
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6">
-          <h3 className="font-bold text-gray-900 text-lg mb-4">Quick Actions</h3>
-          <div className="space-y-3">
-            <button className="w-full text-left px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-sm font-semibold text-gray-700 transition-colors">
-              Manage API Keys
-            </button>
-            <button className="w-full text-left px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-sm font-semibold text-gray-700 transition-colors">
-              Configure Rate Limits
-            </button>
-            <button className="w-full text-left px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-sm font-semibold text-gray-700 transition-colors">
-              View Deployment Status
-            </button>
-            <button className="w-full text-left px-4 py-3 bg-red-50 hover:bg-red-100 rounded-xl text-sm font-semibold text-red-600 transition-colors">
-              Trigger Manual Backup
-            </button>
-          </div>
+        <div className="lg:col-span-2 space-y-6">
+          <DepartmentTable />
         </div>
       </div>
     </div>
