@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Building2, Trophy, Users, BookOpen, ChevronRight, Shield, MapPin, Phone, Mail, Clock, Bell, FileText, Lightbulb, Download, Settings, HeartHandshake, Eye, Target } from "lucide-react";
+import { GraduationCap, Building2, Trophy, Users, BookOpen, ChevronRight, Shield, MapPin, Phone, Mail, Clock, Bell, FileText, Lightbulb, Download, Settings, HeartHandshake, Eye, Target, Zap } from "lucide-react";
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
 import { GsapReveal } from "@/components/shared/GsapReveal";
@@ -156,57 +156,152 @@ export default function PageHome() {
         </div>
       </section>
 
-      {/* 5. NOTICE BOARDS & GRID LINKS (Inspired by Image 2) */}
-      <section className="py-20 bg-gray-50 border-b border-gray-200">
+      {/* 5. NOTICE BOARDS & GRID LINKS (Exact Replica of RTU Layout) */}
+      <section className="py-20 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">University Updates & Circulars</h2>
-            <div className="w-16 h-1 bg-[#8a1538] mx-auto mt-4 rounded"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             
-            {/* Box 1 */}
-            <div className="bg-white rounded-lg shadow-md border-t-4 border-[#ffcc00] overflow-hidden">
-              <div className="bg-gray-50 p-3 border-b border-gray-100 font-bold text-gray-800 text-center">Admission</div>
-              <ul className="p-4 space-y-3 text-sm text-[#8a1538] font-medium">
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Academic Calendar</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> UG Admission 2026</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> PhD Admission Process <span className="text-[10px] bg-green-500 text-white px-1 rounded animate-pulse">NEW</span></li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Syllabus</li>
-              </ul>
+            {/* COLUMN 1 */}
+            <div className="space-y-6">
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Admission</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Academic Calendar</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> UD Admission</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> CAM-2023</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400 mt-1">➦</span> 
+                      <span>PhD Admission Process 2026-27 <br/><span className="text-[9px] font-bold text-green-500 bg-green-50 px-1 border border-green-200 rounded animate-pulse">NEW</span></span>
+                    </li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Syllabus</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Circulars</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> RTI Information</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Circulars</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> BOM/AC/FC Minutes</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> RUSA Minutes</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Download form no. 16</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> TEQIP-III</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Central Library</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Box 2 */}
-            <div className="bg-white rounded-lg shadow-md border-t-4 border-[#ffcc00] overflow-hidden">
-              <div className="bg-gray-50 p-3 border-b border-gray-100 font-bold text-gray-800 text-center">Examination</div>
-              <ul className="p-4 space-y-3 text-sm text-[#8a1538] font-medium">
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Exam Centers</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Time Table</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Results Portal <span className="text-[10px] bg-green-500 text-white px-1 rounded animate-pulse">NEW</span></li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Convocation 2026</li>
-              </ul>
+            {/* COLUMN 2 */}
+            <div className="space-y-6">
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg leading-tight">Application for Mark sheet/Certificate</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Online Process</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Offline Process</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400 mt-1">➦</span> <span>Online Application for Various Academic Certificates</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Examination</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Exam Centers</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Time Table</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Notices</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Copy View Notice</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> XV Convocation-2026 <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Mercy Chance <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Box 3 */}
-            <div className="bg-white rounded-lg shadow-md border-t-4 border-[#ffcc00] overflow-hidden">
-              <div className="bg-gray-50 p-3 border-b border-gray-100 font-bold text-gray-800 text-center">Student Support</div>
-              <ul className="p-4 space-y-3 text-sm text-[#8a1538] font-medium">
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Dean Student Welfare</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Register Complaints</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> SC/ST/OBC Cell</li>
-                <li className="hover:underline cursor-pointer flex items-center gap-2"><ChevronRight className="w-3 h-3"/> Training & Placement</li>
-              </ul>
+            {/* COLUMN 3 */}
+            <div className="space-y-6">
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Important Links</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Thought lab <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Results Page UTD <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> e-Samadhan portal</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Affiliated Colleges</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg leading-tight">Student Support Services</h3>
+                  <ul className="space-y-3 text-[13px] text-gray-600">
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Expert Faculty Lecture</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Dean Student Welfare</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Programs Offered</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Register Complaints</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> SC/ST/OBC Cell (Grievances)</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Student Credentials</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Training & Placement <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Mahila utpeedan samiti <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Box 4: Scrollable Recent News */}
-            <div className="bg-[#fff9e6] rounded-lg shadow-md border-t-4 border-[#ffcc00] overflow-hidden flex flex-col h-[250px]">
-              <div className="bg-[#ffeeb3] p-3 border-b border-[#fcd54c] font-bold text-gray-800 text-center">Recent News</div>
-              <div className="p-4 overflow-y-auto space-y-4 text-sm text-gray-700 custom-scrollbar flex-1">
-                <p className="border-b border-gray-200 pb-2">Notice for Last Date Extension (Additional Mercy chance Special Exam., 2025-26) <span className="text-[10px] bg-red-500 text-white px-1 rounded animate-pulse">NEW</span></p>
-                <p className="border-b border-gray-200 pb-2">Important Advisory for the Students against fraud related to re-evaluation, back papers, and results.</p>
-                <p className="border-b border-gray-200 pb-2">Industrial Consultancy Cell reconstitution.</p>
-                <p>List of Conveners for various Board of Studies (BoS).</p>
+            {/* COLUMN 4 (TALL) */}
+            <div className="h-full">
+              <div className="bg-[#fff9f0] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full border border-[#fef3c7]">
+                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
+                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+                <div className="p-5 pt-8 flex flex-col h-full">
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Recent News</h3>
+                  <div className="space-y-6 text-[13px] text-gray-600 overflow-y-auto custom-scrollbar flex-1 pr-2 relative">
+                    <div className="absolute right-0 top-0 bottom-0 w-1 bg-gray-300 rounded-full"></div>
+                    <div className="absolute right-0 top-1/4 h-1/3 w-1 bg-gray-500 rounded-full"></div>
+                    
+                    <p className="pb-4 border-b border-gray-200">
+                      Determine the interim fee structure for the 2026-27 academic session for non-aided private technical educational institutions that are functional during that session.
+                      <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span>
+                    </p>
+                    <p className="pb-4 border-b border-gray-200">
+                      Notice for Last Date Extension (Additional Mercy/ Mercy chance Special Exam., 2025-26)
+                      <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span>
+                    </p>
+                    <p className="pb-4 border-b border-gray-200">
+                      Important Advisory for the Students of Salok University. Precaution against fraud related to re-evaluation, back papers, increase in marks, and examination results
+                      <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse mt-1 inline-block">NEW</span>
+                    </p>
+                    <p className="pb-4 border-b border-gray-200">
+                      Industrial Consultancy Cell reconstitution
+                      <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span>
+                    </p>
+                    <p className="pb-2">
+                      List of Conveners for various Board of Studies(BoS)
+                      <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span>
+                      <br/><a href="#" className="font-bold text-gray-800 mt-2 inline-block">More..</a>
+                    </p>
+                  </div>
+                  <div className="h-1 bg-[#4b5563] mt-2 rounded"></div>
+                </div>
               </div>
             </div>
 
