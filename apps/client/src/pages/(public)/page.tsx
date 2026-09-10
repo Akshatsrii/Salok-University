@@ -261,20 +261,26 @@ export default function PageHome() {
                 </div>
               </div>
 
-              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
-                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+              {/* CARD 6 */}
+              <div className="bg-white border border-gray-100 shadow-sm relative pt-4">
+                <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#d97706] clip-triangle flex items-start justify-start p-2 text-white">
+                  <Zap className="w-4 h-4 -rotate-12" />
+                </div>
                 <div className="p-5 pt-8">
-                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg leading-tight">Student Support Services</h3>
+                  <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Student Support Services</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Expert Faculty Lecture</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Dean Student Welfare</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Programs Offered</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Register Complaints</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> SC/ST/OBC Cell (Grievances)</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Student Credentials</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Training & Placement <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Mahila utpeedan samiti <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/expert-lecture" className="hover:underline">Expert Faculty Lecture</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/dean-welfare" className="hover:underline">Dean Student Welfare</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/programs" className="hover:underline">Programs Offered</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/complaints" className="hover:underline">Register Complaints</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/sc-st-cell" className="hover:underline">SC/ST/OBC Cell (Grievances)</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/student-credentials" className="hover:underline">Student Credentials</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/placement" className="hover:underline">Training & Placement</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/womens-cell" className="hover:underline">Mahila utpeedan samiti</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
                   </ul>
                 </div>
               </div>
