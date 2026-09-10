@@ -171,13 +171,12 @@ export default function PageHome() {
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Admission</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
                     <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/academic-calendar" className="hover:underline">Academic Calendar</Link></li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> UD Admission</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> CAM-2023</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/ud-admission" className="hover:underline">UD Admission</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/cam-2023" className="hover:underline">CAM-2023</Link></li>
                     <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
-                      <span className="text-gray-400 mt-1">➦</span> 
-                      <span>PhD Admission Process 2026-27 <br/><span className="text-[9px] font-bold text-green-500 bg-green-50 px-1 border border-green-200 rounded animate-pulse">NEW</span></span>
+                      <span className="text-gray-400">➦</span> <Link to="/phd-admission" className="hover:underline">PhD Admission Process 2026-27</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
                     </li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Syllabus</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/syllabus" className="hover:underline text-[#f59e0b]">Syllabus</Link></li>
                   </ul>
                 </div>
               </div>
@@ -208,9 +207,9 @@ export default function PageHome() {
                 <div className="p-5 pt-8">
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg leading-tight">Application for Mark sheet/Certificate</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Online Process</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Offline Process</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400 mt-1">➦</span> <span>Online Application for Various Academic Certificates</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/marksheet-online" className="hover:underline">Online Process</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/marksheet-offline" className="hover:underline">Offline Process</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400 mt-1">➦</span> <Link to="/academic-certificates" className="hover:underline">Online Application for Various Academic Certificates</Link></li>
                   </ul>
                 </div>
               </div>

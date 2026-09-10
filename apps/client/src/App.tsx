@@ -84,6 +84,7 @@ import PageTeacherTimetable from './pages/(dashboard)/teacher/timetable/page';
 import PageAbout from './pages/(public)/about/page';
 import PageAcademics from './pages/(public)/academics/page';
 import PageAcademicCalendar from './pages/(public)/academic-calendar/page';
+import GenericInfoPage from './pages/(public)/GenericInfoPage';
 import PageAdmissionsApply from './pages/(public)/admissions/apply/page';
 import PageAdmissions from './pages/(public)/admissions/page';
 import PageAdvertisement from './pages/(public)/advertisement/page';
@@ -113,6 +114,17 @@ function App() {
         <Route path="/about" element={<PageAbout />} />
         <Route path="/academics" element={<PageAcademics />} />
         <Route path="/academic-calendar" element={<PageAcademicCalendar />} />
+        
+        {/* Dynamic / Generic Content Routes (Grid Section 1: Admissions & Marksheets) */}
+        <Route path="/ud-admission" element={<GenericInfoPage title="University Departments (UD) Admission" category="Admission" description="Welcome to the University Departments Admission portal. Explore the programs offered, eligibility criteria, and fee structure for the upcoming academic session." features={["Online application processing", "Merit-based selection", "Reservation policy compliance", "Dedicated helpdesk support"]} />} />
+        <Route path="/cam-2023" element={<GenericInfoPage title="CAM-2023 Guidelines" category="Admission" description="Centralized Admission for M.Tech/M.Arch (CAM-2023) information and past year seat allocation statistics." features={["Past year cut-off ranks", "Seat matrix statistics", "Allotment procedures"]} />} />
+        <Route path="/phd-admission" element={<GenericInfoPage title="PhD Admission Process 2026-27" category="Admission" description="Guidelines and application forms for the Doctor of Philosophy (PhD) program for the session 2026-27." features={["Research Proposal submission", "Entrance Test (RTU-DAT)", "Interview Schedule", "Fellowship details"]} />} />
+        <Route path="/syllabus" element={<GenericInfoPage title="Academic Syllabus" category="Admission" description="Download the official syllabus for all UG and PG programs. Ensure you are studying according to the latest academic council approvals." features={["B.Tech, B.Arch, MBA, MCA", "Choice Based Credit System (CBCS)", "Updated course outcomes"]} />} />
+        
+        <Route path="/marksheet-online" element={<GenericInfoPage title="Online Application for Marksheet" category="Certificate Applications" description="Apply for your semester marksheets, transcripts, or duplicate certificates completely online without visiting the university." features={["Digital fee payment", "Track application status", "Home delivery via speed post"]} documents={["Online Application Manual.pdf", "Fee Structure.pdf"]} />} />
+        <Route path="/marksheet-offline" element={<GenericInfoPage title="Offline Application Process" category="Certificate Applications" description="Guidelines and forms for offline application of marksheets and certificates. Submit at the Examination Controller office." features={["Downloadable form no. 16", "Challan generation", "In-person verification"]} documents={["Form No. 16 Download.pdf", "Challan Format.pdf"]} />} />
+        <Route path="/academic-certificates" element={<GenericInfoPage title="Various Academic Certificates" category="Certificate Applications" description="Apply for Migration Certificate, Provisional Degree Certificate (PDC), Character Certificate, or Medium of Instruction (MOI)." features={["Instant digital copy", "Verifiable QR code", "Standardized formats"]} />} />
+
         <Route path="/admissions/apply" element={<PageAdmissionsApply />} />
         <Route path="/admissions" element={<PageAdmissions />} />
         <Route path="/advertisement" element={<PageAdvertisement />} />
