@@ -181,19 +181,21 @@ export default function PageHome() {
                 </div>
               </div>
 
-              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
-                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+              {/* CARD 3 */}
+              <div className="bg-white border border-gray-100 shadow-sm relative pt-4">
+                <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#d97706] clip-triangle flex items-start justify-start p-2 text-white">
+                  <Zap className="w-4 h-4 -rotate-12" />
+                </div>
                 <div className="p-5 pt-8">
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Circulars</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> RTI Information</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Circulars</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> BOM/AC/FC Minutes</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> RUSA Minutes</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Download form no. 16</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> TEQIP-III</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Central Library</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/rti-information" className="hover:underline">RTI Information</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/circulars" className="hover:underline">Circulars</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/minutes" className="hover:underline">BOM/AC/FC Minutes</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/rusa" className="hover:underline">RUSA Minutes</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/form-16" className="hover:underline">Download form no. 16</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/teqip" className="hover:underline">TEQIP-III</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/central-library" className="hover:underline">Central Library</Link></li>
                   </ul>
                 </div>
               </div>
