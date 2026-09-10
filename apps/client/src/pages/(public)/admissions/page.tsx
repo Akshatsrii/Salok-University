@@ -1,66 +1,70 @@
 import { PublicNavbar } from "@/components/public/PublicNavbar";
 import { Footer } from "@/components/public/Footer";
-import { GsapReveal } from "@/components/shared/GsapReveal";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { Home, ChevronRight, Phone } from "lucide-react";
 
 export default function AdmissionsPage() {
   return (
-    <div className="min-h-screen bg-[#ffffff]">
+    <div className="min-h-screen bg-white flex flex-col font-sans">
       <PublicNavbar />
       
-      <section className="bg-primary-dark text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <GsapReveal>
-              <h1 className="text-5xl font-serif font-bold mb-6">Begin Your <span className="text-accent">Journey</span></h1>
-              <p className="text-lg text-white/80 mb-8 leading-relaxed">
-                Join a community of scholars, creators, and innovators. Admissions for the Fall 2026 intake are now open.
-              </p>
-              <Link to="/admissions/apply" className="inline-flex items-center gap-2 bg-accent text-primary px-8 py-4 rounded font-bold hover:bg-white transition-colors">
-                Apply Now <ArrowRight className="w-5 h-5" />
-              </Link>
-            </GsapReveal>
-          </div>
-          <div className="md:w-1/2 w-full">
-            <GsapReveal direction="right">
-              <div className="bg-white rounded-2xl p-8 text-primary shadow-2xl relative">
-                <div className="absolute -top-4 -right-4 bg-accent text-primary font-bold px-4 py-1 rounded-full shadow-lg">New</div>
-                <h3 className="text-2xl font-bold mb-6">Important Dates</h3>
-                <ul className="space-y-4">
-                  {[
-                    { label: "Application Deadline", date: "August 15, 2026" },
-                    { label: "Entrance Examination", date: "September 02, 2026" },
-                    { label: "Merit List Publication", date: "September 15, 2026" },
-                    { label: "Classes Commence", date: "October 01, 2026" }
-                  ].map((item, i) => (
-                    <li key={i} className="flex justify-between items-center border-b border-gray-100 pb-3">
-                      <span className="font-medium text-gray-700">{item.label}</span>
-                      <span className="text-primary font-bold">{item.date}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </GsapReveal>
-          </div>
+      {/* Breadcrumb Bar */}
+      <section className="bg-[#4285f4] text-white py-3 px-4 sm:px-8 border-b border-[#3367d6]">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm">
+          <Link to="/" className="hover:text-white/80 transition-colors">
+            <Home className="w-4 h-4" />
+          </Link>
+          <ChevronRight className="w-4 h-4 text-white/70" />
+          <span className="font-medium">Admission UTD Salok University</span>
         </div>
       </section>
 
-      <section className="py-24 max-w-7xl mx-auto px-4 text-center">
-        <GsapReveal>
-          <h2 className="text-4xl font-serif font-bold text-primary mb-16">How to Apply</h2>
-        </GsapReveal>
-        <div className="grid md:grid-cols-4 gap-8">
-          {["Create an Account", "Fill Application Form", "Upload Documents", "Pay Application Fee"].map((step, i) => (
-            <GsapReveal key={i} delay={i*0.2}>
-              <div className="bg-white p-8 rounded-xl shadow-sm border border-primary/10 relative">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 transform -translate-x-1/2 shadow-lg">
-                  {i+1}
+      {/* Main Content */}
+      <section className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full">
+        
+        <div className="bg-white rounded-lg p-6 md:p-10 min-h-[400px]">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b-2 border-gray-100">
+            Office order and Notifications
+          </h2>
+
+          <div className="space-y-8 max-w-3xl">
+            
+            {/* Hostel Enquiry Numbers */}
+            <div className="bg-gray-50 border-l-4 border-[#f59e0b] p-6 rounded-r-lg shadow-sm">
+              <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <Phone className="w-5 h-5 text-[#f59e0b]" /> 
+                Hostel Enquiry Numbers
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white p-4 rounded shadow-sm border border-gray-200">
+                  <p className="text-gray-600 font-medium mb-1">Boys Hostel Enquiry Number</p>
+                  <p className="text-xl font-bold text-[#1e446d] tracking-wide">0744 247 3994</p>
                 </div>
-                <h4 className="mt-6 text-lg font-bold text-primary">{step}</h4>
+                
+                <div className="bg-white p-4 rounded shadow-sm border border-gray-200">
+                  <p className="text-gray-600 font-medium mb-1">Girls Hostel Enquiry Number</p>
+                  <p className="text-xl font-bold text-[#1e446d] tracking-wide">0744 247 3863</p>
+                </div>
               </div>
-            </GsapReveal>
-          ))}
+            </div>
+
+            {/* Links List */}
+            <div className="pt-4 pl-4">
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full border-2 border-gray-400"></span>
+                  <a href="#" className="text-lg text-gray-700 hover:text-[#1e446d] hover:underline font-medium transition-colors">
+                    Admission Link
+                  </a>
+                  <span className="text-[10px] font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 border border-purple-200 px-1.5 py-0.5 rounded animate-pulse shadow-sm">
+                    NEW
+                  </span>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
         </div>
       </section>
 
