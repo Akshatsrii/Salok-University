@@ -214,18 +214,24 @@ export default function PageHome() {
                 </div>
               </div>
 
-              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
-                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+              {/* CARD 4 */}
+              <div className="bg-white border border-gray-100 shadow-sm relative pt-4">
+                <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#d97706] clip-triangle flex items-start justify-start p-2 text-white">
+                  <Zap className="w-4 h-4 -rotate-12" />
+                </div>
                 <div className="p-5 pt-8">
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Examination</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Exam Centers</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Time Table</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Notices</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Copy View Notice</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> XV Convocation-2026 <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Mercy Chance <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/exam-centers" className="hover:underline">Exam Centers</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/timetable" className="hover:underline">Time Table</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/exam-notices" className="hover:underline">Notices</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/copy-view" className="hover:underline">Copy View Notice</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/convocation-2026" className="hover:underline">XV Convocation-2026</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/mercy-chance" className="hover:underline">Mercy Chance</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -233,16 +239,22 @@ export default function PageHome() {
 
             {/* COLUMN 3 */}
             <div className="space-y-6">
-              <div className="bg-[#f5f6f8] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="absolute top-0 left-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-[#f59e0b] border-r-transparent"></div>
-                <Zap className="absolute top-1.5 left-1.5 w-4 h-4 text-white z-10" />
+              {/* CARD 5 */}
+              <div className="bg-white border border-gray-100 shadow-sm relative pt-4">
+                <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#d97706] clip-triangle flex items-start justify-start p-2 text-white">
+                  <Zap className="w-4 h-4 -rotate-12" />
+                </div>
                 <div className="p-5 pt-8">
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Important Links</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Thought lab <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Results Page UTD <span className="text-[9px] font-bold text-green-500 ml-1 border border-green-200 rounded animate-pulse">NEW</span></li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> e-Samadhan portal</li>
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Affiliated Colleges</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/thought-lab" className="hover:underline">Thought lab</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
+                      <span className="text-gray-400">➦</span> <Link to="/results-utd" className="hover:underline">Results Page UTD</Link> <span className="ml-1 text-[9px] font-bold text-green-500 border border-green-200 px-1 rounded animate-pulse">NEW</span>
+                    </li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/e-samadhan" className="hover:underline">e-Samadhan portal</Link></li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/affiliated-colleges" className="hover:underline">Affiliated Colleges</Link></li>
                   </ul>
                 </div>
               </div>
