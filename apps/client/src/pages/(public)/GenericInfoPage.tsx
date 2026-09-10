@@ -16,19 +16,24 @@ export default function GenericInfoPage({ title, category, description, features
     <div className="min-h-screen bg-[#f8fafc] flex flex-col font-sans">
       <PublicNavbar />
       
-      {/* Premium Header */}
-      <section className="bg-gradient-to-r from-[#1e446d] to-[#2c5f96] text-white py-16 px-4 sm:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=2000')] opacity-5 bg-cover bg-center"></div>
+      {/* Premium Header - Black/Red Theme */}
+      <section className="bg-gradient-to-r from-[#111111] to-[#2a1118] text-white py-16 px-4 sm:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=2000')] opacity-10 mix-blend-overlay bg-cover bg-center"></div>
+        
+        {/* Accent decorations */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-10 w-48 h-48 bg-primary/20 rounded-full blur-[80px]"></div>
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-2 text-white/70 text-sm mb-6 font-medium">
-            <Link to="/" className="hover:text-white transition-colors"><Home className="w-4 h-4" /></Link>
+            <Link to="/" className="hover:text-primary transition-colors"><Home className="w-4 h-4" /></Link>
             <ChevronRight className="w-4 h-4" />
             <span>{category}</span>
             <ChevronRight className="w-4 h-4" />
             <span className="text-white">{title}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">{title}</h1>
-          <div className="w-20 h-1.5 bg-[#f59e0b] rounded"></div>
+          <div className="w-20 h-1.5 bg-primary rounded"></div>
         </div>
       </section>
 
@@ -88,14 +93,14 @@ export default function GenericInfoPage({ title, category, description, features
           </div>
 
           {/* Quick Links Card */}
-          <div className="bg-[#1e446d] rounded-xl p-6 shadow-lg text-white">
-            <h3 className="text-lg font-bold mb-4 pb-3 border-b border-white/20">Related Links</h3>
+          <div className="bg-[#1a1a1a] border-t-4 border-primary rounded-xl p-6 shadow-lg text-white">
+            <h3 className="text-lg font-bold mb-4 pb-3 border-b border-white/10">Related Links</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/academic-calendar" className="hover:text-[#f59e0b] flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Academic Calendar</Link></li>
-              <li><Link to="/admissions" className="hover:text-[#f59e0b] flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> UD Admission Portal</Link></li>
-              <li><Link to="/exam-centers" className="hover:text-[#f59e0b] flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Check Exam Centers</Link></li>
-              <li><Link to="/timetable" className="hover:text-[#f59e0b] flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> University Time Table</Link></li>
-              <li><Link to="/contact" className="hover:text-[#f59e0b] flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Contact Helpdesk</Link></li>
+              <li><Link to="/academic-calendar" className="text-gray-300 hover:text-primary flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Academic Calendar</Link></li>
+              <li><Link to="/admissions" className="text-gray-300 hover:text-primary flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> UD Admission Portal</Link></li>
+              <li><Link to="/exam-centers" className="text-gray-300 hover:text-primary flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Check Exam Centers</Link></li>
+              <li><Link to="/timetable" className="text-gray-300 hover:text-primary flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> University Time Table</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-primary flex items-center gap-2 transition-colors"><ChevronRight className="w-3 h-3" /> Contact Helpdesk</Link></li>
             </ul>
           </div>
 
