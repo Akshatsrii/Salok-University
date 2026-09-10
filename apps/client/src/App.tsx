@@ -83,6 +83,7 @@ import PageTeacherStudents from './pages/(dashboard)/teacher/students/page';
 import PageTeacherTimetable from './pages/(dashboard)/teacher/timetable/page';
 import PageAbout from './pages/(public)/about/page';
 import PageAcademics from './pages/(public)/academics/page';
+import PageAcademicCalendar from './pages/(public)/academic-calendar/page';
 import PageAdmissionsApply from './pages/(public)/admissions/apply/page';
 import PageAdmissions from './pages/(public)/admissions/page';
 import PageAdvertisement from './pages/(public)/advertisement/page';
@@ -111,6 +112,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/about" element={<PageAbout />} />
         <Route path="/academics" element={<PageAcademics />} />
+        <Route path="/academic-calendar" element={<PageAcademicCalendar />} />
         <Route path="/admissions/apply" element={<PageAdmissionsApply />} />
         <Route path="/admissions" element={<PageAdmissions />} />
         <Route path="/advertisement" element={<PageAdvertisement />} />

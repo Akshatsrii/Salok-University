@@ -170,7 +170,7 @@ export default function PageHome() {
                 <div className="p-5 pt-8">
                   <h3 className="text-center font-medium text-gray-800 border-b border-dashed border-gray-300 pb-3 mb-4 text-lg">Admission</h3>
                   <ul className="space-y-3 text-[13px] text-gray-600">
-                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> Academic Calendar</li>
+                    <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> <Link to="/academic-calendar" className="hover:underline">Academic Calendar</Link></li>
                     <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> UD Admission</li>
                     <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer"><span className="text-gray-400">➦</span> CAM-2023</li>
                     <li className="flex items-start gap-2 hover:text-[#f59e0b] cursor-pointer">
