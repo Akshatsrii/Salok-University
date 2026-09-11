@@ -107,6 +107,7 @@ import PageStrategicPlan from './pages/(public)/strategic-plan/page';
 import PageVisionMission from './pages/(public)/vision-mission/page';
 import PagePageTsx from './pages/page';
 import PagePhdAdmission from './pages/(public)/phd-admission/page';
+import PageSyllabus from './pages/(public)/syllabus/page';
 
 function App() {
   return (
@@ -121,7 +122,7 @@ function App() {
         <Route path="/ud-admission" element={<GenericInfoPage title="University Departments (UD) Admission" category="Admission" description="Welcome to the University Departments Admission portal. Explore the programs offered, eligibility criteria, and fee structure for the upcoming academic session." features={["Online application processing", "Merit-based selection", "Reservation policy compliance", "Dedicated helpdesk support"]} />} />
         <Route path="/cam-2023" element={<GenericInfoPage title="CAM-2023 Guidelines" category="Admission" description="Centralized Admission for M.Tech/M.Arch (CAM-2023) information and past year seat allocation statistics." features={["Past year cut-off ranks", "Seat matrix statistics", "Allotment procedures"]} />} />
         <Route path="/phd-admission" element={<PagePhdAdmission />} />
-        <Route path="/syllabus" element={<GenericInfoPage title="Academic Syllabus" category="Admission" description="Download the official syllabus for all UG and PG programs. Ensure you are studying according to the latest academic council approvals." features={["B.Tech, B.Arch, MBA, MCA", "Choice Based Credit System (CBCS)", "Updated course outcomes"]} />} />
+        <Route path="/syllabus" element={<PageSyllabus />} />
         
         <Route path="/marksheet-online" element={<GenericInfoPage title="Online Application for Marksheet" category="Certificate Applications" description="Apply for your semester marksheets, transcripts, or duplicate certificates completely online without visiting the university." features={["Digital fee payment", "Track application status", "Home delivery via speed post"]} documents={["Online Application Manual.pdf", "Fee Structure.pdf"]} />} />
         <Route path="/marksheet-offline" element={<GenericInfoPage title="Offline Application Process" category="Certificate Applications" description="Guidelines and forms for offline application of marksheets and certificates. Submit at the Examination Controller office." features={["Downloadable form no. 16", "Challan generation", "In-person verification"]} documents={["Form No. 16 Download.pdf", "Challan Format.pdf"]} />} />
