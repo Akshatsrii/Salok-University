@@ -74,7 +74,7 @@ export default function RegisterPage() {
                 required
                 value={formData.firstName}
                 onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/20 transition-all text-sm"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 placeholder="John"
               />
             </div>
@@ -87,7 +87,7 @@ export default function RegisterPage() {
                 required
                 value={formData.lastName}
                 onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-3 outline-none focus:bg-white focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/20 transition-all text-sm"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-3 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 placeholder="Doe"
               />
             </div>
@@ -103,7 +103,7 @@ export default function RegisterPage() {
               required
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/20 transition-all text-sm"
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
               placeholder="you@example.com"
             />
           </div>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
             <select 
               value={formData.role}
               onChange={(e) => setFormData({...formData, role: e.target.value})}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/20 transition-all text-sm appearance-none text-gray-700"
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm appearance-none text-gray-700"
             >
               <option value="student">Student</option>
               <option value="teacher">Teacher</option>
@@ -135,7 +135,7 @@ export default function RegisterPage() {
               required
               value={formData.password}
               onChange={(e) => setFormData({...formData, password: e.target.value})}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/20 transition-all text-sm"
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 pl-9 pr-3 outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
               placeholder="••••••••"
             />
           </div>
@@ -144,7 +144,7 @@ export default function RegisterPage() {
         <button 
           type="submit" 
           disabled={loading || success}
-          className="w-full bg-[#ffb800] hover:bg-[#e6a600] disabled:bg-gray-200 text-[#1a2b4c] font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 group shadow-md shadow-[#ffb800]/20 mt-4"
+          className="w-full bg-primary hover:bg-primary-dark disabled:bg-gray-200 text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 group shadow-md shadow-primary/20 mt-4"
         >
           {loading ? (
             <Loader2 className="w-5 h-5 animate-spin" />
@@ -158,7 +158,7 @@ export default function RegisterPage() {
       </form>
 
       <p className="text-center mt-6 text-sm text-gray-600">
-        Already have an account? <Link to="/login" className="font-bold text-[#007bff] hover:underline">Sign In</Link>
+        Already have an account? <Link to="/login" className="font-bold text-primary hover:underline">Sign In</Link>
       </p>
     </div>
   );

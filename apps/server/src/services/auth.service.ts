@@ -10,8 +10,9 @@ export class AuthService {
     
     const passwordHash = await hashPassword(data.password);
     const user = new User({
-      name: { first: data.firstName, last: data.lastName },
+      name: `${data.firstName} ${data.lastName}`,
       email: data.email,
+      phone: data.phone || '0000000000',
       passwordHash,
       role: data.role || 'student',
       tenantId: '60d0fe4f5311236168a109ca', // mock tenant ID
