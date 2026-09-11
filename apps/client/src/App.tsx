@@ -108,6 +108,7 @@ import PageVisionMission from './pages/(public)/vision-mission/page';
 import PagePageTsx from './pages/page';
 import PagePhdAdmission from './pages/(public)/phd-admission/page';
 import PageSyllabus from './pages/(public)/syllabus/page';
+import PageESamadhan from './pages/(public)/e-samadhan/page';
 
 function App() {
   return (
@@ -147,7 +148,7 @@ function App() {
 
         <Route path="/thought-lab" element={<GenericInfoPage title="Thought Lab" category="Important Links" description="An initiative to foster innovation, critical thinking, and psychological well-being among students and faculty." features={["Meditation sessions", "Cognitive training", "Research grants"]} />} />
         <Route path="/results-utd" element={<GenericInfoPage title="Results Page UTD" category="Important Links" description="Check the official semester results for all University Teaching Departments (UTD)." features={["CGPA calculation", "SGPA breakdown", "Revaluation results"]} />} />
-        <Route path="/e-samadhan" element={<GenericInfoPage title="e-Samadhan portal" category="Important Links" description="UGC's centralized grievance redressal portal for students, faculty, and staff." features={["Anonymous complaints", "Anti-ragging helpline", "Fast-track resolution"]} />} />
+        <Route path="/e-samadhan" element={<PageESamadhan />} />
         <Route path="/affiliated-colleges" element={<GenericInfoPage title="Affiliated Colleges" category="Important Links" description="Directory of all engineering, management, and architecture colleges affiliated with Salok University." features={["College codes", "Intake capacity", "Inspection reports"]} />} />
 
         {/* Dynamic / Generic Content Routes (Grid Section 4: Student Support) */}
