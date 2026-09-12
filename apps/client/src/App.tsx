@@ -113,6 +113,8 @@ import PageESamadhan from './pages/(public)/e-samadhan/page';
 import PageExamCenters from './pages/(public)/exam-centers/page';
 import PageCirculars from './pages/(public)/circulars/page';
 import PageExpertLecture from './pages/(public)/expert-lecture/page';
+import PageMarksheetOnline from './pages/(public)/marksheet-online/page';
+import PageTimetable from './pages/(public)/timetable/page';
 
 function App() {
   return (
@@ -129,7 +131,7 @@ function App() {
         <Route path="/phd-admission" element={<PagePhdAdmission />} />
         <Route path="/syllabus" element={<PageSyllabus />} />
         
-        <Route path="/marksheet-online" element={<GenericInfoPage title="Online Application for Marksheet" category="Certificate Applications" description="Apply for your semester marksheets, transcripts, or duplicate certificates completely online without visiting the university." features={["Digital fee payment", "Track application status", "Home delivery via speed post"]} documents={["Online Application Manual.pdf", "Fee Structure.pdf"]} />} />
+        <Route path="/marksheet-online" element={<PageMarksheetOnline />} />
         <Route path="/marksheet-offline" element={<GenericInfoPage title="Offline Application Process" category="Certificate Applications" description="Guidelines and forms for offline application of marksheets and certificates. Submit at the Examination Controller office." features={["Downloadable form no. 16", "Challan generation", "In-person verification"]} documents={["Form No. 16 Download.pdf", "Challan Format.pdf"]} />} />
         <Route path="/academic-certificates" element={<GenericInfoPage title="Various Academic Certificates" category="Certificate Applications" description="Apply for Migration Certificate, Provisional Degree Certificate (PDC), Character Certificate, or Medium of Instruction (MOI)." features={["Instant digital copy", "Verifiable QR code", "Standardized formats"]} />} />
 
@@ -144,7 +146,7 @@ function App() {
 
         {/* Dynamic / Generic Content Routes (Grid Section 2: Examination & Important Links) */}
         <Route path="/exam-centers" element={<PageExamCenters />} />
-        <Route path="/timetable" element={<GenericInfoPage title="University Time Table" category="Examination" description="Download the official theory and practical examination timetable for all affiliated colleges and university departments." features={["UG & PG schedules", "Shift timings", "Holiday adjustments"]} />} />
+        <Route path="/timetable" element={<PageTimetable />} />
         <Route path="/exam-notices" element={<GenericInfoPage title="Examination Notices" category="Examination" description="Stay updated with the latest circulars, form filling dates, and fee submission deadlines from the Controller of Examination." features={["Late fee dates", "Form correction window", "Helpline numbers"]} />} />
         <Route path="/copy-view" element={<GenericInfoPage title="Copy View Notice" category="Examination" description="Procedure and application guidelines for students who wish to view their evaluated answer scripts." features={["Application timeline", "Fee per subject", "Revaluation linkage"]} />} />
         <Route path="/convocation-2026" element={<GenericInfoPage title="XV Convocation-2026" category="Examination" description="Details regarding the XV Convocation ceremony, dress code, registration, and degree distribution." features={["Chief guest details", "Dress code instructions", "Alumni registration"]} />} />
