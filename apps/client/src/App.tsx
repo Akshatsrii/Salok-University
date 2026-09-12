@@ -112,6 +112,7 @@ import PageSyllabus from './pages/(public)/syllabus/page';
 import PageESamadhan from './pages/(public)/e-samadhan/page';
 import PageExamCenters from './pages/(public)/exam-centers/page';
 import PageCirculars from './pages/(public)/circulars/page';
+import PageExpertLecture from './pages/(public)/expert-lecture/page';
 
 function App() {
   return (
@@ -155,7 +156,7 @@ function App() {
         <Route path="/affiliated-colleges" element={<GenericInfoPage title="Affiliated Colleges" category="Important Links" description="Directory of all engineering, management, and architecture colleges affiliated with Salok University." features={["College codes", "Intake capacity", "Inspection reports"]} />} />
 
         {/* Dynamic / Generic Content Routes (Grid Section 4: Student Support) */}
-        <Route path="/expert-lecture" element={<GenericInfoPage title="Expert Faculty Lecture" category="Student Support Services" description="Schedule and details of upcoming guest lectures by industry experts and distinguished academicians." features={["Industry insights", "Interactive Q&A", "E-certificates for attendance"]} />} />
+        <Route path="/expert-lecture" element={<PageExpertLecture />} />
         <Route path="/dean-welfare" element={<GenericInfoPage title="Dean Student Welfare" category="Student Support Services" description="Information regarding student welfare schemes, scholarships, and cultural activities overseen by the DSW." features={["Scholarship forms", "Cultural club registrations", "Student health insurance"]} documents={["Welfare Scheme Guidelines.pdf", "Scholarship Form.pdf"]} />} />
         <Route path="/programs" element={<GenericInfoPage title="Programs Offered" category="Student Support Services" description="Comprehensive list of all Undergraduate, Postgraduate, and Doctoral programs offered by the university." features={["B.Tech & B.Arch", "MBA & MCA", "M.Tech & Ph.D"]} />} />
         <Route path="/complaints" element={<GenericInfoPage title="Register Complaints" category="Student Support Services" description="Internal grievance registration portal for students regarding hostel, mess, academics, or administration." features={["Track complaint status", "Escalation matrix", "Confidentiality assured"]} />} />
