@@ -111,6 +111,7 @@ import PagePhdAdmission from './pages/(public)/phd-admission/page';
 import PageSyllabus from './pages/(public)/syllabus/page';
 import PageESamadhan from './pages/(public)/e-samadhan/page';
 import PageExamCenters from './pages/(public)/exam-centers/page';
+import PageCirculars from './pages/(public)/circulars/page';
 
 function App() {
   return (
@@ -133,7 +134,7 @@ function App() {
 
         {/* Dynamic / Generic Content Routes (Grid Section 3: Circulars) */}
         <Route path="/rti-information" element={<GenericInfoPage title="RTI Information" category="Circulars" description="Information regarding the Right to Information Act, 2005. Details of the Public Information Officer (PIO) and First Appellate Authority." features={["Download RTI Application", "Fee details", "Appeal procedure"]} />} />
-        <Route path="/circulars" element={<GenericInfoPage title="University Circulars" category="Circulars" description="Official circulars, orders, and notifications issued by the Registrar and Vice Chancellor." features={["Holiday announcements", "Administrative orders", "Faculty notices"]} />} />
+        <Route path="/circulars" element={<PageCirculars />} />
         <Route path="/minutes" element={<GenericInfoPage title="BOM / AC / FC Minutes" category="Circulars" description="Minutes of the meetings for the Board of Management, Academic Council, and Finance Committee." features={["PDF records of meetings", "Key decisions", "Action taken reports"]} documents={["BOM Minutes 2025.pdf", "Academic Council Minutes.pdf"]} />} />
         <Route path="/rusa" element={<GenericInfoPage title="RUSA Minutes" category="Circulars" description="Rashtriya Uchchatar Shiksha Abhiyan (RUSA) project updates, minutes of meetings, and fund utilization reports." features={["Project tracking", "Committee minutes", "Financial reports"]} />} />
         <Route path="/form-16" element={<GenericInfoPage title="Download Form No. 16" category="Circulars" description="General examination/certificate application Form No. 16 for various administrative and examination related tasks." features={["Direct PDF download", "Instructions to fill", "Submission desk details"]} documents={["Form No. 16.pdf"]} />} />
