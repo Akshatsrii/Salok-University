@@ -43,6 +43,7 @@ import PageFacilityTransportLiveTracking from './pages/(dashboard)/facility/tran
 import PageFacilityTransportMaintenance from './pages/(dashboard)/facility/transport/maintenance/page';
 import PageFacilityTransport from './pages/(dashboard)/facility/transport/page';
 import PageFacilityTransportRoutes from './pages/(dashboard)/facility/transport/routes/page';
+import PageFacility from './pages/(dashboard)/facility/page';
 import PageParent from './pages/(dashboard)/parent/page';
 import PageStudentAiTools from './pages/(dashboard)/student/ai-tools/page';
 import PageStudentAssignments from './pages/(dashboard)/student/assignments/page';
@@ -218,6 +219,7 @@ function App() {
           <Route path="/admin/students" element={<PageAdminStudents />} />
           <Route path="/admin/students/reports" element={<PageAdminStudentsReports />} />
           <Route path="/admin/students/:" element={<PageAdminStudentsId />} />
+          <Route path="/facility" element={<PageFacility />} />
           <Route path="/facility/hostel/complaints" element={<PageFacilityHostelComplaints />} />
           <Route path="/facility/hostel/mess" element={<PageFacilityHostelMess />} />
           <Route path="/facility/hostel" element={<PageFacilityHostel />} />
