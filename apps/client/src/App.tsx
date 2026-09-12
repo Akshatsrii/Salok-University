@@ -110,6 +110,7 @@ import PagePageTsx from './pages/page';
 import PagePhdAdmission from './pages/(public)/phd-admission/page';
 import PageSyllabus from './pages/(public)/syllabus/page';
 import PageESamadhan from './pages/(public)/e-samadhan/page';
+import PageExamCenters from './pages/(public)/exam-centers/page';
 
 function App() {
   return (
@@ -140,7 +141,7 @@ function App() {
         <Route path="/central-library" element={<GenericInfoPage title="Central Library" category="Circulars" description="Guidelines, book bank rules, and online journal access instructions for the University Central Library." features={["E-journal access", "Book bank scheme", "Library timings"]} documents={["Library Rules.pdf", "E-Journal Passwords.pdf"]} />} />
 
         {/* Dynamic / Generic Content Routes (Grid Section 2: Examination & Important Links) */}
-        <Route path="/exam-centers" element={<GenericInfoPage title="Exam Centers & Seating Arrangement" category="Examination" description="Find your designated examination center and detailed seating arrangement for the upcoming semester exams." features={["Center allocation rules", "Admit card verification", "Prohibited items list"]} />} />
+        <Route path="/exam-centers" element={<PageExamCenters />} />
         <Route path="/timetable" element={<GenericInfoPage title="University Time Table" category="Examination" description="Download the official theory and practical examination timetable for all affiliated colleges and university departments." features={["UG & PG schedules", "Shift timings", "Holiday adjustments"]} />} />
         <Route path="/exam-notices" element={<GenericInfoPage title="Examination Notices" category="Examination" description="Stay updated with the latest circulars, form filling dates, and fee submission deadlines from the Controller of Examination." features={["Late fee dates", "Form correction window", "Helpline numbers"]} />} />
         <Route path="/copy-view" element={<GenericInfoPage title="Copy View Notice" category="Examination" description="Procedure and application guidelines for students who wish to view their evaluated answer scripts." features={["Application timeline", "Fee per subject", "Revaluation linkage"]} />} />
