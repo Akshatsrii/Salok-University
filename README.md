@@ -49,7 +49,6 @@
 
 ---
 
-## ✨ Features
 
 ### 🏫 Core Modules
 
